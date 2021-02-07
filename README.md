@@ -20,3 +20,15 @@ zAuctionHouse V3 plugin API <a href="https://groupez.xyz/resources/zauctionhouse
 	</dependency>
 </dependencies>
 ```
+## Gradle
+
+```kts
+allprojects {
+	repositories {
+		maven { url 'https://jitpack.io' }
+	}
+}
+dependencies {
+	implementation 'com.github.Maxlego08:zAuctionHouseV3-API:Tag'
+}
+```
