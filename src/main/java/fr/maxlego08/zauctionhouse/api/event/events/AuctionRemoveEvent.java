@@ -9,7 +9,7 @@ import fr.maxlego08.zauctionhouse.api.event.CancelledAuctionEvent;
 public class AuctionRemoveEvent extends CancelledAuctionEvent {
 
 	private final Player player;
-	private final AuctionItem item;
+	private final AuctionItem auctionItem;
 	private final StorageType type;
 
 	/**
@@ -20,7 +20,7 @@ public class AuctionRemoveEvent extends CancelledAuctionEvent {
 	public AuctionRemoveEvent(Player player, AuctionItem item, StorageType type) {
 		super();
 		this.player = player;
-		this.item = item;
+		this.auctionItem = item;
 		this.type = type;
 	}
 
@@ -32,17 +32,18 @@ public class AuctionRemoveEvent extends CancelledAuctionEvent {
 	}
 
 	/**
-	 * @return the item
-	 */
-	public AuctionItem getItem() {
-		return item;
-	}
-
-	/**
 	 * @return the type
 	 */
 	public StorageType getType() {
 		return type;
+	}
+	
+	/**
+	 * 
+	 * @return {@link AuctionItem}
+	 */
+	public AuctionItem getAuctionItem() {
+		return auctionItem;
 	}
 
 }

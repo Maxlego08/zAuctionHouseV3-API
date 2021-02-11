@@ -8,14 +8,14 @@ public class AuctionItemExpireEvent extends CancelledAuctionEvent {
 
 	private long expireAt;
 	private final long currentMilliSecond;
-	private final AuctionItem item;
+	private final AuctionItem auctionItem;
 	private final StorageType type;
 
 	public AuctionItemExpireEvent(long expireAt, long currentMilliSecond, AuctionItem item, StorageType type) {
 		super();
 		this.expireAt = expireAt;
 		this.currentMilliSecond = currentMilliSecond;
-		this.item = item;
+		this.auctionItem = item;
 		this.type = type;
 	}
 
@@ -41,11 +41,8 @@ public class AuctionItemExpireEvent extends CancelledAuctionEvent {
 		return currentMilliSecond;
 	}
 
-	/**
-	 * @return the item
-	 */
-	public AuctionItem getItem() {
-		return item;
+	public AuctionItem getAuctionItem() {
+		return auctionItem;
 	}
 
 	/**
