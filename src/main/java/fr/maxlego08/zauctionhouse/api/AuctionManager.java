@@ -167,9 +167,8 @@ public interface AuctionManager {
 	 * Buy an item
 	 * @param auctionItem
 	 * @param player
-	 * @param removeAsAdmin
 	 */
-	public void buy(AuctionItem auctionItem, Player player, boolean removeAsAdmin);
+	public void buy(AuctionItem auctionItem, Player player);
 
 	/**
 	 * 
@@ -276,4 +275,12 @@ public interface AuctionManager {
 	 * @return
 	 */
 	public Collection<ItemStack> getBannedItems();
+	
+	/**
+	 * Remove item as admin
+	 * @param player
+	 * @param auctionItem
+	 * @param isSilent
+	 */
+	public void removeAdmin(Player player, AuctionItem auctionItem, boolean isSilent, boolean isForceRemove);
 }

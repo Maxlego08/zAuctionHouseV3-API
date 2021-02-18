@@ -14,8 +14,6 @@ public enum InventoryType {
 
 	REMOVE_CONFIRM,
 
-	REMOVE_CONFIRM_ADMIN,
-
 	ITEMS,
 
 	CATEGORIES,
@@ -23,9 +21,11 @@ public enum InventoryType {
 	CATEGORY,
 
 	SELL,
-	
+
 	SELL_SHOW,
-	
+
+	ADMIN_REMOVE,
+
 	;
 
 	/**
@@ -45,7 +45,7 @@ public enum InventoryType {
 	}
 
 	public boolean isRemoveAsAdmin() {
-		return this == InventoryType.REMOVE_CONFIRM_ADMIN;
+		return this == InventoryType.ADMIN_REMOVE;
 	}
 
 	public boolean isDefault() {
@@ -56,12 +56,17 @@ public enum InventoryType {
 		return this == InventoryType.BUY_CONFIRM || this == InventoryType.REMOVE_CONFIRM;
 	}
 
+	public boolean needToReset() {
+		return this == InventoryType.BUY_CONFIRM || this == InventoryType.REMOVE_CONFIRM
+				|| this == InventoryType.SELL_SHOW || this == InventoryType.ADMIN_REMOVE;
+	}
+
 	public boolean isBuyConfirm() {
 		return this == InventoryType.BUY_CONFIRM;
 	}
 
 	public boolean isRemove() {
-		return this == InventoryType.REMOVE_CONFIRM_ADMIN || this == InventoryType.REMOVE_CONFIRM;
+		return this == InventoryType.ADMIN_REMOVE || this == InventoryType.REMOVE_CONFIRM;
 	}
 
 	public boolean isPagination() {

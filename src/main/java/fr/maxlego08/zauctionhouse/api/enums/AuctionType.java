@@ -29,19 +29,20 @@ public enum AuctionType {
 	}
 
 	public Message getInventoryMessage(InventoryType inventoryType) {
-		switch (this) {
-		case INVENTORY:
-			return Message.ITEM_LORE_INVENTORY;
-		case BID:
-		case DEFAULT:
+
+		switch (inventoryType) {
+		case BUYING:
+			return Message.ITEM_LORE_BUYING;
+		case EXPIRE:
+			return Message.ITEM_LORE_EXPIRE;
+		case ITEMS:
+			return Message.ITEM_LORE_ITEMS;
 		default:
-			switch (inventoryType) {
-			case BUYING:
-				return Message.ITEM_LORE_BUYING;
-			case EXPIRE:
-				return Message.ITEM_LORE_EXPIRE;
-			case ITEMS:
-				return Message.ITEM_LORE_ITEMS;
+			switch (this) {
+			case INVENTORY:
+				return Message.ITEM_LORE_INVENTORY;
+			case BID:
+			case DEFAULT:
 			default:
 				return Message.ITEM_LORE_DEFAULT;
 			}

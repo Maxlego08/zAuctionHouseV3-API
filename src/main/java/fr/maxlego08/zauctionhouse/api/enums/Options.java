@@ -60,6 +60,8 @@ public enum Options {
 	DISABLE_BREAK_ITEMS("disableSellBreakItem", "Allows you to disable the sale of items are broken."),
 	
 	ENABLE_DEBUG_MODE("enableDebugMode", "Enables the debug mode of the plugin.", "You will thus be able to obtain information", "in your console."),
+	
+	ENABLE_CUSTOM_HELP_MESSAGE("enableCustomHelpMessage", "Allows you to display the message", "you have configured in the message.yml file."),
 
 	;
 

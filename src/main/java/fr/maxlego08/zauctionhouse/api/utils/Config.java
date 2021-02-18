@@ -34,6 +34,7 @@ public class Config implements Saveable {
 	public static boolean enableTransactionMessageOnJoin = true;
 	
 	public static boolean enableDebugMode = false;
+	public static boolean enableCustomHelpMessage = false;
 	
 	public static boolean disableSellBreakItem = false;
 	

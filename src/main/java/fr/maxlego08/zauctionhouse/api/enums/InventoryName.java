@@ -12,6 +12,7 @@ public enum InventoryName {
 	SELL("sell"),
 	SELL_SHOW("sellshow"),
 	CATEGORY("category"),
+	ADMIN_REMOVE("adminremove"),
 	
 	;
 

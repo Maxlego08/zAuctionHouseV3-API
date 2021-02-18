@@ -39,6 +39,11 @@ public enum Message {
 	COMMAND_NO_ARG("§cThis argument does not exist !"),
 
 	COMMAND_SYNTAXE_HELP("§b» §f%syntaxe% §8- §7%description%"),
+	
+	COMMAND_HELP_CUSTOM(
+			"§6• §e/zah sell <args> §7- §fSell cmd...", 
+			"§6• §eAnother cmd"
+			),
 
 	DESCRIPTION_AUCTION("Opens the auction house"),
 
@@ -89,6 +94,10 @@ public enum Message {
 					"§fYou just put §ax§f%amount% §7items §fon sale for §b%price%%currency%§7."),
 
 	ITEM_PURCHASED("§fYou just purchased §a%item%§f."),
+	
+	ITEM_REMOVE_ADMIN("§fYou have just deleted the item §a%item%§f."),
+	ITEM_REMOVE_SELLER_GET("§fAn administrator has just removed §a%item%§f, you can retrieve it from the list of expired items."),
+	ITEM_REMOVE_SELLER_DELETE("§fAn administrator has just removed §a%item%§f, You cannot retrieve your item."),
 
 	BUYER_PURCHASED("§a%buyer% §fjust bought §7%item% §ffor §b%price%%currency%§f."),
 
