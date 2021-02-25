@@ -1,6 +1,7 @@
 package fr.maxlego08.zauctionhouse.api;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.bukkit.OfflinePlayer;
@@ -10,6 +11,7 @@ import org.bukkit.inventory.ItemStack;
 import fr.maxlego08.zauctionhouse.api.enums.AuctionType;
 import fr.maxlego08.zauctionhouse.api.enums.Economy;
 import fr.maxlego08.zauctionhouse.api.enums.Message;
+import fr.maxlego08.zauctionhouse.api.filter.Filter;
 import fr.maxlego08.zauctionhouse.api.transaction.Transaction;
 
 public interface AuctionItem {
@@ -159,5 +161,13 @@ public interface AuctionItem {
 	 * @return
 	 */
 	public boolean hasFreeSpace(Player player);
+
+	/**
+	 * 
+	 * @param optional 
+	 * @param string
+	 * @return
+	 */
+	public boolean match(Optional<Filter> optional, String string);
 	
 }

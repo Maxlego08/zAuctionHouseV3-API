@@ -283,4 +283,19 @@ public interface AuctionManager {
 	 * @param isSilent
 	 */
 	public void removeAdmin(Player player, AuctionItem auctionItem, boolean isSilent, boolean isForceRemove);
+	
+	/**
+	 * 
+	 * @param player
+	 * @param string
+	 */
+	public void search(Player player, String string);
+
+	/**
+	 * 
+	 * @param player
+	 * @param string
+	 * @return
+	 */
+	public List<AuctionItem> getSearch(Player player, String string);
 }

@@ -27,7 +27,7 @@ public enum Options {
 	
 	OPEN_INVENTORY_AFTER_REMOVE_CONFIRM("openInventoryAfterRemoveConfirm", "Allows the opening of the inventory after" + "validation to remove the item from the sale."),
 	
-	USE_LOG("useLog", "Permet d'avoir des logs de chaque action dans la console."),
+	USE_LOG("useLog", "Allows to have logs of each action in the console."),
 	
 	USE_LOG_CONFIG("useLogInFile", "Allows to have logs of each action in a file."),
 	
@@ -37,7 +37,7 @@ public enum Options {
 	ENABLE_MYSQL_TOKEN("enableMySQLToken", "Enables economy with MySQLToken"),
 	ENABLE_TOKEN_MANAGER("enableTokenManager", "Enables v TokenManager"),
 	ENABLE_LEVEL("enableLevel", "Enables economy Level"),
-	ENABLE_VAULT("enableLevel", "Enables economy Vault"),
+	ENABLE_VAULT("enableVault", "Enables economy Vault"),
 	ENABLE_ITEM_1("enableItem2", "Enables economy with Item1"),
 	ENABLE_ITEM_2("enableItem2", "Enables economy with Item2"),
 	ENABLE_ITEM_3("enableItem3", "Enables economy with Item3"),

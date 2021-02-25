@@ -5,10 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
-
-import fr.maxlego08.zauctionhouse.api.utils.ItemBuilder;
 
 public enum Message {
 
@@ -66,6 +63,8 @@ public enum Message {
 	DESCRIPTION_CONFIG("Config plugin ingame"),
 
 	DESCRIPTION_CLAIM("Claim your money"),
+	
+	DESCRIPTION_SEARCH("Search a item"),
 
 	DESCRIPTION_CONVERT("Convert items form another plugin to zauctionhouse"),
 
@@ -153,8 +152,6 @@ public enum Message {
 
 	STATUS_PLAYER("Click to retrieve this item"), STATUS_BUYER("Click to buy this item"),
 
-	NO_MONEY_BUTTON(ItemBuilder.buildNoMoney()),
-
 	ERROR_BUY("§cYou can't buy this item"),
 
 	SELL_CREATIVE_ERROR("§cYou can't sell an item in creative mode !"),
@@ -220,8 +217,6 @@ public enum Message {
 			"§aYou just got your money back on hold."),
 
 	SELL_INVENTORY_ERROR("§cYou did not put any item, sale canceled."),
-
-	SELL_INVENTORY_ITEM(new ItemBuilder(Material.CHEST, "§7Sale of inventory").build()),
 
 	;
 

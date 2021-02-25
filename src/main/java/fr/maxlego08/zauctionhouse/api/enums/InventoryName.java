@@ -14,6 +14,8 @@ public enum InventoryName {
 	CATEGORY("category"),
 	ADMIN_REMOVE("adminremove"),
 	
+	SEARCH("search"),
+	
 	;
 
 	private final String name;
