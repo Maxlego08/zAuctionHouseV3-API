@@ -3,7 +3,7 @@ package fr.maxlego08.zauctionhouse.api.category;
 import java.util.List;
 import java.util.Optional;
 
-import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
 
 import fr.maxlego08.zauctionhouse.api.AuctionItem;
 import fr.maxlego08.zauctionhouse.api.storage.Saveable;
@@ -22,7 +22,7 @@ public interface CategoryManager extends Saveable {
 	 * @param material
 	 * @return
 	 */
-	public Optional<Category> getByMaterial(Material material);
+	public Optional<Category> getByMaterial(ItemStack itemStack);
 
 	/**
 	 * 

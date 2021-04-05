@@ -4,6 +4,9 @@ public enum PlaceholderAction {
 
 	BOOLEAN,
 	
+	EQUALS_STRING,
+	EQUALSIGNORECASE_STRING,
+	
 	SUPERIOR, LOWER,
 
 	SUPERIOR_OR_EQUAL, LOWER_OR_EQUAL,;
@@ -15,6 +18,10 @@ public enum PlaceholderAction {
 			if (action.name().equalsIgnoreCase(string))
 				return action;
 		return null;
+	}
+
+	public boolean isString() {
+		return this == EQUALS_STRING || this == EQUALSIGNORECASE_STRING;
 	}
 
 }

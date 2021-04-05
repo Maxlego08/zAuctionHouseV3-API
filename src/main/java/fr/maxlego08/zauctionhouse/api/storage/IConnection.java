@@ -83,4 +83,11 @@ public interface IConnection {
 	 */
 	public void asyncUpdate(List<Transaction> transactions);
 
+	/**
+	 * 
+	 * @param runnable
+	 * @return
+	 */
+	public void getAndRefreshConnection(Runnable runnable);
+
 }

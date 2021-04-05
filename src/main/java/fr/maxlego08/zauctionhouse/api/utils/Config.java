@@ -1,6 +1,7 @@
 package fr.maxlego08.zauctionhouse.api.utils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.Material;
@@ -14,7 +15,7 @@ public class Config implements Saveable {
 	/* Enum */
 	public static Storage storage = Storage.JSON;
 	public static Economy defaultEconomy = Economy.VAULT;
-	
+
 	/* Boolean */
 	public static boolean useSellCooldown = true;
 	public static boolean enablePlugin = true;
@@ -32,12 +33,12 @@ public class Config implements Saveable {
 	public static boolean enableClaimMoney = false;
 	public static boolean enableClaimMoneyMessageOnJoin = true;
 	public static boolean enableTransactionMessageOnJoin = true;
-	
+
 	public static boolean enableDebugMode = false;
 	public static boolean enableCustomHelpMessage = false;
-	
+
 	public static boolean disableSellBreakItem = false;
-	
+
 	public static boolean enablePlayerPoint = false;
 	public static boolean enableTokenManager = false;
 	public static boolean enableMySQLToken = false;
@@ -47,29 +48,34 @@ public class Config implements Saveable {
 	public static boolean enableItem2 = false;
 	public static boolean enableItem3 = false;
 	public static boolean enableCustomEconomy = false;
+	public static boolean displayCooldownMessage = true;
+	public static boolean giveItemAfterPurchase = false;
 	
+	public static boolean enableInventoryPreRender = false;
+	public static boolean enableCommandInventories = false;
+
 	/* Integer */
-	
+
 	public static long maxPrice = 999999999999999999l;
 	public static long minPrice = 10l;
-	
+
 	public static long sellTime = 48 * 3600;
 	public static long expireTime = 24 * 3600 * 7;
-	
+
 	public static long noMoneyItemMilliSecond = 1000;
 	public static long autoUpdateMilliSecond = 3000;
 	public static long cooldownClaimMoneyMessageMilliSecond = 550;
 	public static long cooldownInformationsMessageMilliSecond = 800;
-	
+
 	public static long cooldownCommandSell = 5;
 	public static int transactionPageSize = 5;
-	
+
 	/* Strings */
-	
+
 	public static String transactionDateFormat = "YYYY MM dd hh:mm:ss";
-	
+
 	public static char betterPriceEspace = ' ';
-	
+
 	public static String playerPointFormat = "p";
 	public static String tokenManagerFormat = "t";
 	public static String tokenLevel = "l";
@@ -88,18 +94,20 @@ public class Config implements Saveable {
 	public static String currencyItem1 = "gold nuggets";
 	public static String currencyItem2 = "gold ingot";
 	public static String currencyItem3 = "gold block";
+
+	public static List<String> subCommands = Arrays.asList("zauction", "ah", "hdv", "zah", "zhdv");
 	
 	/* Material */
-	
+
 	public static Material materialItem = Material.GOLD_NUGGET;
 	public static Material materialItem2 = Material.GOLD_INGOT;
 	public static Material materialItem3 = Material.GOLD_BLOCK;
-	
+
 	/* Other */
 	public static List<String> blacklistPlayers = new ArrayList<String>();
 	public static int autoSaveSecond = 60 * 15;
-	
-	
+	public static int sortCooldownChange = 5;
+
 	public void save(Persist persist) {
 		persist.save(this);
 	}

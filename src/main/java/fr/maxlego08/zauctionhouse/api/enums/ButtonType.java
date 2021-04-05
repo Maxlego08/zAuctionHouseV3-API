@@ -159,4 +159,34 @@ public enum ButtonType {
 		}
 	}
 
+	public boolean isPermament() {
+		switch (this) {
+		case AUCTION_ITEM:
+		case BACK:
+			return false;
+		case ADMIN_REMOVE:
+		case BUY_INVENTORY:
+		case BUY_ITEM:
+		case CATEGORIES:
+		case CHANGE_SORT:
+		case CLAIM:
+		case HOME:
+		case INVENTORY:
+		case NEXT:
+		case NONE:
+		case NONE_SLOT:
+		case PERFORM_COMMAND:
+		case PREVIOUS:
+		case REMOVE_ALL:
+		case REMOVE_ITEM:
+		case SELL_INVENTORY_ACCEPT:
+		case SELL_INVENTORY_BUY:
+		case SELL_INVENTORY_CANCEL:
+		case SELL_INVENTORY_SLOT:
+		case SHOW_ITEM:
+		default:
+			return true;
+		}
+	}
+
 }

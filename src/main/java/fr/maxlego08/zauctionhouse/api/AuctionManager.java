@@ -2,6 +2,7 @@ package fr.maxlego08.zauctionhouse.api;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
@@ -14,6 +15,7 @@ import fr.maxlego08.zauctionhouse.api.command.Command;
 import fr.maxlego08.zauctionhouse.api.enums.AuctionType;
 import fr.maxlego08.zauctionhouse.api.enums.Economy;
 import fr.maxlego08.zauctionhouse.api.enums.HistoryType;
+import fr.maxlego08.zauctionhouse.api.enums.InventoryName;
 import fr.maxlego08.zauctionhouse.api.enums.InventoryType;
 import fr.maxlego08.zauctionhouse.api.enums.Sorting;
 import fr.maxlego08.zauctionhouse.api.enums.StorageType;
@@ -75,7 +77,8 @@ public interface AuctionManager {
 
 	/**
 	 * Sell an item
-	 * @param itemStack 
+	 * 
+	 * @param itemStack
 	 * 
 	 * @param item
 	 *            that will be sold
@@ -88,7 +91,8 @@ public interface AuctionManager {
 	 * @param the
 	 *            number of items offered for sale
 	 */
-	void sellItem(AuctionItem auctionItem, ItemStack itemStack, Player player, long price, Economy economy, int amount, AuctionType type);
+	void sellItem(AuctionItem auctionItem, ItemStack itemStack, Player player, long price, Economy economy, int amount,
+			AuctionType type);
 
 	/**
 	 * 
@@ -165,6 +169,7 @@ public interface AuctionManager {
 
 	/**
 	 * Buy an item
+	 * 
 	 * @param auctionItem
 	 * @param player
 	 */
@@ -192,6 +197,7 @@ public interface AuctionManager {
 
 	/**
 	 * Get player items
+	 * 
 	 * @param player
 	 * @return
 	 */
@@ -217,33 +223,33 @@ public interface AuctionManager {
 	 * @param type
 	 */
 	public void removeAll(Player player, StorageType type);
-	
+
 	/**
 	 * 
 	 * @param player
 	 * @param name
 	 */
 	public void onNPCRequest(Player player, String name);
-	
+
 	/**
 	 * 
 	 * @param player
 	 * @return
 	 */
 	public boolean isBlacklist(OfflinePlayer player);
-	
+
 	/**
 	 * 
 	 * @param player
 	 */
 	public void blacklistPlayer(OfflinePlayer player);
-	
+
 	/**
 	 * 
 	 * @param player
 	 */
 	public void unblacklistPlayer(OfflinePlayer player);
-	
+
 	/**
 	 * 
 	 * @param player
@@ -254,17 +260,18 @@ public interface AuctionManager {
 	 * 
 	 * @param player
 	 * @param page
-	 * @param type 
+	 * @param type
 	 */
 	public void showHistory(CommandSender sender, OfflinePlayer player, int page, HistoryType type);
 
 	/**
 	 * Allows you to sell an inventory
+	 * 
 	 * @param itemStack
 	 * @param player
 	 * @param price
 	 * @param economy
-	 * @param command 
+	 * @param command
 	 * @param how
 	 * @param inventory
 	 */
@@ -275,15 +282,16 @@ public interface AuctionManager {
 	 * @return
 	 */
 	public Collection<ItemStack> getBannedItems();
-	
+
 	/**
 	 * Remove item as admin
+	 * 
 	 * @param player
 	 * @param auctionItem
 	 * @param isSilent
 	 */
 	public void removeAdmin(Player player, AuctionItem auctionItem, boolean isSilent, boolean isForceRemove);
-	
+
 	/**
 	 * 
 	 * @param player
@@ -298,4 +306,43 @@ public interface AuctionManager {
 	 * @return
 	 */
 	public List<AuctionItem> getSearch(Player player, String string);
+
+	/**
+	 * Set player search
+	 * 
+	 * @param player
+	 * @param word
+	 */
+	public void setPlayerWord(OfflinePlayer player, String word);
+
+	/**
+	 * Get player word search
+	 * 
+	 * @param player
+	 * @return
+	 */
+	public String getPlayerWord(OfflinePlayer player);
+
+	/**
+	 * 
+	 * @param player
+	 * @param command
+	 * @param inventoryName
+	 */
+	public void open(Player player, Command command, InventoryName inventoryName);
+
+	/**
+	 * 
+	 * @param player
+	 * @param category
+	 */
+	public void setCurrentCategory(Player player, Category category);
+
+	/**
+	 * 
+	 * @param player
+	 * @return
+	 */
+	public Optional<Category> getCurrentCategory(Player player);
+
 }

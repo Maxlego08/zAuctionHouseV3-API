@@ -26,6 +26,6 @@ public interface PlaceholderButton extends PermissibleButton {
 	 * 
 	 * @return value
 	 */
-	public double getValue();
+	public String getValue();
 
 }

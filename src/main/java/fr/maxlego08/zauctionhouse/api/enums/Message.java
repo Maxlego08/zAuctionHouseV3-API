@@ -36,13 +36,15 @@ public enum Message {
 	COMMAND_NO_ARG("§cThis argument does not exist !"),
 
 	COMMAND_SYNTAXE_HELP("§b» §f%syntaxe% §8- §7%description%"),
-	
-	COMMAND_HELP_CUSTOM(
-			"§6• §e/zah sell <args> §7- §fSell cmd...", 
-			"§6• §eAnother cmd"
-			),
+
+	COMMAND_HELP_CUSTOM("§6• §e/zah sell <args> §7- §fSell cmd...", "§6• §eAnother cmd"),
 
 	DESCRIPTION_AUCTION("Opens the auction house"),
+	
+	DESCRIPTION_SUB_ITEMS("Opens the items inventory"),
+	DESCRIPTION_SUB_CATEGORIES("Opens the categories inventory"),
+	DESCRIPTION_SUB_BUYING("Opens the buying inventory"),
+	DESCRIPTION_SUB_EXPIRE("Opens the expire inventory"),
 
 	DESCRIPTION_BLACKLIST_LIST("See the blacklist players."),
 
@@ -63,8 +65,10 @@ public enum Message {
 	DESCRIPTION_CONFIG("Config plugin ingame"),
 
 	DESCRIPTION_CLAIM("Claim your money"),
-	
+
 	DESCRIPTION_SEARCH("Search a item"),
+	
+	DESCRIPTION_LANG("See the list of translations."),
 
 	DESCRIPTION_CONVERT("Convert items form another plugin to zauctionhouse"),
 
@@ -93,10 +97,10 @@ public enum Message {
 					"§fYou just put §ax§f%amount% §7items §fon sale for §b%price%%currency%§7."),
 
 	ITEM_PURCHASED("§fYou just purchased §a%item%§f."),
-	
-	ITEM_REMOVE_ADMIN("§fYou have just deleted the item §a%item%§f."),
-	ITEM_REMOVE_SELLER_GET("§fAn administrator has just removed §a%item%§f, you can retrieve it from the list of expired items."),
-	ITEM_REMOVE_SELLER_DELETE("§fAn administrator has just removed §a%item%§f, You cannot retrieve your item."),
+
+	ITEM_REMOVE_ADMIN("§fYou have just deleted the item §a%item%§f."), ITEM_REMOVE_SELLER_GET(
+			"§fAn administrator has just removed §a%item%§f, you can retrieve it from the list of expired items."), ITEM_REMOVE_SELLER_DELETE(
+					"§fAn administrator has just removed §a%item%§f, You cannot retrieve your item."),
 
 	BUYER_PURCHASED("§a%buyer% §fjust bought §7%item% §ffor §b%price%%currency%§f."),
 
@@ -106,46 +110,26 @@ public enum Message {
 
 	ASCENDING_DATE("Ascending date"),
 
-	DECRASING_DATE("Decrasing date"),
+	DECREASING_DATE("Decreasing date"),
 
-	DECRASING_PRICE("Decrasing price"),
+	DECREASING_PRICE("Decreasing price"),
 
-	ITEM_LORE_DEFAULT(
-			"§8§m-+------------------------------+-", 
-			"§8[§a!§8] §7%status%", "",
-			"  §f* §fSeller§7: §b%seller%", 
-			"  §f* §fPrice§7: §b%price%", 
-			"  §f* §fExpire§7: §b%time%",
+	ITEM_LORE_DEFAULT("§8§m-+------------------------------+-", "§8[§a!§8] §7%status%", "",
+			"  §f* §fSeller§7: §b%seller%", "  §f* §fPrice§7: §b%price%", "  §f* §fExpire§7: §b%time%",
 			"§8§m-+------------------------------+-"),
-	
-	ITEM_LORE_EXPIRE(
-			"§8§m-+------------------------------+-", 
-			"§8[§a!§8] §7Click to retrieve the item", "",
-			"  §f* §fExpire§7: §b%time%",
-			"§8§m-+------------------------------+-"),
-	
-	ITEM_LORE_BUYING(
-			"§8§m-+------------------------------+-", 
-			"§8[§a!§8] §7Click to retrieve the item", "",
-			"  §f* §fExpire§7: §b%time%",
-			"§8§m-+------------------------------+-"),
-	
-	ITEM_LORE_ITEMS(
-			"§8§m-+------------------------------+-", 
-			"§8[§a!§8] §7Click to retrieve the item", "",
-			"  §f* §fExpire§7: §b%time%",
-			"§8§m-+------------------------------+-"),
-	
-	ITEM_LORE_INVENTORY(
-			"§8§m-+------------------------------+-", 
-			"§8[§a!§8] §7%status%", "",
-			"  §7* §fType§7: §bInventory", 
-			"  §7* §fSeller§7: §b%seller%", 
-			"  §7* §fPrice§7: §b%price%", 
-			"  §7* §fExpire§7: §b%time%",
-			"",
-			"  §f* §7§oRight click to buy",
-			"  §f* §7§oLeft click to see the content",
+
+	ITEM_LORE_EXPIRE("§8§m-+------------------------------+-", "§8[§a!§8] §7Click to retrieve the item", "",
+			"  §f* §fExpire§7: §b%time%", "§8§m-+------------------------------+-"),
+
+	ITEM_LORE_BUYING("§8§m-+------------------------------+-", "§8[§a!§8] §7Click to retrieve the item", "",
+			"  §f* §fExpire§7: §b%time%", "§8§m-+------------------------------+-"),
+
+	ITEM_LORE_ITEMS("§8§m-+------------------------------+-", "§8[§a!§8] §7Click to retrieve the item", "",
+			"  §f* §fExpire§7: §b%time%", "§8§m-+------------------------------+-"),
+
+	ITEM_LORE_INVENTORY("§8§m-+------------------------------+-", "§8[§a!§8] §7%status%", "",
+			"  §7* §fType§7: §bInventory", "  §7* §fSeller§7: §b%seller%", "  §7* §fPrice§7: §b%price%",
+			"  §7* §fExpire§7: §b%time%", "", "  §f* §7§oRight click to buy", "  §f* §7§oLeft click to see the content",
 			"§8§m-+------------------------------+-"),
 
 	PRICE_FORMAT_ITEM("%price%%currency%"),
@@ -218,6 +202,8 @@ public enum Message {
 
 	SELL_INVENTORY_ERROR("§cYou did not put any item, sale canceled."),
 
+	COOLDOWN_MESSAGE(MessageType.ACTION, " §cYou must wait §f%cooldown% §cbefore you can do this action."),
+
 	;
 
 	private List<String> messages;
@@ -235,6 +221,16 @@ public enum Message {
 	private Message(String message) {
 		this.message = message;
 		this.use = true;
+	}
+
+	/**
+	 * 
+	 * @param message
+	 */
+	private Message(MessageType type, String message) {
+		this.message = message;
+		this.use = true;
+		this.type = type;
 	}
 
 	/**

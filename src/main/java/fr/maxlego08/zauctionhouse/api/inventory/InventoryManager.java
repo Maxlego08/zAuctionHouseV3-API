@@ -1,5 +1,6 @@
 package fr.maxlego08.zauctionhouse.api.inventory;
 
+import java.util.Collection;
 import java.util.Optional;
 
 import fr.maxlego08.zauctionhouse.api.enums.InventoryName;
@@ -53,5 +54,11 @@ public interface InventoryManager {
 	 * @return {@link Inventory}
 	 */
 	public Optional<Inventory> getInventoryByName(String name);
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public Collection<Inventory> getInventories();
 
 }

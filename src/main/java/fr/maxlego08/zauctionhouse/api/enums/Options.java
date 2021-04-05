@@ -62,6 +62,14 @@ public enum Options {
 	ENABLE_DEBUG_MODE("enableDebugMode", "Enables the debug mode of the plugin.", "You will thus be able to obtain information", "in your console."),
 	
 	ENABLE_CUSTOM_HELP_MESSAGE("enableCustomHelpMessage", "Allows you to display the message", "you have configured in the message.yml file."),
+	
+	DISPLAY_COOLDOWN_MESSAGE("displayCooldownMessage", "Displays a message if the player is in cooldown."),
+	
+	GIVE_ITEM_AFTER_PURCHASE("giveItemAfterPurchase", "Allows the player to directly have the purchased item","in his inventory if there is enough room."),
+	
+	ENABLE_INVENTORY_PRE_RENDER("enableInventoryPreRender", "Allows you to make items that are permanent."),
+	
+	ENABLE_COMMAND_INVENTORIES("enableCommandInventories", "Permet d'activer les commandes /ah items, /ah category, /ah selling et /ah buying"),
 
 	;
 
@@ -107,6 +115,12 @@ public enum Options {
 			Class<Config> classz = Config.class;
 			Field field = classz.getDeclaredField(fieldName);
 			field.set(classz, !(Boolean) field.get(classz));
+			
+			
+			if (this.isToggle() && this == ENABLE_INVENTORY_PRE_RENDER){
+//				ZAuctionPlugin plugin = (ZAuctionPlugin) ZPlugin.z();
+//				plugin.getInventories().getInventories().forEach(Inventory::renderPermanentButtons);
+			}
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();

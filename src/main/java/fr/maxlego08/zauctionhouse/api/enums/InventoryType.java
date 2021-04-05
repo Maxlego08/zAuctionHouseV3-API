@@ -25,7 +25,7 @@ public enum InventoryType {
 	SELL_SHOW,
 
 	ADMIN_REMOVE,
-	
+
 	SEARCH,
 
 	;
@@ -81,6 +81,27 @@ public enum InventoryType {
 
 	public boolean isAutoRun() {
 		return this == AUCTION || this == CATEGORY;
+	}
+
+	public boolean isAuction() {
+		switch (this) {
+		case AUCTION:
+		case CATEGORY:
+		case SEARCH:
+			return true;
+		case ADMIN_REMOVE:
+		case BUYING:
+		case BUY_CONFIRM:
+		case CATEGORIES:
+		case DEFAULT:
+		case EXPIRE:
+		case ITEMS:
+		case REMOVE_CONFIRM:
+		case SELL:
+		case SELL_SHOW:
+		default:
+			return false;
+		}
 	}
 
 }

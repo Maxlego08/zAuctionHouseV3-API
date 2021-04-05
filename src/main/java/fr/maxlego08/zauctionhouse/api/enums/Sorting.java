@@ -25,9 +25,9 @@ public enum Sorting {
 		case ASCENDING_PRICE:
 			return Message.ASCENDING_PRICE.getMessage();
 		case DECRASING_DATE:
-			return Message.DECRASING_DATE.getMessage();
+			return Message.DECREASING_DATE.getMessage();
 		case DECRASING_PRICE:
-			return Message.DECRASING_PRICE.getMessage();
+			return Message.DECREASING_PRICE.getMessage();
 		default:
 			return "";
 		}

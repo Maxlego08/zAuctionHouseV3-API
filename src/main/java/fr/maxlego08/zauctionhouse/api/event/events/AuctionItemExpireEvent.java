@@ -2,9 +2,9 @@ package fr.maxlego08.zauctionhouse.api.event.events;
 
 import fr.maxlego08.zauctionhouse.api.AuctionItem;
 import fr.maxlego08.zauctionhouse.api.enums.StorageType;
-import fr.maxlego08.zauctionhouse.api.event.CancelledAuctionEvent;
+import fr.maxlego08.zauctionhouse.api.event.AuctionEvent;
 
-public class AuctionItemExpireEvent extends CancelledAuctionEvent {
+public class AuctionItemExpireEvent extends AuctionEvent {
 
 	private long expireAt;
 	private final long currentMilliSecond;
