@@ -7,6 +7,8 @@ public enum ConvertType {
 	CRAZYAUCTION("https://www.spigotmc.org/resources/crazy-auctions.25219/"),
 	
 	AUCTIONHOUSEDB("https://www.spigotmc.org/resources/auctionhouse.61836/"),
+	
+	AUCTIONHOUSERETRO("https://www.spigotmc.org/resources/auctionhouse-retro.69278/"),
 
 	;
 

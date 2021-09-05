@@ -5,11 +5,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+
+import fr.maxlego08.zauctionhouse.api.utils.ItemBuilder;
 
 public enum Message {
 
-	PREFIX("§8(§bzAuctionHouse§8)"),
+	PREFIX("§8(§bzAuctionHouse§8) "),
 
 	PREFIX_END("§8(§bzAuctionHouse§8)", false),
 
@@ -136,6 +139,8 @@ public enum Message {
 
 	STATUS_PLAYER("Click to retrieve this item"), STATUS_BUYER("Click to buy this item"),
 
+	NO_MONEY_BUTTON(ItemBuilder.buildNoMoney()),
+
 	ERROR_BUY("§cYou can't buy this item"),
 
 	SELL_CREATIVE_ERROR("§cYou can't sell an item in creative mode !"),
@@ -145,11 +150,15 @@ public enum Message {
 	SELL_ITEM_BREAK("§cYou cannot sell a broken item."),
 
 	SELL_WORLD_ERROR("§cYou cannot sell in this world"),
+	
+	SELL_ITEM_TAX_DEFAULT("§cYou need §f%tax%%currency% §cto be able to sell this item."),
 
 	SELL_ITEMS_ERROR(
 			"§cYou cannot sell more than §f%max% §citems. §8(§7Did you set the §fzauctionhouse.max.<number permission in the configuration file> §7?§8)"),
 
 	BROADCAST_SELL_ANNONCE("§fPlayer §b%player% §fhas added §7%item% §ffor §d%price%§o%currency% §fto the auction!"),
+	
+	BROADCAST_BUY_ANNONCE("§fPlayer §b%player% §fhas just bought §7%item% §ffor §d%price%§o%currency% §fto the auction!"),
 
 	NO_ENOUGHT_MONEY("§cYou don't have enough money to buy this !"),
 
@@ -197,10 +206,13 @@ public enum Message {
 
 	ITEM_ECONOMY_FULL("§7You have a full inventory, your items are gone in the inventory of expired items."),
 
-	CLAIM_MONEY_ERROR("§cYou have no pending transactions."), CLAIM_MONEY_SUCCESS(
+	CLAIM_MONEY_ERROR("§cYou have no pending transactions."), 
+	CLAIM_MONEY_SUCCESS(
 			"§aYou just got your money back on hold."),
 
 	SELL_INVENTORY_ERROR("§cYou did not put any item, sale canceled."),
+
+	SELL_INVENTORY_ITEM(new ItemBuilder(Material.CHEST, "§7Sale of inventory").build()),
 
 	COOLDOWN_MESSAGE(MessageType.ACTION, " §cYou must wait §f%cooldown% §cbefore you can do this action."),
 

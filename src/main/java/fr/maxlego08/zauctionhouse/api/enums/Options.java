@@ -6,9 +6,14 @@ import java.util.List;
 
 import org.bukkit.Material;
 
+import fr.maxlego08.zauctionhouse.ZAuctionPlugin;
+import fr.maxlego08.zauctionhouse.api.inventory.Inventory;
 import fr.maxlego08.zauctionhouse.api.utils.Config;
+import fr.maxlego08.zauctionhouse.zcore.ZPlugin;
 public enum Options {
 
+	ENABLE_DEBUG_MODE("enableDebugMode", "Enables the debug mode of the plugin.", "You will thus be able to obtain information", "in your console."),
+	
 	USE_SELL_COOLDOWN("useSellCooldown", "Added a cooldown on the command /ah sell"),
 
 	ENABLE_PLUGIN("enablePlugin", "Allows to disable access to the plugin for players."),
@@ -25,7 +30,11 @@ public enum Options {
 	
 	ENABLE_SELL_ANNONCE("enableSellAnnonce", "Makes an announcement when the player sells an item."),
 	
+	ENABLE_BUY_ANNONCE("enableBuyAnnonce", "Makes an announcement when the player buy an item."),
+	
 	OPEN_INVENTORY_AFTER_REMOVE_CONFIRM("openInventoryAfterRemoveConfirm", "Allows the opening of the inventory after" + "validation to remove the item from the sale."),
+	
+	OPEN_INVENTORY_AFTER_BUYING("openInventoryAfterBuying", "Allows the opening of the inventory after buying an item"),
 	
 	USE_LOG("useLog", "Allows to have logs of each action in the console."),
 	
@@ -41,6 +50,7 @@ public enum Options {
 	ENABLE_ITEM_1("enableItem2", "Enables economy with Item1"),
 	ENABLE_ITEM_2("enableItem2", "Enables economy with Item2"),
 	ENABLE_ITEM_3("enableItem3", "Enables economy with Item3"),
+	ENABLE_OPT_ECO("enableOptEco", "Enables economy with OptEco"),
 	ENABLE_CUSTOM("enableCustomEconomy", "Enables economy with Custom plugin"),
 	
 	ENABLE_AUTO_UPDATE("enableAutoUpdate", "Enables automatic inventory updating"),
@@ -59,8 +69,6 @@ public enum Options {
 	
 	DISABLE_BREAK_ITEMS("disableSellBreakItem", "Allows you to disable the sale of items are broken."),
 	
-	ENABLE_DEBUG_MODE("enableDebugMode", "Enables the debug mode of the plugin.", "You will thus be able to obtain information", "in your console."),
-	
 	ENABLE_CUSTOM_HELP_MESSAGE("enableCustomHelpMessage", "Allows you to display the message", "you have configured in the message.yml file."),
 	
 	DISPLAY_COOLDOWN_MESSAGE("displayCooldownMessage", "Displays a message if the player is in cooldown."),
@@ -69,7 +77,20 @@ public enum Options {
 	
 	ENABLE_INVENTORY_PRE_RENDER("enableInventoryPreRender", "Allows you to make items that are permanent."),
 	
-	ENABLE_COMMAND_INVENTORIES("enableCommandInventories", "Permet d'activer les commandes /ah items, /ah category, /ah selling et /ah buying"),
+	ENABLE_COMMAND_INVENTORIES("enableCommandInventories", "Enable commands /ah items, /ah category, /ah selling and /ah buying"),
+	
+	ENABLE_OPEN_SYNC_INVENTORY("enableOpenSyncInventory", "Allows to open the inventory with the items in a synchronized way"),
+	
+	NEED_PRICE_FOR_SELL_INVENTORY("needPriceForSellInventory", "Activate the fact that the price for", "the command /ah sellinventory is obligatory."),
+	
+	ENABLE_DEFAULT_TAX("enableDefaultTax", "Activate the default tax system", "A percentage fee will be charged for all items."),
+	ENABLE_ITEMS_TAX("enableItemsTax", "Activate the tax system by item", "A percentage of tax will be charged according to the item"),
+	
+	DISABLE_PRICE_ERRORS_DEFAULT("disablePriceErrorDefault", "Disables the sale if the price and saving is not found."),
+	
+	ENABLE_MIN_MAX_PRICE_PER_ITEMS("enableMinMaxPricePerItems", "Allows you to activate the minimum and maximum","price according to the item"),
+	
+	ENABLE_VERSION_CHECKER("enableVersionChecker", "Enable plugin version checker"),
 
 	;
 
@@ -118,8 +139,8 @@ public enum Options {
 			
 			
 			if (this.isToggle() && this == ENABLE_INVENTORY_PRE_RENDER){
-//				ZAuctionPlugin plugin = (ZAuctionPlugin) ZPlugin.z();
-//				plugin.getInventories().getInventories().forEach(Inventory::renderPermanentButtons);
+				ZAuctionPlugin plugin = (ZAuctionPlugin) ZPlugin.z();
+				plugin.getInventories().getInventories().forEach(Inventory::renderPermanentButtons);
 			}
 			return true;
 		} catch (Exception e) {

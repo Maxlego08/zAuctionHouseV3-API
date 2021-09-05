@@ -15,6 +15,7 @@ public enum InventoryName {
 	ADMIN_REMOVE("adminremove"),
 	
 	SEARCH("search"),
+	SHOW("show"),
 	
 	;
 

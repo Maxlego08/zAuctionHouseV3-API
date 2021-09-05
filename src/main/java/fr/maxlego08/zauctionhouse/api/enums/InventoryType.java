@@ -27,6 +27,8 @@ public enum InventoryType {
 	ADMIN_REMOVE,
 
 	SEARCH,
+	
+	SHOW,
 
 	;
 

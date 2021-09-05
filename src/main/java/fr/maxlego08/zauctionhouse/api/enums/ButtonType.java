@@ -48,6 +48,8 @@ public enum ButtonType {
 
 	ADMIN_REMOVE,
 	
+	SHOW_SLOT,
+	
 	;
 
 	/**
@@ -124,6 +126,7 @@ public enum ButtonType {
 		case SHOW_ITEM:
 		case NEXT:
 		case PREVIOUS:
+		case SHOW_SLOT:
 			return true;
 		case SELL_INVENTORY_ACCEPT:
 		case SELL_INVENTORY_CANCEL:
@@ -150,6 +153,7 @@ public enum ButtonType {
 		case INVENTORY:
 		case NONE:
 		case NONE_SLOT:
+		case SHOW_SLOT:
 		case PERFORM_COMMAND:
 		default:
 			return false;
@@ -184,6 +188,7 @@ public enum ButtonType {
 		case SELL_INVENTORY_CANCEL:
 		case SELL_INVENTORY_SLOT:
 		case SHOW_ITEM:
+		case SHOW_SLOT:
 		default:
 			return true;
 		}

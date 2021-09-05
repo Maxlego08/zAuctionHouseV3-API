@@ -11,6 +11,7 @@ import org.bukkit.inventory.ItemStack;
 import fr.maxlego08.zauctionhouse.api.enums.AuctionType;
 import fr.maxlego08.zauctionhouse.api.enums.Economy;
 import fr.maxlego08.zauctionhouse.api.enums.Message;
+import fr.maxlego08.zauctionhouse.api.enums.StorageType;
 import fr.maxlego08.zauctionhouse.api.filter.Filter;
 import fr.maxlego08.zauctionhouse.api.transaction.Transaction;
 
@@ -169,5 +170,25 @@ public interface AuctionItem {
 	 * @return
 	 */
 	public boolean match(Optional<Filter> optional, String string);
+	
+	/**
+	 * 
+	 * @return is expired
+	 */
+	boolean isExpired();
+
+	/**
+	 * Return the storage type
+	 * 
+	 * @return {@link StorageType}
+	 */
+	StorageType getStorageType();
+	
+	/**
+	 * Set storage typs
+	 * 
+	 * @param storageType
+	 */
+	void setStorageType(StorageType storageType);
 	
 }

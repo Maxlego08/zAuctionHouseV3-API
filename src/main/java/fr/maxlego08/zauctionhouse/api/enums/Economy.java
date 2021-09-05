@@ -25,6 +25,8 @@ public enum Economy {
 
 	ITEM3,
 
+	OPTECO,
+	
 	;
 
 	public String getFormat() {
@@ -47,6 +49,8 @@ public enum Economy {
 			return Config.tokenManagerFormat;
 		case VAULT:
 			return Config.vaultFormat;
+		case OPTECO:
+			return Config.optEcoFormat;
 		default:
 			return null;
 		}
@@ -72,6 +76,8 @@ public enum Economy {
 			return Config.enableTokenManager;
 		case VAULT:
 			return Config.enableVault;
+		case OPTECO:
+			return Config.enableOptEco;
 		default:
 			return false;
 		}
@@ -93,6 +99,8 @@ public enum Economy {
 			return Config.currencyTokenManager;
 		case MYSQLTOKEN:
 			return Config.currencyMySQLToken;
+		case OPTECO:
+			return Config.currencyOptEco;
 		case LEVEL:
 			return Config.currencyLevel;
 		case CUSTOM:

@@ -5,10 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.Material;
+import org.bukkit.event.inventory.ClickType;
 
 import fr.maxlego08.zauctionhouse.api.enums.Economy;
 import fr.maxlego08.zauctionhouse.api.storage.Saveable;
 import fr.maxlego08.zauctionhouse.api.storage.Storage;
+import fr.maxlego08.zauctionhouse.api.tax.TaxType;
 
 public class Config implements Saveable {
 
@@ -25,7 +27,9 @@ public class Config implements Saveable {
 	public static boolean useNoMoneyItem = true;
 	public static boolean displayErrorBuyMessage = false;
 	public static boolean enableSellAnnonce = false;
+	public static boolean enableBuyAnnonce = false;
 	public static boolean openInventoryAfterRemoveConfirm = true;
+	public static boolean openInventoryAfterBuying = false;
 	public static boolean useLog = true;
 	public static boolean useLogInFile = false;
 	public static boolean disableCommands = false;
@@ -33,6 +37,7 @@ public class Config implements Saveable {
 	public static boolean enableClaimMoney = false;
 	public static boolean enableClaimMoneyMessageOnJoin = true;
 	public static boolean enableTransactionMessageOnJoin = true;
+	public static boolean needPriceForSellInventory = true;
 
 	public static boolean enableDebugMode = false;
 	public static boolean enableCustomHelpMessage = false;
@@ -47,13 +52,27 @@ public class Config implements Saveable {
 	public static boolean enableItem1 = false;
 	public static boolean enableItem2 = false;
 	public static boolean enableItem3 = false;
+	public static boolean enableOptEco = false;
 	public static boolean enableCustomEconomy = false;
 	public static boolean displayCooldownMessage = true;
 	public static boolean giveItemAfterPurchase = false;
-	
+
 	public static boolean enableInventoryPreRender = false;
 	public static boolean enableCommandInventories = false;
+	public static boolean enableOpenSyncInventory = false;
+	
+	public static boolean disablePriceErrorDefault = true;
+	
+	public static boolean enableMinMaxPricePerItems = false;
+	public static boolean enableVersionChecker = true;
 
+	/* Tax */
+	
+	public static boolean enableDefaultTax = false;
+	public static boolean enableItemsTax = false;
+	public static TaxType taxType = TaxType.SELL;
+	public static double taxDefaultPercent = 10.0;
+	
 	/* Integer */
 
 	public static long maxPrice = 999999999999999999l;
@@ -85,6 +104,7 @@ public class Config implements Saveable {
 	public static String item2Format = "o";
 	public static String item3Format = "b";
 	public static String vaultFormat = "v";
+	public static String optEcoFormat = "oe";
 
 	public static String currencyVault = "$";
 	public static String currencyLevel = "L";
@@ -94,19 +114,23 @@ public class Config implements Saveable {
 	public static String currencyItem1 = "gold nuggets";
 	public static String currencyItem2 = "gold ingot";
 	public static String currencyItem3 = "gold block";
+	public static String currencyOptEco = "OPT";
 
 	public static List<String> subCommands = Arrays.asList("zauction", "ah", "hdv", "zah", "zhdv");
-	
+
 	/* Material */
 
 	public static Material materialItem = Material.GOLD_NUGGET;
 	public static Material materialItem2 = Material.GOLD_INGOT;
 	public static Material materialItem3 = Material.GOLD_BLOCK;
+	
+	public static ClickType showClick = ClickType.RIGHT;
 
 	/* Other */
 	public static List<String> blacklistPlayers = new ArrayList<String>();
 	public static int autoSaveSecond = 60 * 15;
 	public static int sortCooldownChange = 5;
+	public static int maxSqlRetryAmoun = 5;
 
 	public void save(Persist persist) {
 		persist.save(this);

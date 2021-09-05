@@ -10,7 +10,8 @@ public interface ConvertManager {
 	 * Convert file
 	 * @param sender
 	 * @param type
+	 * @param hour 
 	 */
-	public void convertFile(CommandSender sender, ConvertType type);
+	public void convertFile(CommandSender sender, ConvertType type, long hour);
 	
 }
