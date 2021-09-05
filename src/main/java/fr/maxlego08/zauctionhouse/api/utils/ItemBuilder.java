@@ -12,8 +12,6 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import fr.maxlego08.zauctionhouse.zcore.utils.itemstack.NMSUtils;
-
 /**
  * 
  * @author Maxlego08
@@ -345,9 +343,10 @@ public class ItemBuilder implements Cloneable {
 
 	public static ItemStack buildNoMoney() {
 
-		Material material = !NMSUtils.isVeryOldVersion() ? Material.BARRIER : Material.ARROW;
+		/*Material material = !NMSUtils.isVeryOldVersion() ? Material.BARRIER : Material.ARROW;
 		ItemBuilder builder = new ItemBuilder(material, "§cYou don't have enough money to buy this !");
-		return builder.build();
+		return builder.build();*/
+		return null;
 
 	}
 

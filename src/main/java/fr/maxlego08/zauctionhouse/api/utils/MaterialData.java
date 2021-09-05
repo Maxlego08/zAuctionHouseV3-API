@@ -2,12 +2,10 @@ package fr.maxlego08.zauctionhouse.api.utils;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 import fr.maxlego08.zauctionhouse.api.enums.CategoryType;
-import fr.maxlego08.zauctionhouse.zcore.utils.ZUtils;
 
-public class MaterialData extends ZUtils {
+public class MaterialData {
 
 	private final String name;
 	private final Material material;
@@ -29,11 +27,11 @@ public class MaterialData extends ZUtils {
 	public MaterialData(String string) {
 		if (string.startsWith("name")) {
 			this.type = CategoryType.NAME;
-			this.name = color(string.substring(5));
+			this.name = (string.substring(5));
 			this.material = null;
 		} else if (string.startsWith("lore")) {
 			this.type = CategoryType.LORE;
-			this.name = color(string.substring(5));
+			this.name = (string.substring(5));
 			this.material = null;
 
 		} else if (string.startsWith("material")) {
@@ -41,7 +39,7 @@ public class MaterialData extends ZUtils {
 			this.type = CategoryType.MATERIAL;
 			String currentName = string.substring(9);
 			String[] splid = currentName.split(";");
-			this.name = color(splid[0]);
+			this.name = (splid[0]);
 			this.material = Material.valueOf(splid[1].toUpperCase());
 			try {
 				this.data = Integer.valueOf(splid[2]);
@@ -90,51 +88,8 @@ public class MaterialData extends ZUtils {
 		return material.name() + ";" + data;
 	}
 
-	@SuppressWarnings("deprecation")
 	public boolean same(ItemStack itemStack) {
-		if (this.type != null) {
-
-			ItemMeta itemMeta = itemStack.getItemMeta();
-			switch (this.type) {
-			case LORE:
-				if (itemMeta.hasLore())
-					return itemMeta.getLore().stream().anyMatch(e -> e.contains(this.name));
-				break;
-			case NAME:
-				if (itemMeta.hasDisplayName())
-					return itemMeta.getDisplayName().contains(this.name);
-				break;
-			case MATERIAL: {
-
-				if (fr.maxlego08.zauctionhouse.zcore.utils.itemstack.NMSUtils.isNewVersion()
-						&& itemStack.getType().equals(this.material)) {
-					if (itemMeta.hasDisplayName()) {
-						return false;
-					}
-					if (itemMeta.hasLore()) {
-						return false;
-					}
-					return true;
-
-				} else if (itemStack.getType().equals(this.material) && this.data == itemStack.getData().getData()) {
-					if (itemMeta.hasDisplayName()) {
-						return false;
-					}
-					if (itemMeta.hasLore()) {
-						return false;
-					}
-					return true;
-				}
-			}
-			default:
-				break;
-			}
-			return false;
-
-		} else if (fr.maxlego08.zauctionhouse.zcore.utils.itemstack.NMSUtils.isNewVersion())
-			return itemStack.getType().equals(this.material);
-		else
-			return itemStack.getType().equals(this.material) && this.data == itemStack.getData().getData();
+		return true;
 	}
 
 }

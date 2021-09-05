@@ -6,10 +6,7 @@ import java.util.List;
 
 import org.bukkit.Material;
 
-import fr.maxlego08.zauctionhouse.ZAuctionPlugin;
-import fr.maxlego08.zauctionhouse.api.inventory.Inventory;
 import fr.maxlego08.zauctionhouse.api.utils.Config;
-import fr.maxlego08.zauctionhouse.zcore.ZPlugin;
 public enum Options {
 
 	ENABLE_DEBUG_MODE("enableDebugMode", "Enables the debug mode of the plugin.", "You will thus be able to obtain information", "in your console."),
@@ -135,13 +132,7 @@ public enum Options {
 		try {
 			Class<Config> classz = Config.class;
 			Field field = classz.getDeclaredField(fieldName);
-			field.set(classz, !(Boolean) field.get(classz));
-			
-			
-			if (this.isToggle() && this == ENABLE_INVENTORY_PRE_RENDER){
-				ZAuctionPlugin plugin = (ZAuctionPlugin) ZPlugin.z();
-				plugin.getInventories().getInventories().forEach(Inventory::renderPermanentButtons);
-			}
+			field.set(classz, !(Boolean) field.get(classz));						
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
