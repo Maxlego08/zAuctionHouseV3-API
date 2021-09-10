@@ -8,6 +8,7 @@ import java.util.Map;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+import fr.maxlego08.zauctionhouse.api.messages.IMessage;
 import fr.maxlego08.zauctionhouse.api.utils.ItemBuilder;
 
 public enum Message {
@@ -43,11 +44,10 @@ public enum Message {
 	COMMAND_HELP_CUSTOM("§6• §e/zah sell <args> §7- §fSell cmd...", "§6• §eAnother cmd"),
 
 	DESCRIPTION_AUCTION("Opens the auction house"),
-	
-	DESCRIPTION_SUB_ITEMS("Opens the items inventory"),
-	DESCRIPTION_SUB_CATEGORIES("Opens the categories inventory"),
-	DESCRIPTION_SUB_BUYING("Opens the buying inventory"),
-	DESCRIPTION_SUB_EXPIRE("Opens the expire inventory"),
+
+	DESCRIPTION_SUB_ITEMS("Opens the items inventory"), DESCRIPTION_SUB_CATEGORIES(
+			"Opens the categories inventory"), DESCRIPTION_SUB_BUYING(
+					"Opens the buying inventory"), DESCRIPTION_SUB_EXPIRE("Opens the expire inventory"),
 
 	DESCRIPTION_BLACKLIST_LIST("See the blacklist players."),
 
@@ -70,7 +70,7 @@ public enum Message {
 	DESCRIPTION_CLAIM("Claim your money"),
 
 	DESCRIPTION_SEARCH("Search a item"),
-	
+
 	DESCRIPTION_LANG("See the list of translations."),
 
 	DESCRIPTION_CONVERT("Convert items form another plugin to zauctionhouse"),
@@ -150,15 +150,16 @@ public enum Message {
 	SELL_ITEM_BREAK("§cYou cannot sell a broken item."),
 
 	SELL_WORLD_ERROR("§cYou cannot sell in this world"),
-	
+
 	SELL_ITEM_TAX_DEFAULT("§cYou need §f%tax%%currency% §cto be able to sell this item."),
 
 	SELL_ITEMS_ERROR(
 			"§cYou cannot sell more than §f%max% §citems. §8(§7Did you set the §fzauctionhouse.max.<number permission in the configuration file> §7?§8)"),
 
 	BROADCAST_SELL_ANNONCE("§fPlayer §b%player% §fhas added §7%item% §ffor §d%price%§o%currency% §fto the auction!"),
-	
-	BROADCAST_BUY_ANNONCE("§fPlayer §b%player% §fhas just bought §7%item% §ffor §d%price%§o%currency% §fto the auction!"),
+
+	BROADCAST_BUY_ANNONCE(
+			"§fPlayer §b%player% §fhas just bought §7%item% §ffor §d%price%§o%currency% §fto the auction!"),
 
 	NO_ENOUGHT_MONEY("§cYou don't have enough money to buy this !"),
 
@@ -206,8 +207,7 @@ public enum Message {
 
 	ITEM_ECONOMY_FULL("§7You have a full inventory, your items are gone in the inventory of expired items."),
 
-	CLAIM_MONEY_ERROR("§cYou have no pending transactions."), 
-	CLAIM_MONEY_SUCCESS(
+	CLAIM_MONEY_ERROR("§cYou have no pending transactions."), CLAIM_MONEY_SUCCESS(
 			"§aYou just got your money back on hold."),
 
 	SELL_INVENTORY_ERROR("§cYou did not put any item, sale canceled."),
@@ -316,7 +316,7 @@ public enum Message {
 	}
 
 	public String getTitle() {
-		return (String) titles.get("title");
+		return (String) titles.getOrDefault("title", null);
 	}
 
 	public Map<String, Object> getTitles() {
@@ -328,7 +328,7 @@ public enum Message {
 	}
 
 	public String getSubTitle() {
-		return (String) titles.get("subtitle");
+		return (String) titles.getOrDefault("subtitle", null);
 	}
 
 	public boolean isTitle() {
@@ -336,15 +336,15 @@ public enum Message {
 	}
 
 	public int getStart() {
-		return ((Number) titles.get("start")).intValue();
+		return ((Number) titles.getOrDefault("start", 0)).intValue();
 	}
 
 	public int getEnd() {
-		return ((Number) titles.get("end")).intValue();
+		return ((Number) titles.getOrDefault("end", 0)).intValue();
 	}
 
 	public int getTime() {
-		return ((Number) titles.get("time")).intValue();
+		return ((Number) titles.getOrDefault("time", 0)).intValue();
 	}
 
 	public boolean isUseTitle() {
@@ -375,6 +375,10 @@ public enum Message {
 		for (Message message : Message.values())
 			if (message.name().equalsIgnoreCase(replace))
 				return message;
+		return null;
+	}
+
+	public IMessage getIMessage() {
 		return null;
 	}
 

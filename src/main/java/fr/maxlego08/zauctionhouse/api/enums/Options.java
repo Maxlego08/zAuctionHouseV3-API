@@ -132,7 +132,7 @@ public enum Options {
 		try {
 			Class<Config> classz = Config.class;
 			Field field = classz.getDeclaredField(fieldName);
-			field.set(classz, !(Boolean) field.get(classz));						
+			field.set(classz, !(Boolean) field.get(classz));
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
