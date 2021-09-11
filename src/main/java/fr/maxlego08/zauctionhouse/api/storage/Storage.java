@@ -8,6 +8,8 @@ public enum Storage {
 	PGSQL("jdbc:postgresql://"), 
 	SQLITE(""), 
 	JSON,
+	
+	CUSTOM,
 
 	;
 
