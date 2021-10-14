@@ -16,7 +16,7 @@ zAuctionHouse V3 plugin API <a href="https://groupez.xyz/resources/zauctionhouse
 	<dependency>
 		<groupId>com.github.Maxlego08</groupId>
 		<artifactId>zAuctionHouseV3-API</artifactId>
-		<version>4.0.4.9</version>
+		<version>3.0.5.5</version>
 	</dependency>
 </dependencies>
 ```
@@ -29,6 +29,6 @@ allprojects {
 	}
 }
 dependencies {
-	implementation 'com.github.Maxlego08:zAuctionHouseV3-API:4.0.4.9'
+	implementation 'com.github.Maxlego08:zAuctionHouseV3-API:3.0.5.5'
 }
 ```
