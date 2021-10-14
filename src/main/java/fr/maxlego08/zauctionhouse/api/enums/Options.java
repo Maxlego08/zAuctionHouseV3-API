@@ -7,6 +7,7 @@ import java.util.List;
 import org.bukkit.Material;
 
 import fr.maxlego08.zauctionhouse.api.utils.Config;
+
 public enum Options {
 
 	ENABLE_DEBUG_MODE("enableDebugMode", "Enables the debug mode of the plugin.", "You will thus be able to obtain information", "in your console."),
@@ -72,13 +73,15 @@ public enum Options {
 	
 	GIVE_ITEM_AFTER_PURCHASE("giveItemAfterPurchase", "Allows the player to directly have the purchased item","in his inventory if there is enough room."),
 	
+	SEND_ITEM_PURCHASE_INVENTORY_IF_IS_FULL("sendItemToPurchaseInventoryIfIsFull", "Allows to send an item to the inventory of", "purchased items if at the time of purchase the user", "is full and you have activated", "the option giveItemAfterPurchase."),
+	
 	ENABLE_INVENTORY_PRE_RENDER("enableInventoryPreRender", "Allows you to make items that are permanent."),
 	
 	ENABLE_COMMAND_INVENTORIES("enableCommandInventories", "Enable commands /ah items, /ah category, /ah selling and /ah buying"),
 	
 	ENABLE_OPEN_SYNC_INVENTORY("enableOpenSyncInventory", "Allows to open the inventory with the items in a synchronized way"),
 	
-	NEED_PRICE_FOR_SELL_INVENTORY("needPriceForSellInventory", "Activate the fact that the price for", "the command /ah sellinventory is obligatory."),
+	NEED_PRICE_FOR_SELL_INVENTORY("needPriceForSellInventory", "Activate the fact that the price for", "the command /ah sellinventory is obligatory.", "Need to restart your server after enable this option !"),
 	
 	ENABLE_DEFAULT_TAX("enableDefaultTax", "Activate the default tax system", "A percentage fee will be charged for all items."),
 	ENABLE_ITEMS_TAX("enableItemsTax", "Activate the tax system by item", "A percentage of tax will be charged according to the item"),

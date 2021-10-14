@@ -23,4 +23,6 @@ public interface StorageManager {
 	 */
 	IStorage getIStorage();
 	
+	Storage getStorage();
+	
 }

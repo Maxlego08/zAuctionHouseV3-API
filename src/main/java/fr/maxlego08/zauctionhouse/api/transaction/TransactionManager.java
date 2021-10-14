@@ -3,6 +3,7 @@ package fr.maxlego08.zauctionhouse.api.transaction;
 import java.util.List;
 
 import org.bukkit.OfflinePlayer;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import fr.maxlego08.zauctionhouse.api.AuctionItem;
@@ -73,5 +74,13 @@ public interface TransactionManager {
 	 * @return
 	 */
 	public List<Transaction> getMoneyTransactions(OfflinePlayer offlinePlayer, Economy economy);
+
+	/**
+	 * Purge transactions
+	 * 
+	 * @param sender
+	 * @param days
+	 */
+	public void purge(CommandSender sender, long days);
 	
 }

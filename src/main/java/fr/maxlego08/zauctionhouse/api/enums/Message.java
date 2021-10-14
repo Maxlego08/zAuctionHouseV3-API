@@ -8,7 +8,6 @@ import java.util.Map;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import fr.maxlego08.zauctionhouse.api.messages.IMessage;
 import fr.maxlego08.zauctionhouse.api.utils.ItemBuilder;
 
 public enum Message {
@@ -56,6 +55,7 @@ public enum Message {
 	DESCRIPTION_BLACKLIST_REMOVE("Retirer un joueur dans la blacklist"),
 
 	DESCRIPTION_VERSION("Show plugin version"),
+	DESCRIPTION_PURGE("Remove old transaction"),
 
 	DESCRIPTION_RELOAD("Reload plugin"),
 
@@ -162,6 +162,8 @@ public enum Message {
 			"§fPlayer §b%player% §fhas just bought §7%item% §ffor §d%price%§o%currency% §fto the auction!"),
 
 	NO_ENOUGHT_MONEY("§cYou don't have enough money to buy this !"),
+	
+	NO_ENOUGHT_PLACE("§cYou don't have enough room in your inventory to buy this item."),
 
 	PLUGIN_NOT_READY("§cThe plugin has not finished to be initialized, please be patient..."),
 
@@ -216,6 +218,9 @@ public enum Message {
 
 	COOLDOWN_MESSAGE(MessageType.ACTION, " §cYou must wait §f%cooldown% §cbefore you can do this action."),
 
+	PURGE_START("§aPurge start. §8(§7Wait few seconds§8)"),
+	PURGE_END("§aThe purge of transactions is over."),
+	
 	;
 
 	private List<String> messages;
@@ -375,10 +380,6 @@ public enum Message {
 		for (Message message : Message.values())
 			if (message.name().equalsIgnoreCase(replace))
 				return message;
-		return null;
-	}
-
-	public IMessage getIMessage() {
 		return null;
 	}
 

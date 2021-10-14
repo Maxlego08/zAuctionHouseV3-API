@@ -86,4 +86,6 @@ public interface IStorage {
 
 	void updateTransaction(List<Transaction> transactions);
 
+	void purgeTransactions(long seconds, Runnable runnable);
+
 }

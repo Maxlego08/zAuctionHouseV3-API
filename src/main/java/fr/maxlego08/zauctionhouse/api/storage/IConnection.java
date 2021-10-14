@@ -90,4 +90,6 @@ public interface IConnection {
 	 */
 	public void getAndRefreshConnection(Runnable runnable);
 
+	public void asyncDelete(Transaction transaction);
+
 }

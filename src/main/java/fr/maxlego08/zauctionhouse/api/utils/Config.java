@@ -8,6 +8,7 @@ import org.bukkit.Material;
 import org.bukkit.event.inventory.ClickType;
 
 import fr.maxlego08.zauctionhouse.api.enums.Economy;
+import fr.maxlego08.zauctionhouse.api.enums.Sorting;
 import fr.maxlego08.zauctionhouse.api.storage.Saveable;
 import fr.maxlego08.zauctionhouse.api.storage.Storage;
 import fr.maxlego08.zauctionhouse.api.tax.TaxType;
@@ -56,6 +57,7 @@ public class Config implements Saveable {
 	public static boolean enableCustomEconomy = false;
 	public static boolean displayCooldownMessage = true;
 	public static boolean giveItemAfterPurchase = false;
+	public static boolean sendItemToPurchaseInventoryIfIsFull = true;
 
 	public static boolean enableInventoryPreRender = false;
 	public static boolean enableCommandInventories = false;
@@ -66,6 +68,7 @@ public class Config implements Saveable {
 	public static boolean enableMinMaxPricePerItems = false;
 	public static boolean enableVersionChecker = true;
 
+	
 	/* Tax */
 	
 	public static boolean enableDefaultTax = false;
@@ -74,6 +77,8 @@ public class Config implements Saveable {
 	public static double taxDefaultPercent = 10.0;
 	
 	/* Integer */
+	
+	public static long removeTransactionAfterSeconds = 86400 * 30; 
 
 	public static long maxPrice = 999999999999999999l;
 	public static long minPrice = 10l;
@@ -131,6 +136,7 @@ public class Config implements Saveable {
 	public static int autoSaveSecond = 60 * 15;
 	public static int sortCooldownChange = 5;
 	public static int maxSqlRetryAmoun = 5;
+	public static Sorting defaultSort = Sorting.DECRASING_DATE;
 
 	public void save(Persist persist) {
 		persist.save(this);
