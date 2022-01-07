@@ -3,6 +3,7 @@ package fr.maxlego08.zauctionhouse.api;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.function.Predicate;
 
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
@@ -190,5 +191,11 @@ public interface AuctionItem {
 	 * @param storageType
 	 */
 	void setStorageType(StorageType storageType);
+
+	public void setPrice(long price);
+	
+	String getSellerName();
+
+	public void giveIf(Player player, Predicate<AuctionItem> predicate);
 	
 }

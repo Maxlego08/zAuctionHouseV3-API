@@ -344,5 +344,12 @@ public interface AuctionManager {
 	 * @return
 	 */
 	public Optional<Category> getCurrentCategory(Player player);
+	
+	/**
+	 * 
+	 * @param auctionItem
+	 * @return
+	 */
+	public boolean auctionHasBlacklistItems(AuctionItem auctionItem);
 
 }
