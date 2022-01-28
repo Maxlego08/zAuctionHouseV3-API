@@ -8,4 +8,6 @@ public interface VInventoryManager {
 
 	void createInventory(EnumInventory inv, Player player, int page, Object... objects);
 
+	void updateAllPlayer(int id);
+	
 }

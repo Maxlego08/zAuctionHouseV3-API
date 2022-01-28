@@ -68,6 +68,8 @@ public enum Message {
 	DESCRIPTION_CONFIG("Config plugin ingame"),
 
 	DESCRIPTION_CLAIM("Claim your money"),
+	
+	DESCRIPTION_ADDON("Show addon list"),
 
 	DESCRIPTION_SEARCH("Search a item"),
 
@@ -205,7 +207,7 @@ public enum Message {
 	TRANSACTION_MESSAGE_CONTENT_YOU("You"),
 
 	CONNECT_CLAIM("§aYou have money to recover, make §b/ah claim §ato recover for your money."), CONNECT_TRANSACTIONS(
-			"§aYou sold %item% during your absence."),
+			"§aYou sold %item% item(s) during your absence."),
 
 	ITEM_ECONOMY_FULL("§7You have a full inventory, your items are gone in the inventory of expired items."),
 

@@ -3,6 +3,7 @@ package fr.maxlego08.zauctionhouse.api.storage;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.function.Consumer;
 
 import fr.maxlego08.zauctionhouse.api.AuctionItem;
 import fr.maxlego08.zauctionhouse.api.AuctionPlugin;
@@ -60,7 +61,7 @@ public interface IConnection {
 	 * 
 	 * @param transaction
 	 */
-	public void asyncInsert(Transaction transaction);
+	public void asyncInsert(Transaction transaction, Consumer<Transaction> consumer);
 
 	/**
 	 * 

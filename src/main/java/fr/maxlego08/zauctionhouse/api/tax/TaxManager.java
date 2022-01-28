@@ -24,4 +24,8 @@ public interface TaxManager extends Saveable{
 	 */
 	double getTax(long price, ItemStack itemStack, TaxType type);
 	
+	double reverceTax(long price, ItemStack itemStack);
+	
+	double getTaxPercent(ItemStack itemStack, TaxType type);
+	
 }

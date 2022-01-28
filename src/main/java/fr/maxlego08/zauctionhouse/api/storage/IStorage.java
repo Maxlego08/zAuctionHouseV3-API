@@ -1,6 +1,7 @@
 package fr.maxlego08.zauctionhouse.api.storage;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 import fr.maxlego08.zauctionhouse.api.AuctionItem;
 import fr.maxlego08.zauctionhouse.api.AuctionPlugin;
@@ -62,8 +63,9 @@ public interface IStorage {
 	/**
 	 * Store transaction
 	 * @param transaction
+	 * @param consumer 
 	 */
-	void storeTransaction(Transaction transaction);
+	void storeTransaction(Transaction transaction, Consumer<Transaction> consumer);
 
 	/**
 	 * 

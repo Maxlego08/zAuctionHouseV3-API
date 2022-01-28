@@ -278,8 +278,10 @@ public interface AuctionManager {
 	public void createSellInventory(Player player, long price, Economy economy, Command command);
 
 	/**
+	 * Get blacklist items
 	 * 
-	 * @return
+	 * @deprecated
+	 * @return empty collection
 	 */
 	public Collection<ItemStack> getBannedItems();
 

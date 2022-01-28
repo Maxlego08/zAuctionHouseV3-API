@@ -9,6 +9,8 @@ public enum Storage {
 	SQLITE(""), 
 	JSON,
 	
+	REDIS,
+	
 	CUSTOM,
 
 	;
@@ -28,6 +30,36 @@ public enum Storage {
 
 	public String getUrlBase() {
 		return urlBase;
+	}
+
+	public boolean isDatabase(){
+		switch (this) {
+		case CUSTOM:
+		case REDIS:
+		case JSON:
+			return false;
+		case SQLITE:
+		case MARIADB:
+		case MYSQL:
+		case PGSQL:
+		default:
+			return true;
+		}
+	}
+	
+	public boolean isDefault() {
+		switch (this) {
+		case CUSTOM:
+		case REDIS:
+			return false;
+		case SQLITE:
+		case JSON:
+		case MARIADB:
+		case MYSQL:
+		case PGSQL:
+		default:
+			return true;
+		}
 	}
 
 }

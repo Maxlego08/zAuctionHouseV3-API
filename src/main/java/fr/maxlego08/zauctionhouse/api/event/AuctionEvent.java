@@ -8,6 +8,24 @@ public class AuctionEvent extends Event {
 
 	private final static HandlerList handlers = new HandlerList();
 
+	 
+	
+	/**
+	 * 
+	 */
+	public AuctionEvent() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @param isAsync
+	 */
+	public AuctionEvent(boolean isAsync) {
+		super(isAsync);
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * @return the handlers
 	 */

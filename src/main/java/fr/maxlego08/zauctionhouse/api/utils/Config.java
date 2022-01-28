@@ -67,6 +67,9 @@ public class Config implements Saveable {
 	
 	public static boolean enableMinMaxPricePerItems = false;
 	public static boolean enableVersionChecker = true;
+	
+	public static boolean enableRedisAutoUpdateInventory = false;
+	public static boolean enableRedisAutoGiveMoneyIfPlayerIsOnline = false;
 
 	
 	/* Tax */
@@ -78,7 +81,7 @@ public class Config implements Saveable {
 	
 	/* Integer */
 	
-	public static long removeTransactionAfterSeconds = 86400 * 30; 
+	public static long removeTransactionAfterSeconds = 86400 * 15; 
 
 	public static long maxPrice = 999999999999999999l;
 	public static long minPrice = 10l;

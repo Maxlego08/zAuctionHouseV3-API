@@ -9,6 +9,8 @@ public enum ConvertType {
 	AUCTIONHOUSEDB("https://www.spigotmc.org/resources/auctionhouse.61836/"),
 	
 	AUCTIONHOUSERETRO("https://www.spigotmc.org/resources/auctionhouse-retro.69278/"),
+	
+	JSONTODATABASE("https://groupez.xyz/resources/zauctionhouse.1"),
 
 	;
 

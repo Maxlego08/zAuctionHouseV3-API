@@ -91,6 +91,10 @@ public enum Options {
 	ENABLE_MIN_MAX_PRICE_PER_ITEMS("enableMinMaxPricePerItems", "Allows you to activate the minimum and maximum","price according to the item"),
 	
 	ENABLE_VERSION_CHECKER("enableVersionChecker", "Enable plugin version checker"),
+	
+	ENABLE_REDIS_AUTO_UPDATE_INVENTORY("enableRedisAutoUpdateInventory", "Allows you to activate the inventory update automatically.", "You must have the Redis addon."),
+	
+	ENABLE_REDIS_AUTO_UPDATE_MONEY("enableRedisAutoGiveMoneyIfPlayerIsOnline", "Allows you to automatically give money to a player.", "You must have the Redis addon."),
 
 	;
 

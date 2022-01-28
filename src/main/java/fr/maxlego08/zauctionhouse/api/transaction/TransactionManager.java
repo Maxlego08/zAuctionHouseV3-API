@@ -1,6 +1,7 @@
 package fr.maxlego08.zauctionhouse.api.transaction;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
@@ -16,7 +17,7 @@ public interface TransactionManager {
 	 * Allows to add a transaction and stcoker
 	 * @param auctionItem
 	 */
-	public void storeTransaction(AuctionItem auctionItem);
+	public Transaction storeTransaction(AuctionItem auctionItem, Consumer<Transaction> consumer);
 
 	/**
 	 * Allows you to retrieve a list of transactions

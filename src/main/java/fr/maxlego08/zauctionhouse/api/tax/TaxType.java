@@ -6,4 +6,6 @@ public enum TaxType {
 	PURCHASE,
 	BOTH,
 	
+	CAPITALISM,
+	
 }

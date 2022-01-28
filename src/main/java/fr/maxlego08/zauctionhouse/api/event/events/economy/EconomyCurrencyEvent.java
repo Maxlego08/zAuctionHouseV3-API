@@ -6,6 +6,10 @@ public class EconomyCurrencyEvent extends AuctionEvent {
 
 	private String currency = "$";
 
+	public EconomyCurrencyEvent() {
+		super();
+	}
+
 	/**
 	 * @return the currency
 	 */

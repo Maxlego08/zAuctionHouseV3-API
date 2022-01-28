@@ -4,7 +4,7 @@ public enum EnumInventory {
 
 	INVENTORY_DEFAULT(1), 
 	INVENTORY_CONFIG(2), 
-	
+	INVENTORY_ADDON(4), 	
 	
 	INVENTORY_SELL(3),
 	
