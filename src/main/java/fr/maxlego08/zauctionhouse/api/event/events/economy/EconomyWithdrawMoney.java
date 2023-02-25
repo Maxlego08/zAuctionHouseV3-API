@@ -4,6 +4,7 @@ import org.bukkit.OfflinePlayer;
 
 import fr.maxlego08.zauctionhouse.api.event.AuctionEvent;
 
+@Deprecated
 public class EconomyWithdrawMoney extends AuctionEvent {
 
 	private final OfflinePlayer player;

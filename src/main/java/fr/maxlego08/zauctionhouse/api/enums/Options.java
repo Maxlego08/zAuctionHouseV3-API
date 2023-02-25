@@ -7,7 +7,6 @@ import java.util.List;
 import org.bukkit.Material;
 
 import fr.maxlego08.zauctionhouse.api.utils.Config;
-
 public enum Options {
 
 	ENABLE_DEBUG_MODE("enableDebugMode", "Enables the debug mode of the plugin.", "You will thus be able to obtain information", "in your console."),
@@ -67,7 +66,9 @@ public enum Options {
 	
 	DISABLE_BREAK_ITEMS("disableSellBreakItem", "Allows you to disable the sale of items are broken."),
 	
-	ENABLE_CUSTOM_HELP_MESSAGE("enableCustomHelpMessage", "Allows you to display the message", "you have configured in the message.yml file."),
+	ENABLE_CUSTOM_HELP_MESSAGE("enableCustomHelpMessage", "Allows you to display the message", "you have configured in the message.yml file for /ah help."),
+	
+	ENABLE_CUSTOM_SELL_MESSAGE("enableCustomSellMessage", "Allows you to display the message", "you have configured in the message.yml file for /ah sell."),
 	
 	DISPLAY_COOLDOWN_MESSAGE("displayCooldownMessage", "Displays a message if the player is in cooldown."),
 	
@@ -95,6 +96,14 @@ public enum Options {
 	ENABLE_REDIS_AUTO_UPDATE_INVENTORY("enableRedisAutoUpdateInventory", "Allows you to activate the inventory update automatically.", "You must have the Redis addon."),
 	
 	ENABLE_REDIS_AUTO_UPDATE_MONEY("enableRedisAutoGiveMoneyIfPlayerIsOnline", "Allows you to automatically give money to a player.", "You must have the Redis addon."),
+	
+	ENABLE_CLICK_COOLDOWN("enableCooldownClick", "Added a cooldown on the click in the inventory to avoid action spam."),
+	
+	ENABLE_NUMBER_FORMAL_SELL("enableNumberformatSell", "Allows you to sell with a format, example: /ah sell 400k"),
+	
+	ENABLE_ADD_ITEMFLAG("enableAddItemFlagToAuctionItem", "Add itemflag for auction item"),
+	
+	ENABLE_LOG_FILE_INFORMATIONS("enableLogFileSaveInformations", "Add log when file is saving"),
 
 	;
 
@@ -140,6 +149,11 @@ public enum Options {
 			Class<Config> classz = Config.class;
 			Field field = classz.getDeclaredField(fieldName);
 			field.set(classz, !(Boolean) field.get(classz));
+			
+			
+			if (this.isToggle() && this == ENABLE_INVENTORY_PRE_RENDER){
+				
+			}
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();

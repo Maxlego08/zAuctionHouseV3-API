@@ -199,6 +199,10 @@ public class ItemBuilder implements Cloneable {
 		this.lore = Arrays.asList(lores);
 		return this;
 	}
+	
+	public void setLore(List<String> lores){
+		this.lore = lores;
+	}
 
 	/**
 	 * 
@@ -342,12 +346,7 @@ public class ItemBuilder implements Cloneable {
 	}
 
 	public static ItemStack buildNoMoney() {
-
-		/*Material material = !NMSUtils.isVeryOldVersion() ? Material.BARRIER : Material.ARROW;
-		ItemBuilder builder = new ItemBuilder(material, "§cYou don't have enough money to buy this !");
-		return builder.build();*/
 		return null;
-
 	}
 
 }

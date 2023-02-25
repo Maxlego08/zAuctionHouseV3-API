@@ -8,8 +8,6 @@ public class AuctionEvent extends Event {
 
 	private final static HandlerList handlers = new HandlerList();
 
-	 
-	
 	/**
 	 * 
 	 */
@@ -36,8 +34,8 @@ public class AuctionEvent extends Event {
 	public static HandlerList getHandlerList() {
 		return handlers;
 	}
-	
-	public void callEvent(){
+
+	public void callEvent() {
 		Bukkit.getPluginManager().callEvent(this);
 	}
 

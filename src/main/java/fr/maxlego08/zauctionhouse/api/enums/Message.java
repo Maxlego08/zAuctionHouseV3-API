@@ -8,6 +8,7 @@ import java.util.Map;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+import fr.maxlego08.zauctionhouse.api.messages.IMessage;
 import fr.maxlego08.zauctionhouse.api.utils.ItemBuilder;
 
 public enum Message {
@@ -35,6 +36,8 @@ public enum Message {
 	COMMAND_NO_PERMISSION("§cYou don't have permission !"),
 
 	COMMAND_NO_CONSOLE("§cOnly player can use this command."),
+	
+	COMMAND_COOLDOWN("§cYou must wait a few seconds between each command."),
 
 	COMMAND_NO_ARG("§cThis argument does not exist !"),
 
@@ -50,11 +53,13 @@ public enum Message {
 
 	DESCRIPTION_BLACKLIST_LIST("See the blacklist players."),
 
-	DESCRIPTION_BLACKLIST_ADD("Ajouter un joueur dans la blacklist"),
+	DESCRIPTION_BLACKLIST_ADD("Add a player to the blacklist"),
 
-	DESCRIPTION_BLACKLIST_REMOVE("Retirer un joueur dans la blacklist"),
+	DESCRIPTION_BLACKLIST_REMOVE("Remove a player from the blacklist"),
 
 	DESCRIPTION_VERSION("Show plugin version"),
+	DESCRIPTION_OPEN("Open auction to a player"),
+	
 	DESCRIPTION_PURGE("Remove old transaction"),
 
 	DESCRIPTION_RELOAD("Reload plugin"),
@@ -86,6 +91,10 @@ public enum Message {
 	COMMAND_SELL_ARGUMENT_PRICE("price"),
 
 	COMMAND_SELL_ARGUMENT_AMOUNT("amount"),
+	
+	COMMAND_SELL_CUSTOM_HELPING("§cYou must execute the command like this§7: §f/hdv vendre §a<price> §b[<amount>]"),
+	
+	COMMAND_OPEN_CUSTOM_HELPING("§cYou must execute the command like this§7: §f/ah"),
 
 	NO_HOLDING_ITEM("§cAre you stupid ? You can't sell air !"),
 
@@ -94,7 +103,6 @@ public enum Message {
 	SELL_COOLDOWN("§cYou must wait §f%time%§c."),
 
 	SELL_MAX_PRICE("§cYou can't put more than §f%max%§c for the price !"),
-
 	SELL_MIN_PRICE("§cYou can't put less than §f%min%§c for the price !"),
 
 	SELL_MESSAGE_DEFAULT(
@@ -157,6 +165,8 @@ public enum Message {
 
 	SELL_ITEMS_ERROR(
 			"§cYou cannot sell more than §f%max% §citems. §8(§7Did you set the §fzauctionhouse.max.<number permission in the configuration file> §7?§8)"),
+	
+	SELL_ITEM_WHITELIST("§cYou do not have permission to add this item."),
 
 	BROADCAST_SELL_ANNONCE("§fPlayer §b%player% §fhas added §7%item% §ffor §d%price%§o%currency% §fto the auction!"),
 
@@ -168,6 +178,7 @@ public enum Message {
 	NO_ENOUGHT_PLACE("§cYou don't have enough room in your inventory to buy this item."),
 
 	PLUGIN_NOT_READY("§cThe plugin has not finished to be initialized, please be patient..."),
+	PLUGIN_NOT_READY_HDB("§cThe §fHeadDataBase §cplugin is not yet active, the plugin inventories have not yet loaded, please wait until HDB is working."),
 
 	WORLD_IS_BANNED("§cYou can't use the auction house here."),
 
@@ -211,7 +222,12 @@ public enum Message {
 
 	ITEM_ECONOMY_FULL("§7You have a full inventory, your items are gone in the inventory of expired items."),
 
-	CLAIM_MONEY_ERROR("§cYou have no pending transactions."), CLAIM_MONEY_SUCCESS(
+	CLAIM_MONEY_WAIT("§7Wait few seconds..."), 
+	CLAIM_MONEY_COOLDOWN("§cYou have to wait a few minutes before you can do this command again."),
+	
+	CLAIM_MONEY_CRASH("§7Unable to retrieve transactions at this time, please contact an administrator."), 
+	CLAIM_MONEY_ERROR("§cYou have no pending transactions."), 
+	CLAIM_MONEY_SUCCESS(
 			"§aYou just got your money back on hold."),
 
 	SELL_INVENTORY_ERROR("§cYou did not put any item, sale canceled."),
@@ -221,7 +237,15 @@ public enum Message {
 	COOLDOWN_MESSAGE(MessageType.ACTION, " §cYou must wait §f%cooldown% §cbefore you can do this action."),
 
 	PURGE_START("§aPurge start. §8(§7Wait few seconds§8)"),
-	PURGE_END("§aThe purge of transactions is over."),
+	PURGE_END("§aThe purge of transactions is over."), 
+	
+	CLICK_COOLDOWN(MessageType.ACTION, "§cYou must wait before you can perform this action."),
+	
+	FORCE_OPEN("§aYou have just opened the auction house for the player §f%player%§a."),
+	
+	PRIORITY("No priority"), 
+	
+	ECONOMY_NOT_FOUND("§cImpossible de trouver l'économy avec le nom §f%name%§c."),
 	
 	;
 
@@ -382,6 +406,10 @@ public enum Message {
 		for (Message message : Message.values())
 			if (message.name().equalsIgnoreCase(replace))
 				return message;
+		return null;
+	}
+
+	public IMessage getIMessage() {
 		return null;
 	}
 

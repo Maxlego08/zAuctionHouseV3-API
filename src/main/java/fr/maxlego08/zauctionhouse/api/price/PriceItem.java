@@ -21,5 +21,7 @@ public interface PriceItem {
 	 * @return
 	 */
 	long getMaxPrice();
+	
+	boolean onlyMaterial();
 
 }

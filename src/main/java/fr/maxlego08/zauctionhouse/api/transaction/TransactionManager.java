@@ -8,7 +8,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import fr.maxlego08.zauctionhouse.api.AuctionItem;
-import fr.maxlego08.zauctionhouse.api.enums.Economy;
 import fr.maxlego08.zauctionhouse.api.enums.HistoryType;
 
 public interface TransactionManager {
@@ -17,7 +16,7 @@ public interface TransactionManager {
 	 * Allows to add a transaction and stcoker
 	 * @param auctionItem
 	 */
-	public Transaction storeTransaction(AuctionItem auctionItem, Consumer<Transaction> consumer);
+	public Transaction storeTransaction(AuctionItem auctionItem, Consumer<Transaction> consumer, long price);
 
 	/**
 	 * Allows you to retrieve a list of transactions
@@ -66,7 +65,7 @@ public interface TransactionManager {
 	 * @param economy
 	 * @return
 	 */
-	public long getMonais(Player player, Economy economy);
+	public long getMonais(Player player, String economy);
 	
 	/**
 	 * Get transactions buy player and economy
@@ -74,7 +73,7 @@ public interface TransactionManager {
 	 * @param economy
 	 * @return
 	 */
-	public List<Transaction> getMoneyTransactions(OfflinePlayer offlinePlayer, Economy economy);
+	public List<Transaction> getMoneyTransactions(OfflinePlayer offlinePlayer, String economy);
 
 	/**
 	 * Purge transactions

@@ -2,7 +2,7 @@ package fr.maxlego08.zauctionhouse.api.event.events;
 
 import org.bukkit.entity.Player;
 
-import fr.maxlego08.zauctionhouse.api.enums.Economy;
+import fr.maxlego08.zauctionhouse.api.economy.AuctionEconomy;
 import fr.maxlego08.zauctionhouse.api.event.CancelledAuctionEvent;
 import fr.maxlego08.zauctionhouse.api.transaction.Transaction;
 
@@ -11,7 +11,7 @@ public class AuctionClaimEvent extends CancelledAuctionEvent {
 	private final Player player;
 	private final Transaction transaction;
 	private long price;
-	private Economy economy;
+	private AuctionEconomy economy;
 
 	/**
 	 * @param player
@@ -19,7 +19,7 @@ public class AuctionClaimEvent extends CancelledAuctionEvent {
 	 * @param price
 	 * @param economy
 	 */
-	public AuctionClaimEvent(Player player, Transaction transaction, long price, Economy economy) {
+	public AuctionClaimEvent(Player player, Transaction transaction, long price, AuctionEconomy economy) {
 		super();
 		this.player = player;
 		this.transaction = transaction;
@@ -51,7 +51,7 @@ public class AuctionClaimEvent extends CancelledAuctionEvent {
 	/**
 	 * @return the economy
 	 */
-	public Economy getEconomy() {
+	public AuctionEconomy getEconomy() {
 		return economy;
 	}
 
@@ -67,7 +67,7 @@ public class AuctionClaimEvent extends CancelledAuctionEvent {
 	 * @param economy
 	 *            the economy to set
 	 */
-	public void setEconomy(Economy economy) {
+	public void setEconomy(AuctionEconomy economy) {
 		this.economy = economy;
 	}
 

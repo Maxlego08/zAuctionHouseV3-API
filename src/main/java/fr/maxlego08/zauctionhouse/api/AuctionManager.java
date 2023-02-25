@@ -12,8 +12,8 @@ import org.bukkit.permissions.Permissible;
 
 import fr.maxlego08.zauctionhouse.api.category.Category;
 import fr.maxlego08.zauctionhouse.api.command.Command;
+import fr.maxlego08.zauctionhouse.api.economy.AuctionEconomy;
 import fr.maxlego08.zauctionhouse.api.enums.AuctionType;
-import fr.maxlego08.zauctionhouse.api.enums.Economy;
 import fr.maxlego08.zauctionhouse.api.enums.HistoryType;
 import fr.maxlego08.zauctionhouse.api.enums.InventoryName;
 import fr.maxlego08.zauctionhouse.api.enums.InventoryType;
@@ -21,6 +21,7 @@ import fr.maxlego08.zauctionhouse.api.enums.Sorting;
 import fr.maxlego08.zauctionhouse.api.enums.StorageType;
 import fr.maxlego08.zauctionhouse.api.inventory.Inventory;
 import fr.maxlego08.zauctionhouse.api.storage.IStorage;
+import fr.maxlego08.zauctionhouse.api.utils.Priority;
 
 public interface AuctionManager {
 
@@ -30,13 +31,13 @@ public interface AuctionManager {
 	 * @param player
 	 * @param command
 	 */
-	public void open(Player player, Command command);
+	void open(Player player, Command command);
 
 	/**
 	 * 
 	 * @param player
 	 */
-	public void openDefault(Player player);
+	void openDefault(Player player);
 
 	/**
 	 * Open player inventory
@@ -44,30 +45,24 @@ public interface AuctionManager {
 	 * @param player
 	 * @param command
 	 */
-	public void open(AuctionPlugin plugin, InventoryType type, Player player, AuctionItem auctionItem, int page,
+	void open(AuctionPlugin plugin, InventoryType type, Player player, AuctionItem auctionItem, int page,
 			List<Inventory> oldInventories, String category);
 
 	/**
 	 * Reload plugin
 	 */
-	public void reload();
+	void reload();
 
 	/**
 	 * Close players inventory
 	 */
-	public void closeInventory();
-
-	/**
-	 * 
-	 * @return {@link IEconomy}
-	 */
-	public IEconomy getIEconomy();
+	void closeInventory();
 
 	/**
 	 * 
 	 * @return {@link IStorage}
 	 */
-	public IStorage getStorage();
+	IStorage getStorage();
 
 	/**
 	 * Allows you to update items for sale, items that are expired will go into
@@ -91,7 +86,7 @@ public interface AuctionManager {
 	 * @param the
 	 *            number of items offered for sale
 	 */
-	void sellItem(AuctionItem auctionItem, ItemStack itemStack, Player player, long price, Economy economy, int amount,
+	void sellItem(AuctionItem auctionItem, ItemStack itemStack, Player player, long price, AuctionEconomy economy, int amount,
 			AuctionType type);
 
 	/**
@@ -99,26 +94,26 @@ public interface AuctionManager {
 	 * @param player
 	 * @return
 	 */
-	public List<AuctionItem> getSortItems(Player player);
+	List<AuctionItem> getSortItems(Player player);
 
 	/**
 	 * 
 	 * @param player
 	 * @return
 	 */
-	public Sorting getSort(Player player);
+	Sorting getSort(Player player);
 
 	/**
 	 * 
 	 * @param player
 	 * @param sorting
 	 */
-	public void setSort(Player player, Sorting sorting);
+	void setSort(Player player, Sorting sorting);
 
 	/**
 	 * Load configuration
 	 */
-	public void loadConfiguration();
+	void loadConfiguration();
 
 	/**
 	 * 
@@ -126,6 +121,13 @@ public interface AuctionManager {
 	 * @return max item player can sell
 	 */
 	int getMaxSellPerPermission(Permissible player);
+	
+	/**
+	 * 
+	 * @param player
+	 * @return expiration
+	 */
+	int getExpirationPerPermission(Permissible player);
 
 	/**
 	 * 
@@ -157,7 +159,7 @@ public interface AuctionManager {
 	 * @param player
 	 * @return
 	 */
-	public List<AuctionItem> getExpire(Player player);
+	List<AuctionItem> getExpire(Player player);
 
 	/**
 	 * 
@@ -165,7 +167,7 @@ public interface AuctionManager {
 	 * @param auctionItem
 	 * @param expire
 	 */
-	public void removeItem(Player player, AuctionItem auctionItem, StorageType expire);
+	void removeItem(Player player, AuctionItem auctionItem, StorageType expire);
 
 	/**
 	 * Buy an item
@@ -173,27 +175,27 @@ public interface AuctionManager {
 	 * @param auctionItem
 	 * @param player
 	 */
-	public void buy(AuctionItem auctionItem, Player player);
+	void buy(AuctionItem auctionItem, Player player);
 
 	/**
 	 * 
 	 * @param player
 	 * @return
 	 */
-	public List<AuctionItem> getBuying(Player player);
+	List<AuctionItem> getBuying(Player player);
 
 	/**
 	 * 
 	 * @param storage
 	 * @return
 	 */
-	public long count(StorageType storage);
+	long count(StorageType storage);
 
 	/**
 	 * 
 	 * @param player
 	 */
-	public void nextSort(Player player);
+	void nextSort(Player player);
 
 	/**
 	 * Get player items
@@ -201,13 +203,13 @@ public interface AuctionManager {
 	 * @param player
 	 * @return
 	 */
-	public List<AuctionItem> getItems(Player player);
+	List<AuctionItem> getItems(Player player);
 
 	/**
 	 * 
 	 * @param category
 	 */
-	public List<AuctionItem> getItems(Category category);
+	List<AuctionItem> getItems(Category category);
 
 	/**
 	 * 
@@ -215,46 +217,46 @@ public interface AuctionManager {
 	 * @param category
 	 * @return
 	 */
-	public List<AuctionItem> getSortItems(Player player, Category category);
+	List<AuctionItem> getSortItems(Player player, Category category);
 
 	/**
 	 * 
 	 * @param player
 	 * @param type
 	 */
-	public void removeAll(Player player, StorageType type);
+	void removeAll(Player player, StorageType type);
 
 	/**
 	 * 
 	 * @param player
 	 * @param name
 	 */
-	public void onNPCRequest(Player player, String name);
+	void onNPCRequest(Player player, String name);
 
 	/**
 	 * 
 	 * @param player
 	 * @return
 	 */
-	public boolean isBlacklist(OfflinePlayer player);
+	boolean isBlacklist(OfflinePlayer player);
 
 	/**
 	 * 
 	 * @param player
 	 */
-	public void blacklistPlayer(OfflinePlayer player);
+	void blacklistPlayer(OfflinePlayer player);
 
 	/**
 	 * 
 	 * @param player
 	 */
-	public void unblacklistPlayer(OfflinePlayer player);
+	void unblacklistPlayer(OfflinePlayer player);
 
 	/**
 	 * 
 	 * @param player
 	 */
-	public void openConfiguration(Player player);
+	void openConfiguration(Player player);
 
 	/**
 	 * 
@@ -262,7 +264,7 @@ public interface AuctionManager {
 	 * @param page
 	 * @param type
 	 */
-	public void showHistory(CommandSender sender, OfflinePlayer player, int page, HistoryType type);
+	void showHistory(CommandSender sender, OfflinePlayer player, int page, HistoryType type);
 
 	/**
 	 * Allows you to sell an inventory
@@ -275,7 +277,7 @@ public interface AuctionManager {
 	 * @param how
 	 * @param inventory
 	 */
-	public void createSellInventory(Player player, long price, Economy economy, Command command);
+	void createSellInventory(Player player, long price, AuctionEconomy economy, Command command);
 
 	/**
 	 * Get blacklist items
@@ -283,7 +285,7 @@ public interface AuctionManager {
 	 * @deprecated
 	 * @return empty collection
 	 */
-	public Collection<ItemStack> getBannedItems();
+	Collection<ItemStack> getBannedItems();
 
 	/**
 	 * Remove item as admin
@@ -292,14 +294,14 @@ public interface AuctionManager {
 	 * @param auctionItem
 	 * @param isSilent
 	 */
-	public void removeAdmin(Player player, AuctionItem auctionItem, boolean isSilent, boolean isForceRemove);
+	void removeAdmin(Player player, AuctionItem auctionItem, boolean isSilent, boolean isForceRemove);
 
 	/**
 	 * 
 	 * @param player
 	 * @param string
 	 */
-	public void search(Player player, String string);
+	void search(Player player, String string);
 
 	/**
 	 * 
@@ -307,7 +309,7 @@ public interface AuctionManager {
 	 * @param string
 	 * @return
 	 */
-	public List<AuctionItem> getSearch(Player player, String string);
+	List<AuctionItem> getSearch(Player player, String string);
 
 	/**
 	 * Set player search
@@ -315,7 +317,7 @@ public interface AuctionManager {
 	 * @param player
 	 * @param word
 	 */
-	public void setPlayerWord(OfflinePlayer player, String word);
+	void setPlayerWord(OfflinePlayer player, String word);
 
 	/**
 	 * Get player word search
@@ -323,7 +325,7 @@ public interface AuctionManager {
 	 * @param player
 	 * @return
 	 */
-	public String getPlayerWord(OfflinePlayer player);
+	String getPlayerWord(OfflinePlayer player);
 
 	/**
 	 * 
@@ -331,27 +333,66 @@ public interface AuctionManager {
 	 * @param command
 	 * @param inventoryName
 	 */
-	public void open(Player player, Command command, InventoryName inventoryName);
+	void open(Player player, Command command, InventoryName inventoryName);
 
 	/**
 	 * 
 	 * @param player
 	 * @param category
 	 */
-	public void setCurrentCategory(Player player, Category category);
+	void setCurrentCategory(Player player, Category category);
 
 	/**
 	 * 
 	 * @param player
 	 * @return
 	 */
-	public Optional<Category> getCurrentCategory(Player player);
-	
+	Optional<Category> getCurrentCategory(Player player);
+
 	/**
 	 * 
 	 * @param auctionItem
 	 * @return
 	 */
-	public boolean auctionHasBlacklistItems(AuctionItem auctionItem);
+	boolean auctionHasBlacklistItems(AuctionItem auctionItem);
+
+	/**
+	 * Get priority
+	 * 
+	 * @param permissible
+	 * @return optional
+	 */
+	Optional<Priority> getPriority(Permissible permissible);
+	
+	/**
+	 * Get priority
+	 * 
+	 * @param priority
+	 * @return optional
+	 */
+	Optional<Priority> getPriority(int priority);
+	
+	
+	/**
+	 * Register economy
+	 * 
+	 * @param auctionEconomy
+	 */
+	void registerEconomy(AuctionEconomy auctionEconomy);
+	
+	/**
+	 * Get economy by name
+	 * 
+	 * @param economyName
+	 * @return optional
+	 */
+	Optional<AuctionEconomy> getEconomy(String economyName);
+	
+	/**
+	 * Retrieve the list of economy
+	 * 
+	 * @return economies
+	 */
+	List<AuctionEconomy> getEconomies();
 
 }

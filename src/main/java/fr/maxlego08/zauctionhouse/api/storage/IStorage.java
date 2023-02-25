@@ -1,7 +1,10 @@
 package fr.maxlego08.zauctionhouse.api.storage;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.function.Consumer;
+
+import org.bukkit.entity.Player;
 
 import fr.maxlego08.zauctionhouse.api.AuctionItem;
 import fr.maxlego08.zauctionhouse.api.AuctionPlugin;
@@ -82,12 +85,39 @@ public interface IStorage {
 
 	/**
 	 * 
-	 * @return
+	 * @return transactions
 	 */
 	List<Transaction> getTransactions();
 
+	/**
+	 * Allows you to update transactions
+	 * 
+	 * @param transactions
+	 */
 	void updateTransaction(List<Transaction> transactions);
 
+	/**
+	 * Allows you to purge transactions
+	 * 
+	 * @param seconds
+	 * @param runnable
+	 */
 	void purgeTransactions(long seconds, Runnable runnable);
+
+	/**
+	 * Allows you to retrieve transactions for the claim money
+	 * 
+	 * @param player
+	 * @param object
+	 */
+	void fetchClaimMoney(Player player, Consumer<List<Transaction>> consumer);
+
+	/**
+	 * Allows to know if the player is in cooldown for the claim money
+	 * 
+	 * @param uniqueId
+	 * @return boolean
+	 */
+	boolean isCooldown(UUID uniqueId);
 
 }

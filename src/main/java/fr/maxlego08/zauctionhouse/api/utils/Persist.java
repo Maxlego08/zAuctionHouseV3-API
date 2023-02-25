@@ -130,7 +130,9 @@ public class Persist {
 		try {
 
 			boolean b = DiscUtils.writeCatch(file, gson.toJson(instance));
-			logger.log(file.getAbsolutePath() + " successfully saved !", LogType.SUCCESS);
+			if (Config.enableLogFileSaveInformations) {
+				logger.log(file.getAbsolutePath() + " successfully saved !", LogType.SUCCESS);
+			}
 			return b;
 
 		} catch (Exception e) {

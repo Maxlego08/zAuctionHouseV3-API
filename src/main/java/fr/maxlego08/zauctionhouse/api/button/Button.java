@@ -84,5 +84,12 @@ public interface Button {
 	 * @return
 	 */
 	boolean isDisableEvent();
+	
+	
+	/**
+	 * 
+	 * @return true if inventory need to be close
+	 */
+	public boolean closeInventory();
 
 }

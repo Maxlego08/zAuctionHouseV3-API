@@ -9,8 +9,8 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import fr.maxlego08.zauctionhouse.api.economy.AuctionEconomy;
 import fr.maxlego08.zauctionhouse.api.enums.AuctionType;
-import fr.maxlego08.zauctionhouse.api.enums.Economy;
 import fr.maxlego08.zauctionhouse.api.enums.Message;
 import fr.maxlego08.zauctionhouse.api.enums.StorageType;
 import fr.maxlego08.zauctionhouse.api.filter.Filter;
@@ -46,10 +46,18 @@ public interface AuctionItem {
 	public long getPrice();
 
 	/**
+	 * Get economy
 	 * 
-	 * @return {@link Economy}
+	 * @return {@link AuctionEconomy}
 	 */
-	public Economy getEconomy();
+	public AuctionEconomy getEconomy();
+	
+	/**
+	 * Get economy name
+	 * 
+	 * @return name
+	 */
+	public String getEconomyName();
 
 	/**
 	 * Get seller as {@link OfflinePlayer}
@@ -141,9 +149,10 @@ public interface AuctionItem {
 
 	/**
 	 * 
+	 * @param price 
 	 * @return {@link Transaction}
 	 */
-	public Transaction buildTransaction();
+	public Transaction buildTransaction(long price);
 	
 	/**
 	 * 
@@ -192,10 +201,13 @@ public interface AuctionItem {
 	 */
 	void setStorageType(StorageType storageType);
 
-	public void setPrice(long price);
+	void setPrice(long price);
 	
 	String getSellerName();
 
-	public void giveIf(Player player, Predicate<AuctionItem> predicate);
+	void giveIf(Player player, Predicate<AuctionItem> predicate);
+	
+	int getPriority();
+	
 	
 }

@@ -2,8 +2,6 @@ package fr.maxlego08.zauctionhouse.api.transaction;
 
 import java.util.UUID;
 
-import fr.maxlego08.zauctionhouse.api.enums.Economy;
-
 public interface Transaction {
 
 	/**
@@ -40,7 +38,7 @@ public interface Transaction {
 	 * 
 	 * @return economy
 	 */
-	public Economy getEconomy();
+	public String getEconomy();
 
 	/**
 	 * 

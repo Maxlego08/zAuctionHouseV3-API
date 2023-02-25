@@ -27,7 +27,7 @@ public enum InventoryType {
 	ADMIN_REMOVE,
 
 	SEARCH,
-	
+
 	SHOW,
 
 	;
@@ -74,7 +74,25 @@ public enum InventoryType {
 	}
 
 	public boolean isPagination() {
-		return this == AUCTION || this == EXPIRE || this == BUYING || this == CATEGORY || this == ITEMS;
+		switch (this) {
+		case AUCTION:
+		case SEARCH:
+		case BUYING:
+		case ITEMS:
+		case EXPIRE:
+		case CATEGORY:
+			return true;
+		case ADMIN_REMOVE:
+		case BUY_CONFIRM:
+		case CATEGORIES:
+		case DEFAULT:
+		case REMOVE_CONFIRM:
+		case SELL:
+		case SELL_SHOW:
+		case SHOW:
+		default:
+			return false;
+		}
 	}
 
 	public boolean isBuy() {

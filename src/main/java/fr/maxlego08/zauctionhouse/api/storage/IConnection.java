@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.function.Consumer;
 
+import org.bukkit.entity.Player;
+
 import fr.maxlego08.zauctionhouse.api.AuctionItem;
 import fr.maxlego08.zauctionhouse.api.AuctionPlugin;
 import fr.maxlego08.zauctionhouse.api.enums.StorageType;
@@ -48,7 +50,7 @@ public interface IConnection {
 	 * @param auctionItem
 	 * @param type
 	 */
-	public void asyncDelete(AuctionItem auctionItem, StorageType type);
+	public void asyncDelete(AuctionItem auctionItem, StorageType type, Runnable runnable);
 
 	/**
 	 * 
@@ -92,5 +94,7 @@ public interface IConnection {
 	public void getAndRefreshConnection(Runnable runnable);
 
 	public void asyncDelete(Transaction transaction);
+
+	public void fetchClaimMoney(Player player, Consumer<List<Transaction>> consumer);
 
 }

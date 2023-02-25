@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.bukkit.Material;
 import org.bukkit.event.inventory.ClickType;
+import org.bukkit.inventory.ItemFlag;
 
-import fr.maxlego08.zauctionhouse.api.enums.Economy;
 import fr.maxlego08.zauctionhouse.api.enums.Sorting;
 import fr.maxlego08.zauctionhouse.api.storage.Saveable;
 import fr.maxlego08.zauctionhouse.api.storage.Storage;
@@ -17,7 +17,7 @@ public class Config implements Saveable {
 
 	/* Enum */
 	public static Storage storage = Storage.JSON;
-	public static Economy defaultEconomy = Economy.VAULT;
+	public static String defaultEconomy = "VAULT";
 
 	/* Boolean */
 	public static boolean useSellCooldown = true;
@@ -42,6 +42,8 @@ public class Config implements Saveable {
 
 	public static boolean enableDebugMode = false;
 	public static boolean enableCustomHelpMessage = false;
+	public static boolean enableCustomSellMessage = false;
+	public static boolean enableCustomOpenMessage = false;
 
 	public static boolean disableSellBreakItem = false;
 
@@ -62,26 +64,34 @@ public class Config implements Saveable {
 	public static boolean enableInventoryPreRender = false;
 	public static boolean enableCommandInventories = false;
 	public static boolean enableOpenSyncInventory = false;
-	
+
 	public static boolean disablePriceErrorDefault = true;
-	
+
 	public static boolean enableMinMaxPricePerItems = false;
 	public static boolean enableVersionChecker = true;
-	
+
 	public static boolean enableRedisAutoUpdateInventory = false;
 	public static boolean enableRedisAutoGiveMoneyIfPlayerIsOnline = false;
+	
+	public static boolean enableNumberformatSell = true;
+	public static boolean enableAddItemFlagToAuctionItem = false;
+	public static boolean enableLogFileSaveInformations = true;
+	
+	public static boolean enablePrioritySort = false;
+	public static boolean enablePrioritySortLimit = false;
+	
+	public static boolean disableDefaultSellPriceFormatError = true;
 
-	
 	/* Tax */
-	
+
 	public static boolean enableDefaultTax = false;
 	public static boolean enableItemsTax = false;
 	public static TaxType taxType = TaxType.SELL;
 	public static double taxDefaultPercent = 10.0;
-	
+
 	/* Integer */
-	
-	public static long removeTransactionAfterSeconds = 86400 * 15; 
+
+	public static long removeTransactionAfterSeconds = 86400 * 15;
 
 	public static long maxPrice = 999999999999999999l;
 	public static long minPrice = 10l;
@@ -89,13 +99,15 @@ public class Config implements Saveable {
 	public static long sellTime = 48 * 3600;
 	public static long expireTime = 24 * 3600 * 7;
 
-	public static long noMoneyItemMilliSecond = 1000;
+	public static long noMoneyItemTicks = 20;
 	public static long autoUpdateMilliSecond = 3000;
-	public static long cooldownClaimMoneyMessageMilliSecond = 550;
-	public static long cooldownInformationsMessageMilliSecond = 800;
+	public static long cooldownClaimMoneyMessageTicks = 10;
+	public static long cooldownInformationsMessageTicks = 15;
 
 	public static long cooldownCommandSell = 5;
 	public static int transactionPageSize = 5;
+
+	public static long cooldownClaimMoneySecond = 300;
 
 	/* Strings */
 
@@ -105,7 +117,7 @@ public class Config implements Saveable {
 
 	public static String playerPointFormat = "p";
 	public static String tokenManagerFormat = "t";
-	public static String tokenLevel = "l";
+	public static String levelFormat = "l";
 	public static String customEcoForm = "c";
 	public static String mySqlTokenFormat = "mt";
 	public static String item1Format = "i";
@@ -124,6 +136,7 @@ public class Config implements Saveable {
 	public static String currencyItem3 = "gold block";
 	public static String currencyOptEco = "OPT";
 
+	public static String mainCommand = "zauctionhouse";
 	public static List<String> subCommands = Arrays.asList("zauction", "ah", "hdv", "zah", "zhdv");
 
 	/* Material */
@@ -131,15 +144,49 @@ public class Config implements Saveable {
 	public static Material materialItem = Material.GOLD_NUGGET;
 	public static Material materialItem2 = Material.GOLD_INGOT;
 	public static Material materialItem3 = Material.GOLD_BLOCK;
-	
+
 	public static ClickType showClick = ClickType.RIGHT;
+	
+	public static List<ItemFlag> itemFlags = Arrays.asList(ItemFlag.values());
 
 	/* Other */
 	public static List<String> blacklistPlayers = new ArrayList<String>();
 	public static int autoSaveSecond = 60 * 15;
 	public static int sortCooldownChange = 5;
-	public static int maxSqlRetryAmoun = 5;
+	public static int maxSqlRetryAmount = 5;
 	public static Sorting defaultSort = Sorting.DECRASING_DATE;
+	public static boolean enableDebugCustomItemModeOnlyForDevDontUseThat = false;
+	public static boolean enableCooldownClick = false;
+	public static long cooldownClickMilliseconds = 500;
+
+	public static String numberFormatThousand = "k ";
+	public static String numberFormatMillion = "m ";
+	public static String numberFormatBillion = "M ";
+	public static String numberFormatTrillion = "T ";
+	public static String decimalFormatDefault = "#.#";
+	public static String decimalFormatThousand = "#.#";
+	public static String decimalFormatMillion = "#.#";
+	public static String decimalFormatBillion = "#.#";
+	public static String decimalFormatTrillion = "#.##";
+
+	public static String tablSqlPrefix = "";
+	
+	public static List<NumberFormatSell> numberFormatSells = new ArrayList<>();
+	
+	public static boolean enableCacheItems = false;
+	public static long cacheSeconds = 15;
+	public static long commandCooldownMilliSeconds = 5000;
+	public static boolean enableCooldownCommand = true;
+	public static boolean enableAntiDupeListener = true;
+	
+	static {
+
+		numberFormatSells.add(new NumberFormatSell("k", 1000));
+		numberFormatSells.add(new NumberFormatSell("m", 1000000));
+		numberFormatSells.add(new NumberFormatSell("B", 1000000000));
+		numberFormatSells.add(new NumberFormatSell("T", 1000000000000l));
+		
+	}
 
 	public void save(Persist persist) {
 		persist.save(this);

@@ -24,10 +24,4 @@ public interface PerformButton extends PermissibleButton {
 	 */
 	void execute(Player player);
 	
-	/**
-	 * 
-	 * @return true if inventory need to be close
-	 */
-	public boolean closeInventory();
-	
 }

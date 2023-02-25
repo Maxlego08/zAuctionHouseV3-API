@@ -3,15 +3,13 @@ package fr.maxlego08.zauctionhouse.api.event.events;
 import org.bukkit.entity.Player;
 
 import fr.maxlego08.zauctionhouse.api.AuctionItem;
-import fr.maxlego08.zauctionhouse.api.IEconomy;
-import fr.maxlego08.zauctionhouse.api.enums.Economy;
+import fr.maxlego08.zauctionhouse.api.economy.AuctionEconomy;
 import fr.maxlego08.zauctionhouse.api.event.CancelledAuctionEvent;
 import fr.maxlego08.zauctionhouse.api.messages.IMessage;
 
 public class AuctionPreBuyEvent extends CancelledAuctionEvent {
 
-	private final IEconomy iEconomy;
-	private final Economy economy;
+	private final AuctionEconomy economy;
 	private final Player player;
 	private final AuctionItem auctionItem;
 	private boolean hasEnoughtMoney;
@@ -29,10 +27,9 @@ public class AuctionPreBuyEvent extends CancelledAuctionEvent {
 	 * @param buyerMessage
 	 * @param sellerMessage
 	 */
-	public AuctionPreBuyEvent(IEconomy iEconomy, Economy economy, Player player, AuctionItem auctionItem,
-			boolean hasEnoughtMoney, long price, IMessage buyerMessage, IMessage sellerMessage) {
+	public AuctionPreBuyEvent(AuctionEconomy economy, Player player, AuctionItem auctionItem, boolean hasEnoughtMoney,
+			long price, IMessage buyerMessage, IMessage sellerMessage) {
 		super();
-		this.iEconomy = iEconomy;
 		this.economy = economy;
 		this.player = player;
 		this.auctionItem = auctionItem;
@@ -43,16 +40,9 @@ public class AuctionPreBuyEvent extends CancelledAuctionEvent {
 	}
 
 	/**
-	 * @return the iEconomy
-	 */
-	public IEconomy getiEconomy() {
-		return iEconomy;
-	}
-
-	/**
 	 * @return the economy
 	 */
-	public Economy getEconomy() {
+	public AuctionEconomy getEconomy() {
 		return economy;
 	}
 

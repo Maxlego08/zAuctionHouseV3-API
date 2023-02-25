@@ -69,7 +69,8 @@ public enum ButtonType {
 	}
 
 	public boolean isClickable() {
-		return this != NONE;
+		// return this != NONE;
+		return true;
 	}
 
 	public boolean isSlots() {

@@ -5,7 +5,7 @@ import java.util.UUID;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import fr.maxlego08.zauctionhouse.api.enums.Economy;
+import fr.maxlego08.zauctionhouse.api.economy.AuctionEconomy;
 import fr.maxlego08.zauctionhouse.api.event.CancelledAuctionEvent;
 
 public class AuctionPreSellEvent extends CancelledAuctionEvent {
@@ -14,7 +14,7 @@ public class AuctionPreSellEvent extends CancelledAuctionEvent {
 	private final int amount;
 	private final UUID auctionItemUniqueId;
 	private long expiredAt;
-	private Economy economy;
+	private AuctionEconomy economy;
 	private long price;
 	private ItemStack itemStack;
 
@@ -27,7 +27,7 @@ public class AuctionPreSellEvent extends CancelledAuctionEvent {
 	 * @param price
 	 * @param itemStack
 	 */
-	public AuctionPreSellEvent(Player player, int amount, UUID auctionItemUniqueId, long expiredAt, Economy economy,
+	public AuctionPreSellEvent(Player player, int amount, UUID auctionItemUniqueId, long expiredAt, AuctionEconomy economy,
 			long price, ItemStack itemStack) {
 		super();
 		this.player = player;
@@ -70,7 +70,7 @@ public class AuctionPreSellEvent extends CancelledAuctionEvent {
 	/**
 	 * @return the economy
 	 */
-	public Economy getEconomy() {
+	public AuctionEconomy getEconomy() {
 		return economy;
 	}
 
@@ -100,7 +100,7 @@ public class AuctionPreSellEvent extends CancelledAuctionEvent {
 	 * @param economy
 	 *            the economy to set
 	 */
-	public void setEconomy(Economy economy) {
+	public void setEconomy(AuctionEconomy economy) {
 		this.economy = economy;
 	}
 
