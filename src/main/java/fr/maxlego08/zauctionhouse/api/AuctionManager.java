@@ -3,6 +3,7 @@ package fr.maxlego08.zauctionhouse.api;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
@@ -255,8 +256,9 @@ public interface AuctionManager {
 	/**
 	 * 
 	 * @param player
+	 * @param string 
 	 */
-	void openConfiguration(Player player);
+	void openConfiguration(Player player, String string);
 
 	/**
 	 * 
@@ -394,5 +396,7 @@ public interface AuctionManager {
 	 * @return economies
 	 */
 	List<AuctionEconomy> getEconomies();
+
+	UUID getRandomUniqueId();
 
 }

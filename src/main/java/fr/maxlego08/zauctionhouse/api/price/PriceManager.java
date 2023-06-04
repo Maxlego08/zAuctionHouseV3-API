@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.bukkit.inventory.ItemStack;
 
+import fr.maxlego08.zauctionhouse.api.AuctionItem;
 import fr.maxlego08.zauctionhouse.api.storage.Saveable;
 
 public interface PriceManager extends Saveable {
@@ -13,14 +14,14 @@ public interface PriceManager extends Saveable {
 	 * @param itemStack
 	 * @return
 	 */
-	public long getMinPrice(ItemStack itemStack);
+	public long getMinPrice(AuctionItem auctionItem);
 
 	/**
 	 * 
 	 * @param itemStack
 	 * @return
 	 */
-	public long getMaxPrice(ItemStack itemStack);
+	public long getMaxPrice(AuctionItem auctionItem);
 
 	/**
 	 * 

@@ -2,17 +2,17 @@ package fr.maxlego08.zauctionhouse.api.enums;
 
 public enum ConvertType {
 
-	ZAUCTIONHOUSEV2("https://groupez.xyz/resources/zauctionhouse.1"),
+	ZAUCTIONHOUSEV2("https://groupez.dev/resources/1"),
 
-	CRAZYAUCTION("https://www.spigotmc.org/resources/crazy-auctions.25219/"),
+	CRAZYAUCTION("https://www.spigotmc.org/resources/25219/"),
 	
-	AUCTIONHOUSEDB("https://www.spigotmc.org/resources/auctionhouse.61836/"),
+	AUCTIONHOUSEDB("https://www.spigotmc.org/resources/61836/"),
 	
-	AUCTIONHOUSERETRO("https://www.spigotmc.org/resources/auctionhouse-retro.69278/"),
+	AUCTIONHOUSERETRO("https://www.spigotmc.org/resources/69278/"),
 	
-	DATABASETOJSON("https://groupez.xyz/resources/zauctionhouse.1"),
+	DATABASETOJSON("https://groupez.dev/resources/1"),
 	
-	JSONTODATABASE("https://groupez.xyz/resources/zauctionhouse.1"),
+	JSONTODATABASE("https://groupez.dev/resources/1"),
 
 	;
 

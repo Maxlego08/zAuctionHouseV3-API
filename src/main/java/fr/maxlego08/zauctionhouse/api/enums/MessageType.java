@@ -5,6 +5,9 @@ public enum MessageType {
 	ACTION,
 	TCHAT,
 	TITLE,
-	ITEMSTACK,;
+	ITEMSTACK,
+	NONE,
+	
+	;
 
 }

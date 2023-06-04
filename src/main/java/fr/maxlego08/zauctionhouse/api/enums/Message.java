@@ -13,15 +13,15 @@ import fr.maxlego08.zauctionhouse.api.utils.ItemBuilder;
 
 public enum Message {
 
-	PREFIX("§8(§bzAuctionHouse§8) "),
+	PREFIX("Â§8(Â§bzAuctionHouseÂ§8) "),
 
-	PREFIX_END("§8(§bzAuctionHouse§8)", false),
+	PREFIX_END("Â§8(Â§bzAuctionHouseÂ§8)", false),
 
-	INVENTORY_NULL("§cImpossible to find the inventory with the id §6%id%§c.", false),
+	INVENTORY_NULL("Â§cImpossible to find the inventory with the id Â§6%id%Â§c.", false),
 
-	INVENTORY_CLONE_NULL("§cThe clone of the inventory is null !", false),
+	INVENTORY_CLONE_NULL("Â§cThe clone of the inventory is null !", false),
 
-	INVENTORY_OPEN_ERROR("§cAn error occurred with the opening of the inventory §6%id%§c.", false),
+	INVENTORY_OPEN_ERROR("Â§cAn error occurred with the opening of the inventory Â§6%id%Â§c.", false),
 
 	TIME_DAY("%02d day(s) %02d hour(s) %02d minute(s) %02d second(s)"),
 
@@ -31,19 +31,19 @@ public enum Message {
 
 	TIME_SECOND("%02d second(s)"),
 
-	COMMAND_SYNTAXE_ERROR("§cYou must execute the command like this§7: §2%command%"),
+	COMMAND_SYNTAXE_ERROR("Â§cYou must execute the command like thisÂ§7: Â§2%command%"),
 
-	COMMAND_NO_PERMISSION("§cYou don't have permission !"),
+	COMMAND_NO_PERMISSION("Â§cYou don't have permission !"),
 
-	COMMAND_NO_CONSOLE("§cOnly player can use this command."),
+	COMMAND_NO_CONSOLE("Â§cOnly player can use this command."),
 	
-	COMMAND_COOLDOWN("§cYou must wait a few seconds between each command."),
+	COMMAND_COOLDOWN("Â§cYou must wait a few seconds between each command."),
 
-	COMMAND_NO_ARG("§cThis argument does not exist !"),
+	COMMAND_NO_ARG("Â§cThis argument does not exist !"),
 
-	COMMAND_SYNTAXE_HELP("§b» §f%syntaxe% §8- §7%description%"),
+	COMMAND_SYNTAXE_HELP("Â§bÂ§ Â§f%syntaxe% Â§8- Â§7%description%"),
 
-	COMMAND_HELP_CUSTOM("§6• §e/zah sell <args> §7- §fSell cmd...", "§6• §eAnother cmd"),
+	COMMAND_HELP_CUSTOM("Â§6Â§ Â§e/zah sell <args> Â§7- Â§fSell cmd...", "Â§6Â§ Â§eAnother cmd"),
 
 	DESCRIPTION_AUCTION("Opens the auction house"),
 
@@ -86,38 +86,38 @@ public enum Message {
 
 	DESCRIPTION_TRANSACTION("View a player's transactions."),
 
-	COMMAND_RELOAD("§aPlugin successfuly reloaded."),
+	COMMAND_RELOAD("Â§aPlugin successfuly reloaded."),
 
 	COMMAND_SELL_ARGUMENT_PRICE("price"),
 
 	COMMAND_SELL_ARGUMENT_AMOUNT("amount"),
 	
-	COMMAND_SELL_CUSTOM_HELPING("§cYou must execute the command like this§7: §f/hdv vendre §a<price> §b[<amount>]"),
+	COMMAND_SELL_CUSTOM_HELPING("Â§cYou must execute the command like thisÂ§7: Â§f/hdv vendre Â§a<price> Â§b[<amount>]"),
 	
-	COMMAND_OPEN_CUSTOM_HELPING("§cYou must execute the command like this§7: §f/ah"),
+	COMMAND_OPEN_CUSTOM_HELPING("Â§cYou must execute the command like thisÂ§7: Â§f/ah"),
 
-	NO_HOLDING_ITEM("§cAre you stupid ? You can't sell air !"),
+	NO_HOLDING_ITEM("Â§cAre you stupid ? You can't sell air !"),
 
-	PLUGIN_DISABLE("§cThe auction house is currently deactivated."),
+	PLUGIN_DISABLE("Â§cThe auction house is currently deactivated."),
 
-	SELL_COOLDOWN("§cYou must wait §f%time%§c."),
+	SELL_COOLDOWN("Â§cYou must wait Â§f%time%Â§c."),
 
-	SELL_MAX_PRICE("§cYou can't put more than §f%max%§c for the price !"),
-	SELL_MIN_PRICE("§cYou can't put less than §f%min%§c for the price !"),
+	SELL_MAX_PRICE("Â§cYou can't put more than Â§f%max%Â§c for the price !"),
+	SELL_MIN_PRICE("Â§cYou can't put less than Â§f%min%Â§c for the price !"),
 
 	SELL_MESSAGE_DEFAULT(
-			"§fYou just put §ax§f%amount% §7%item% §fon sale for §b%price%%currency%§7."), SELL_MESSAGE_INVENTORY(
-					"§fYou just put §ax§f%amount% §7items §fon sale for §b%price%%currency%§7."),
+			"Â§fYou just put Â§axÂ§f%amount% Â§7%item% Â§fon sale for Â§b%price%%currency%Â§7."), SELL_MESSAGE_INVENTORY(
+					"Â§fYou just put Â§axÂ§f%amount% Â§7items Â§fon sale for Â§b%price%%currency%Â§7."),
 
-	ITEM_PURCHASED("§fYou just purchased §a%item%§f."),
+	ITEM_PURCHASED("Â§fYou just purchased Â§a%item%Â§f."),
 
-	ITEM_REMOVE_ADMIN("§fYou have just deleted the item §a%item%§f."), ITEM_REMOVE_SELLER_GET(
-			"§fAn administrator has just removed §a%item%§f, you can retrieve it from the list of expired items."), ITEM_REMOVE_SELLER_DELETE(
-					"§fAn administrator has just removed §a%item%§f, You cannot retrieve your item."),
+	ITEM_REMOVE_ADMIN("Â§fYou have just deleted the item Â§a%item%Â§f."), ITEM_REMOVE_SELLER_GET(
+			"Â§fAn administrator has just removed Â§a%item%Â§f, you can retrieve it from the list of expired items."), ITEM_REMOVE_SELLER_DELETE(
+					"Â§fAn administrator has just removed Â§a%item%Â§f, You cannot retrieve your item."),
 
-	BUYER_PURCHASED("§a%buyer% §fjust bought §7%item% §ffor §b%price%%currency%§f."),
+	BUYER_PURCHASED("Â§a%buyer% Â§fjust bought Â§7%item% Â§ffor Â§b%price%%currency%Â§f."),
 
-	REMOVE_MESSAGE("§7You just removed this item from the sales !"),
+	REMOVE_MESSAGE("Â§7You just removed this item from the sales !"),
 
 	ASCENDING_PRICE("Ascending price"),
 
@@ -127,125 +127,125 @@ public enum Message {
 
 	DECREASING_PRICE("Decreasing price"),
 
-	ITEM_LORE_DEFAULT("§8§m-+------------------------------+-", "§8[§a!§8] §7%status%", "",
-			"  §f* §fSeller§7: §b%seller%", "  §f* §fPrice§7: §b%price%", "  §f* §fExpire§7: §b%time%",
-			"§8§m-+------------------------------+-"),
+	ITEM_LORE_DEFAULT("Â§8Â§m-+------------------------------+-", "Â§8[Â§a!Â§8] Â§7%status%", "",
+			"  Â§f* Â§fSellerÂ§7: Â§b%seller%", "  Â§f* Â§fPriceÂ§7: Â§b%price%", "  Â§f* Â§fExpireÂ§7: Â§b%time%",
+			"Â§8Â§m-+------------------------------+-"),
 
-	ITEM_LORE_EXPIRE("§8§m-+------------------------------+-", "§8[§a!§8] §7Click to retrieve the item", "",
-			"  §f* §fExpire§7: §b%time%", "§8§m-+------------------------------+-"),
+	ITEM_LORE_EXPIRE("Â§8Â§m-+------------------------------+-", "Â§8[Â§a!Â§8] Â§7Click to retrieve the item", "",
+			"  Â§f* Â§fExpireÂ§7: Â§b%time%", "Â§8Â§m-+------------------------------+-"),
 
-	ITEM_LORE_BUYING("§8§m-+------------------------------+-", "§8[§a!§8] §7Click to retrieve the item", "",
-			"  §f* §fExpire§7: §b%time%", "§8§m-+------------------------------+-"),
+	ITEM_LORE_BUYING("Â§8Â§m-+------------------------------+-", "Â§8[Â§a!Â§8] Â§7Click to retrieve the item", "",
+			"  Â§f* Â§fExpireÂ§7: Â§b%time%", "Â§8Â§m-+------------------------------+-"),
 
-	ITEM_LORE_ITEMS("§8§m-+------------------------------+-", "§8[§a!§8] §7Click to retrieve the item", "",
-			"  §f* §fExpire§7: §b%time%", "§8§m-+------------------------------+-"),
+	ITEM_LORE_ITEMS("Â§8Â§m-+------------------------------+-", "Â§8[Â§a!Â§8] Â§7Click to retrieve the item", "",
+			"  Â§f* Â§fExpireÂ§7: Â§b%time%", "Â§8Â§m-+------------------------------+-"),
 
-	ITEM_LORE_INVENTORY("§8§m-+------------------------------+-", "§8[§a!§8] §7%status%", "",
-			"  §7* §fType§7: §bInventory", "  §7* §fSeller§7: §b%seller%", "  §7* §fPrice§7: §b%price%",
-			"  §7* §fExpire§7: §b%time%", "", "  §f* §7§oRight click to buy", "  §f* §7§oLeft click to see the content",
-			"§8§m-+------------------------------+-"),
+	ITEM_LORE_INVENTORY("Â§8Â§m-+------------------------------+-", "Â§8[Â§a!Â§8] Â§7%status%", "",
+			"  Â§7* Â§fTypeÂ§7: Â§bInventory", "  Â§7* Â§fSellerÂ§7: Â§b%seller%", "  Â§7* Â§fPriceÂ§7: Â§b%price%",
+			"  Â§7* Â§fExpireÂ§7: Â§b%time%", "", "  Â§f* Â§7Â§oRight click to buy", "  Â§f* Â§7Â§oLeft click to see the content",
+			"Â§8Â§m-+------------------------------+-"),
 
 	PRICE_FORMAT_ITEM("%price%%currency%"),
 
 	STATUS_PLAYER("Click to retrieve this item"), STATUS_BUYER("Click to buy this item"),
 
-	NO_MONEY_BUTTON(ItemBuilder.buildNoMoney()),
+	ERROR_BUY("Â§cYou can't buy this item"),
 
-	ERROR_BUY("§cYou can't buy this item"),
+	SELL_CREATIVE_ERROR("Â§cYou can't sell an item in creative mode !"),
 
-	SELL_CREATIVE_ERROR("§cYou can't sell an item in creative mode !"),
+	SELL_ITEM_ERROR("Â§cYou cannot sell this item, it is banned from the plugin."),
 
-	SELL_ITEM_ERROR("§cYou cannot sell this item, it is banned from the plugin."),
+	SELL_ITEM_BREAK("Â§cYou cannot sell a broken item."),
 
-	SELL_ITEM_BREAK("§cYou cannot sell a broken item."),
+	SELL_WORLD_ERROR("Â§cYou cannot sell in this world"),
 
-	SELL_WORLD_ERROR("§cYou cannot sell in this world"),
-
-	SELL_ITEM_TAX_DEFAULT("§cYou need §f%tax%%currency% §cto be able to sell this item."),
+	SELL_ITEM_TAX_DEFAULT("Â§cYou need Â§f%tax%%currency% Â§cto be able to sell this item."),
 
 	SELL_ITEMS_ERROR(
-			"§cYou cannot sell more than §f%max% §citems. §8(§7Did you set the §fzauctionhouse.max.<number permission in the configuration file> §7?§8)"),
+			"Â§cYou cannot sell more than Â§f%max% Â§citems. Â§8(Â§7Did you set the Â§fzauctionhouse.max.<number permission in the configuration file> Â§7?Â§8)"),
 	
-	SELL_ITEM_WHITELIST("§cYou do not have permission to add this item."),
+	SELL_ITEM_WHITELIST("Â§cYou do not have permission to add this item."),
 
-	BROADCAST_SELL_ANNONCE("§fPlayer §b%player% §fhas added §7%item% §ffor §d%price%§o%currency% §fto the auction!"),
+	BROADCAST_SELL_ANNONCE("Â§fPlayer Â§b%player% Â§fhas added Â§7%item% Â§ffor Â§d%price%Â§o%currency% Â§fto the auction!"),
 
 	BROADCAST_BUY_ANNONCE(
-			"§fPlayer §b%player% §fhas just bought §7%item% §ffor §d%price%§o%currency% §fto the auction!"),
+			"Â§fPlayer Â§b%player% Â§fhas just bought Â§7%item% Â§ffor Â§d%price%Â§o%currency% Â§fto the auction!"),
 
-	NO_ENOUGHT_MONEY("§cYou don't have enough money to buy this !"),
+	NO_ENOUGHT_MONEY("Â§cYou don't have enough money to buy this !"),
 	
-	NO_ENOUGHT_PLACE("§cYou don't have enough room in your inventory to buy this item."),
+	NO_ENOUGHT_PLACE("Â§cYou don't have enough room in your inventory to buy this item."),
 
-	PLUGIN_NOT_READY("§cThe plugin has not finished to be initialized, please be patient..."),
-	PLUGIN_NOT_READY_HDB("§cThe §fHeadDataBase §cplugin is not yet active, the plugin inventories have not yet loaded, please wait until HDB is working."),
+	PLUGIN_NOT_READY("Â§cThe plugin has not finished to be initialized, please be patient..."),
+	PLUGIN_NOT_READY_HDB("Â§cThe Â§fHeadDataBase Â§cplugin is not yet active, the plugin inventories have not yet loaded, please wait until HDB is working."),
 
-	WORLD_IS_BANNED("§cYou can't use the auction house here."),
+	WORLD_IS_BANNED("Â§cYou can't use the auction house here."),
 
-	INVENTORY_FULL("§cYour inventory is full."),
+	INVENTORY_FULL("Â§cYour inventory is full."),
 
-	COMMAND_IS_DISABLE("§cThe command is disabled."),
+	COMMAND_IS_DISABLE("Â§cThe command is disabled."),
 
-	BLACKLIST_INFORMATION("§cYou are blacklisted, you cannot use the auction house."),
+	BLACKLIST_INFORMATION("Â§cYou are blacklisted, you cannot use the auction house."),
 
-	BLACKLIST_LIST("§7List of blacklis playerst§8: §f%players%"),
+	BLACKLIST_LIST("Â§7List of blacklis playerstÂ§8: Â§f%players%"),
 
-	BLACKLIST_EMPTY("§cNo blacklist players"),
+	BLACKLIST_EMPTY("Â§cNo blacklist players"),
 
-	BLACKLIST_ADD("§7You have just added the player §f%player% §7 to the blacklist."),
+	BLACKLIST_ADD("Â§7You have just added the player Â§f%player% Â§7 to the blacklist."),
 
-	BLACKLIST_REMOVE("§7You come to remove the player §f%player% §7 from the blacklist."),
+	BLACKLIST_REMOVE("Â§7You come to remove the player Â§f%player% Â§7 from the blacklist."),
 
-	TRANSACTION_EMPTY_PURCHASE("§cYou have not made any purchase transactions."),
+	TRANSACTION_EMPTY_PURCHASE("Â§cYou have not made any purchase transactions."),
 
-	TRANSACTION_EMPTY_SALE("§cYou have not made any sales transactions."),
+	TRANSACTION_EMPTY_SALE("Â§cYou have not made any sales transactions."),
 
-	TRANSACTION_EMPTY_BOTH("§cYou have not made any transactions."),
+	TRANSACTION_EMPTY_BOTH("Â§cYou have not made any transactions."),
 
-	TRANSACTION_MESSAGE_LIST("§8(§bzAuctionHouse§8) §fTransactions §7%type% §8(§a%page%§8/§a%maxPage%§8)", "%content%",
-			"§8(§b?§8) §7§oDo §f§o/ah history %nextPage% %type% §7§oto go to the next page."),
+	TRANSACTION_MESSAGE_LIST("Â§8(Â§bzAuctionHouseÂ§8) Â§fTransactions Â§7%type% Â§8(Â§a%page%Â§8/Â§a%maxPage%Â§8)", "%content%",
+			"Â§8(Â§b?Â§8) Â§7Â§oDo Â§fÂ§o/ah history %nextPage% %type% Â§7Â§oto go to the next page."),
 
 	TRANSACTION_MESSAGE_SHOW(
-			"§8(§bzAuctionHouse§8) §fTransactions §7%type% §fof §b%player% §8(§a%page%§8/§a%maxPage%§8)", "%content%",
-			"§8(§b?§8) §7§oDo §f§o/ah transaction %player% %nextPage% %type% §7§oto go to the next page."),
+			"Â§8(Â§bzAuctionHouseÂ§8) Â§fTransactions Â§7%type% Â§fof Â§b%player% Â§8(Â§a%page%Â§8/Â§a%maxPage%Â§8)", "%content%",
+			"Â§8(Â§b?Â§8) Â§7Â§oDo Â§fÂ§o/ah transaction %player% %nextPage% %type% Â§7Â§oto go to the next page."),
 
 	TRANSACTION_MESSAGE_CONTENT_SALE(
-			"§f%seller% have sold x§a%amount% §o%item% §fto the player §b%buyer% for §7%price%%currency% §8(§7%date%§8)"),
+			"Â§f%seller% have sold xÂ§a%amount% Â§o%item% Â§fto the player Â§b%buyer% for Â§7%price%%currency% Â§8(Â§7%date%Â§8)"),
 
 	TRANSACTION_MESSAGE_CONTENT_PURCHASE(
-			"§f%buyer% have purchased x§a%amount% §o%item% §fto the player §b%seller% for §7%price%%currency% §8(§7%date%§8)"),
+			"Â§f%buyer% have purchased xÂ§a%amount% Â§o%item% Â§fto the player Â§b%seller% for Â§7%price%%currency% Â§8(Â§7%date%Â§8)"),
 
 	TRANSACTION_MESSAGE_CONTENT_YOU("You"),
 
-	CONNECT_CLAIM("§aYou have money to recover, make §b/ah claim §ato recover for your money."), CONNECT_TRANSACTIONS(
-			"§aYou sold %item% item(s) during your absence."),
+	CONNECT_CLAIM("Â§aYou have money to recover, make Â§b/ah claim Â§ato recover for your money."), CONNECT_TRANSACTIONS(
+			"Â§aYou sold %item% item(s) during your absence."),
 
-	ITEM_ECONOMY_FULL("§7You have a full inventory, your items are gone in the inventory of expired items."),
+	ITEM_ECONOMY_FULL("Â§7You have a full inventory, your items are gone in the inventory of expired items."),
 
-	CLAIM_MONEY_WAIT("§7Wait few seconds..."), 
-	CLAIM_MONEY_COOLDOWN("§cYou have to wait a few minutes before you can do this command again."),
+	CLAIM_MONEY_WAIT("Â§7Wait few seconds..."), 
+	CLAIM_MONEY_COOLDOWN("Â§cYou have to wait a few minutes before you can do this command again."),
 	
-	CLAIM_MONEY_CRASH("§7Unable to retrieve transactions at this time, please contact an administrator."), 
-	CLAIM_MONEY_ERROR("§cYou have no pending transactions."), 
+	CLAIM_MONEY_CRASH("Â§7Unable to retrieve transactions at this time, please contact an administrator."), 
+	CLAIM_MONEY_ERROR("Â§cYou have no pending transactions."), 
 	CLAIM_MONEY_SUCCESS(
-			"§aYou just got your money back on hold."),
+			"Â§aYou just got your money back on hold."),
 
-	SELL_INVENTORY_ERROR("§cYou did not put any item, sale canceled."),
+	SELL_INVENTORY_ERROR("Â§cYou did not put any item, sale canceled."),
 
-	SELL_INVENTORY_ITEM(new ItemBuilder(Material.CHEST, "§7Sale of inventory").build()),
+	SELL_INVENTORY_ITEM(new ItemBuilder(Material.CHEST, "Â§7Sale of inventory").build()),
 
-	COOLDOWN_MESSAGE(MessageType.ACTION, " §cYou must wait §f%cooldown% §cbefore you can do this action."),
+	COOLDOWN_MESSAGE(MessageType.ACTION, " Â§cYou must wait Â§f%cooldown% Â§cbefore you can do this action."),
 
-	PURGE_START("§aPurge start. §8(§7Wait few seconds§8)"),
-	PURGE_END("§aThe purge of transactions is over."), 
+	PURGE_START("Â§aPurge start. Â§8(Â§7Wait few secondsÂ§8)"),
+	PURGE_END("Â§aThe purge of transactions is over."), 
 	
-	CLICK_COOLDOWN(MessageType.ACTION, "§cYou must wait before you can perform this action."),
+	CLICK_COOLDOWN(MessageType.ACTION, "Â§cYou must wait before you can perform this action."),
 	
-	FORCE_OPEN("§aYou have just opened the auction house for the player §f%player%§a."),
+	FORCE_OPEN("Â§aYou have just opened the auction house for the player Â§f%player%Â§a."),
 	
 	PRIORITY("No priority"), 
 	
-	ECONOMY_NOT_FOUND("§cImpossible de trouver l'économy avec le nom §f%name%§c."),
+	ECONOMY_NOT_FOUND("Â§cImpossible de trouver l'Â§conomy avec le nom Â§f%name%Â§c."),
+	
+	DUPE_INFO("Â§aThe player Â§f%player% Â§ahas just put on sale and removed 3 items in less than 60 seconds !"),
 	
 	;
 

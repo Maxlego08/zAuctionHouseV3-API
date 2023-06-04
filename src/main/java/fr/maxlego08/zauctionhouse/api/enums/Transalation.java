@@ -2,7 +2,7 @@ package fr.maxlego08.zauctionhouse.api.enums;
 
 public enum Transalation {
 
-	FR("Français", "https://groupez.xyz/resources/22")
+	FR("FranÃ§ais", "https://groupez.xyz/resources/22")
 	
 	;
 

@@ -36,8 +36,8 @@ public class Config implements Saveable {
 	public static boolean disableCommands = false;
 	public static boolean enableAutoUpdate = false;
 	public static boolean enableClaimMoney = false;
-	public static boolean enableClaimMoneyMessageOnJoin = true;
-	public static boolean enableTransactionMessageOnJoin = true;
+	public static boolean enableClaimMoneyMessageOnJoin = false;
+	public static boolean enableTransactionMessageOnJoin = false;
 	public static boolean needPriceForSellInventory = true;
 
 	public static boolean enableDebugMode = false;
@@ -91,7 +91,7 @@ public class Config implements Saveable {
 
 	/* Integer */
 
-	public static long removeTransactionAfterSeconds = 86400 * 15;
+	public static long removeTransactionAfterSeconds = 86400 * 7;
 
 	public static long maxPrice = 999999999999999999l;
 	public static long minPrice = 10l;
@@ -128,7 +128,7 @@ public class Config implements Saveable {
 
 	public static String currencyVault = "$";
 	public static String currencyLevel = "L";
-	public static String currencyPlayerPoint = "£";
+	public static String currencyPlayerPoint = "â‚¬";
 	public static String currencyTokenManager = "T";
 	public static String currencyMySQLToken = "MT";
 	public static String currencyItem1 = "gold nuggets";
@@ -158,7 +158,6 @@ public class Config implements Saveable {
 	public static boolean enableDebugCustomItemModeOnlyForDevDontUseThat = false;
 	public static boolean enableCooldownClick = false;
 	public static long cooldownClickMilliseconds = 500;
-
 	public static String numberFormatThousand = "k ";
 	public static String numberFormatMillion = "m ";
 	public static String numberFormatBillion = "M ";
@@ -178,15 +177,12 @@ public class Config implements Saveable {
 	public static long commandCooldownMilliSeconds = 5000;
 	public static boolean enableCooldownCommand = true;
 	public static boolean enableAntiDupeListener = true;
+	public static boolean categoryCheckOnlyMaterial = true;
+	public static long tickBeforeSellingItems = 1;
+	public static String permissionDupeInformation = "zauctionhouse.dupe.informations";
 	
-	static {
-
-		numberFormatSells.add(new NumberFormatSell("k", 1000));
-		numberFormatSells.add(new NumberFormatSell("m", 1000000));
-		numberFormatSells.add(new NumberFormatSell("B", 1000000000));
-		numberFormatSells.add(new NumberFormatSell("T", 1000000000000l));
-		
-	}
+	public static boolean enableAntiDureMessageOnDiscord = false;
+	public static String antiDupeMessageDiscordWebhook = "https://discord.com/api/webhooks/xxxxx/xxxxxxxxxxxx";
 
 	public void save(Persist persist) {
 		persist.save(this);

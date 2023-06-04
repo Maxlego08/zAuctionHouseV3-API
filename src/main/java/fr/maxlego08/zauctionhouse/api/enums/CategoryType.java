@@ -5,5 +5,6 @@ public enum CategoryType {
 	NAME,
 	LORE,
 	MATERIAL,
+	MODELID,
 	
 }

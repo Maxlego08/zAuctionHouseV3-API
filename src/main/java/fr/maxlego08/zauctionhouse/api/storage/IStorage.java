@@ -120,4 +120,6 @@ public interface IStorage {
 	 */
 	boolean isCooldown(UUID uniqueId);
 
+	boolean uuidExist(UUID uuid);
+
 }
