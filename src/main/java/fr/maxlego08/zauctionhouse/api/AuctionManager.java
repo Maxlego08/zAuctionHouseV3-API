@@ -121,14 +121,14 @@ public interface AuctionManager {
 	 * @param player
 	 * @return max item player can sell
 	 */
-	int getMaxSellPerPermission(Permissible player);
+	 long getMaxSellPerPermission(Permissible player);
 	
 	/**
 	 * 
 	 * @param player
 	 * @return expiration
 	 */
-	int getExpirationPerPermission(Permissible player);
+	 long getExpirationPerPermission(Permissible player);
 
 	/**
 	 * 

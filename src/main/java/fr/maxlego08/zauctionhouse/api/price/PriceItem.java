@@ -5,23 +5,33 @@ import org.bukkit.inventory.ItemStack;
 public interface PriceItem {
 
 	/**
+	 * Get the min price for this item
 	 * 
-	 * @return
-	 */
-	ItemStack getItemStack();
-
-	/**
-	 * 
-	 * @return
+	 * @return min price
 	 */
 	long getMinPrice();
 
 	/**
+	 * Get the max price for this item
 	 * 
-	 * @return
+	 * @return max price
 	 */
 	long getMaxPrice();
 	
-	boolean onlyMaterial();
+	/**
+	 * Check if an ItemStack is similar or not
+	 * 
+	 * @param itemStack
+	 * @return boolean
+	 */
+	boolean isSimilar(ItemStack itemStack);
+	
+	/**
+	 * 
+	 * @return name
+	 */
+	String getName();
+	
+	
 
 }
