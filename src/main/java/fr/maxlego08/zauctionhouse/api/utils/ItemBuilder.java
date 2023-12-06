@@ -12,7 +12,6 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-
 /**
  * 
  * @author Maxlego08
@@ -344,6 +343,10 @@ public class ItemBuilder implements Cloneable {
 	 */
 	public Map<Enchantment, Integer> getEnchantments() {
 		return enchantments;
+	}
+
+	public static ItemStack buildNoMoney() {
+		return null;
 	}
 
 }

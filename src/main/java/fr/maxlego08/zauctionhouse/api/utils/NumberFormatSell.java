@@ -1,5 +1,7 @@
 package fr.maxlego08.zauctionhouse.api.utils;
 
+import java.util.Map;
+
 public class NumberFormatSell {
 
 	private final String format;
@@ -13,6 +15,14 @@ public class NumberFormatSell {
 		super();
 		this.format = format;
 		this.multiplicator = multiplicator;
+	}
+
+	/**
+	 * @param format
+	 * @param multiplicator
+	 */
+	public NumberFormatSell(Map<String, Object> map) {
+		this((String) map.get("format"), ((Number) map.get("multiplication")).longValue());
 	}
 
 	/**

@@ -5,12 +5,14 @@ import org.bukkit.inventory.ItemStack;
 
 import fr.maxlego08.zauctionhouse.api.enums.CategoryType;
 
+@SuppressWarnings("unused")
 public class MaterialData {
 
 	private final String name;
 	private final Material material;
 	private final CategoryType type;
 	private int data;
+	private int modelId = 0;
 
 	/**
 	 * @param material
@@ -25,21 +27,32 @@ public class MaterialData {
 	}
 
 	public MaterialData(String string) {
+
 		if (string.startsWith("name")) {
+
 			this.type = CategoryType.NAME;
-			this.name = (string.substring(5));
+			this.name = string.substring(5);
 			this.material = null;
+
 		} else if (string.startsWith("lore")) {
+
 			this.type = CategoryType.LORE;
-			this.name = (string.substring(5));
+			this.name = string.substring(5);
 			this.material = null;
+
+		} else if (string.startsWith("modelid")) {
+
+			this.type = CategoryType.MODELID;
+			this.name = null;
+			this.material = null;
+			this.modelId = Integer.valueOf(string.substring(8));
 
 		} else if (string.startsWith("material")) {
 
 			this.type = CategoryType.MATERIAL;
 			String currentName = string.substring(9);
 			String[] splid = currentName.split(";");
-			this.name = (splid[0]);
+			this.name = splid[0];
 			this.material = Material.valueOf(splid[1].toUpperCase());
 			try {
 				this.data = Integer.valueOf(splid[2]);
@@ -82,14 +95,12 @@ public class MaterialData {
 		return data;
 	}
 
-	public String name() {
-		if (data == 0)
-			return material.name();
-		return material.name() + ";" + data;
+	public String name() {		
+		return this.material.name() + ";" + this.data;
 	}
 
 	public boolean same(ItemStack itemStack) {
-		return true;
+		return false;
 	}
 
 }

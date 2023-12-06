@@ -1,7 +1,6 @@
 package fr.maxlego08.zauctionhouse.api.inventory;
 
 import java.util.List;
-import java.util.Map;
 
 import org.bukkit.entity.Player;
 
@@ -84,16 +83,5 @@ public interface Inventory {
 	 * @return
 	 */
 	public int getAuctionPageSize();
-
-	/**
-	 * 
-	 * @return
-	 */
-	public Map<Integer, PlaceholderButton> getRenderButtons();
-	
-	/**
-	 * 
-	 */
-	public void renderPermanentButtons();
 	
 }

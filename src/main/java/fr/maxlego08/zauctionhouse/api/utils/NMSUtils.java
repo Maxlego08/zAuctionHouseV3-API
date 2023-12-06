@@ -9,7 +9,7 @@ public interface NMSUtils {
 
 	boolean isUnbreakable(ItemStack itemStack);
 
-	static NMSUtils create() {
+	static NMSUtils create() {	
 		return new NMSUtils() {
 
 			@Override

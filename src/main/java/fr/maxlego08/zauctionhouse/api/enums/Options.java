@@ -10,6 +10,7 @@ import fr.maxlego08.zauctionhouse.api.utils.Config;
 public enum Options {
 
 	ENABLE_DEBUG_MODE("enableDebugMode", "Enables the debug mode of the plugin.", "You will thus be able to obtain information", "in your console."),
+	ENABLE_DEBUG_MODE_TIME("enableDebugModeTime", "Enables time debugs, is used to measure plugin performance"),
 	
 	USE_SELL_COOLDOWN("useSellCooldown", "Added a cooldown on the command /ah sell"),
 
@@ -76,8 +77,6 @@ public enum Options {
 	
 	SEND_ITEM_PURCHASE_INVENTORY_IF_IS_FULL("sendItemToPurchaseInventoryIfIsFull", "Allows to send an item to the inventory of", "purchased items if at the time of purchase the user", "is full and you have activated", "the option giveItemAfterPurchase."),
 	
-	ENABLE_INVENTORY_PRE_RENDER("enableInventoryPreRender", "Allows you to make items that are permanent."),
-	
 	ENABLE_COMMAND_INVENTORIES("enableCommandInventories", "Enable commands /ah items, /ah category, /ah selling and /ah buying"),
 	
 	ENABLE_OPEN_SYNC_INVENTORY("enableOpenSyncInventory", "Allows to open the inventory with the items in a synchronized way"),
@@ -104,7 +103,21 @@ public enum Options {
 	ENABLE_ADD_ITEMFLAG("enableAddItemFlagToAuctionItem", "Add itemflag for auction item"),
 	
 	ENABLE_LOG_FILE_INFORMATIONS("enableLogFileSaveInformations", "Add log when file is saving"),
-
+	
+	DISABLE_SALE_IF_PLAYER_IS_LAGGING("disableSaleIfPlayerIsLagging", "Disable the sale if the player has too high ping"),
+	DISABLE_SALE_IF_SERVER_IS_LAGGING("disableSaleIfServerIsLagging", "Disables the sale if the server does not have enough tps"),
+	
+	ENABLE_SHULKER_PACKS("enableShulkerPacks", "Enable the shulkerpack plugin"),
+	
+	ENABLE_ANTI_DUPE_MESSAGE("enableAntiDureMessageOnDiscord", "Enable the anti dupe message"),
+	ENABLE_ANTI_DUPE_LISTENER("enableAntiDupeListener", "Enable the anti dupe listener", "Need restart on change"),
+	
+	ENABLE_TAB_BYPASS_PERMISSION("enableTaxByPassPermission", "Enable tax bypass permission"),
+	ENABLE_PAPI_IN_AUCTION_ITEM_LORE("enablePapiInAuctionItemLore", "Enable the use of PlaceholderAPI in the item lore.", "Disable the option to gain performance"),
+	
+	ENABLE_PRIORITY_SORT("enablePrioritySort", "Activates the priority system"),
+	ENABLE_PRIORITY_SORT_LIMIT("enablePrioritySortLimit", "Activates the priority limit, so all priority items will not be displayed"),
+	ENABLE_PERMISSION_FOR_SELLING("enablePermissionForSellingTime", "Enables expiration time by permissions"),
 	;
 
 	private final String fieldName;
@@ -148,12 +161,7 @@ public enum Options {
 		try {
 			Class<Config> classz = Config.class;
 			Field field = classz.getDeclaredField(fieldName);
-			field.set(classz, !(Boolean) field.get(classz));
-			
-			
-			if (this.isToggle() && this == ENABLE_INVENTORY_PRE_RENDER){
-				
-			}
+			field.set(classz, !(Boolean) field.get(classz));					
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();

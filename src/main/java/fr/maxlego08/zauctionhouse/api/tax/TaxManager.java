@@ -2,6 +2,7 @@ package fr.maxlego08.zauctionhouse.api.tax;
 
 import java.util.Optional;
 
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import fr.maxlego08.zauctionhouse.api.storage.Saveable;
@@ -22,7 +23,7 @@ public interface TaxManager extends Saveable{
 	 * @param type
 	 * @return
 	 */
-	double getTax(long price, ItemStack itemStack, TaxType type);
+	double getTax(Player player, long price, ItemStack itemStack, TaxType type);
 	
 	double reverceTax(long price, ItemStack itemStack);
 	

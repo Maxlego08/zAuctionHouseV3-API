@@ -52,12 +52,12 @@ public interface AuctionEconomy {
 	 */
 	String getFormat();
 	
-	/**
-	 * Check if economy is enable
-	 * 
-	 * @return boolean
-	 */
-	boolean isEnable();
+    /**
+     * Message sent when the player does not have enough money
+     *
+     * @return message
+     */
+    String getDenyMessage();
 	
 	/**
 	 * Get economy name
@@ -65,5 +65,9 @@ public interface AuctionEconomy {
 	 * @return string
 	 */
 	String getName();
+	
+    default String format(String priceAsString, long amount) {
+        return getCurrency().replace("%price%", priceAsString).replace("%s%", amount > 1 ? "s" : "");
+    }   
 	
 }

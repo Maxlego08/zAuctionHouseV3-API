@@ -1,6 +1,5 @@
 package fr.maxlego08.zauctionhouse.api;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -87,8 +86,8 @@ public interface AuctionManager {
 	 * @param the
 	 *            number of items offered for sale
 	 */
-	void sellItem(AuctionItem auctionItem, ItemStack itemStack, Player player, long price, AuctionEconomy economy, int amount,
-			AuctionType type);
+	void sellItem(AuctionItem auctionItem, ItemStack itemStack, Player player, long price, AuctionEconomy economy,
+			int amount, AuctionType type);
 
 	/**
 	 * 
@@ -121,14 +120,14 @@ public interface AuctionManager {
 	 * @param player
 	 * @return max item player can sell
 	 */
-	 long getMaxSellPerPermission(Permissible player);
-	
+	long getMaxSellPerPermission(Permissible player);
+
 	/**
 	 * 
 	 * @param player
 	 * @return expiration
 	 */
-	 long getExpirationPerPermission(Permissible player);
+	long getExpirationPerPermission(Permissible player);
 
 	/**
 	 * 
@@ -256,7 +255,7 @@ public interface AuctionManager {
 	/**
 	 * 
 	 * @param player
-	 * @param string 
+	 * @param string
 	 */
 	void openConfiguration(Player player, String string);
 
@@ -280,14 +279,6 @@ public interface AuctionManager {
 	 * @param inventory
 	 */
 	void createSellInventory(Player player, long price, AuctionEconomy economy, Command command);
-
-	/**
-	 * Get blacklist items
-	 * 
-	 * @deprecated
-	 * @return empty collection
-	 */
-	Collection<ItemStack> getBannedItems();
 
 	/**
 	 * Remove item as admin
@@ -365,7 +356,7 @@ public interface AuctionManager {
 	 * @return optional
 	 */
 	Optional<Priority> getPriority(Permissible permissible);
-	
+
 	/**
 	 * Get priority
 	 * 
@@ -373,30 +364,11 @@ public interface AuctionManager {
 	 * @return optional
 	 */
 	Optional<Priority> getPriority(int priority);
-	
-	
-	/**
-	 * Register economy
-	 * 
-	 * @param auctionEconomy
-	 */
-	void registerEconomy(AuctionEconomy auctionEconomy);
-	
-	/**
-	 * Get economy by name
-	 * 
-	 * @param economyName
-	 * @return optional
-	 */
-	Optional<AuctionEconomy> getEconomy(String economyName);
-	
-	/**
-	 * Retrieve the list of economy
-	 * 
-	 * @return economies
-	 */
-	List<AuctionEconomy> getEconomies();
 
+	/**
+	 * 
+	 * @return uuid
+	 */
 	UUID getRandomUniqueId();
 
 }

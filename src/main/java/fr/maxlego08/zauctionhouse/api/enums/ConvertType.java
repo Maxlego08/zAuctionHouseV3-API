@@ -13,6 +13,8 @@ public enum ConvertType {
 	DATABASETOJSON("https://groupez.dev/resources/1"),
 	
 	JSONTODATABASE("https://groupez.dev/resources/1"),
+	
+	ZMENU("https://groupez.dev/resources/253"),
 
 	;
 

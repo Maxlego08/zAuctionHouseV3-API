@@ -4,11 +4,11 @@ public enum Sorting {
 
 	ASCENDING_PRICE(), 
 	
-	DECRASING_PRICE(), 
+	DECREASING_PRICE(), 
 	
 	ASCENDING_DATE(), 
 
-	DECRASING_DATE(),
+	DECREASING_DATE(),
 
 	;
 
@@ -24,9 +24,9 @@ public enum Sorting {
 			return Message.ASCENDING_DATE.getMessage();
 		case ASCENDING_PRICE:
 			return Message.ASCENDING_PRICE.getMessage();
-		case DECRASING_DATE:
+		case DECREASING_DATE:
 			return Message.DECREASING_DATE.getMessage();
-		case DECRASING_PRICE:
+		case DECREASING_PRICE:
 			return Message.DECREASING_PRICE.getMessage();
 		default:
 			return "";
@@ -38,13 +38,13 @@ public enum Sorting {
 		case ASCENDING_DATE:
 			return Sorting.ASCENDING_PRICE;
 		case ASCENDING_PRICE:
-			return Sorting.DECRASING_DATE;
-		case DECRASING_DATE:
-			return Sorting.DECRASING_PRICE;
-		case DECRASING_PRICE:
+			return Sorting.DECREASING_DATE;
+		case DECREASING_DATE:
+			return Sorting.DECREASING_PRICE;
+		case DECREASING_PRICE:
 			return Sorting.ASCENDING_DATE;
 		}
-		return Sorting.DECRASING_PRICE;
+		return Sorting.DECREASING_PRICE;
 	}
 	
 }

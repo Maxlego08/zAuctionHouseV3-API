@@ -13,7 +13,7 @@ import fr.maxlego08.zauctionhouse.api.utils.ItemBuilder;
 
 public enum Message {
 
-	PREFIX("§8(§bzAuctionHouse§8) "),
+	PREFIX("§8(§bzAuctionHouse§8) ", "#666666(#28ed91zAuctionhouse#666666) "),
 
 	PREFIX_END("§8(§bzAuctionHouse§8)", false),
 
@@ -36,7 +36,7 @@ public enum Message {
 	COMMAND_NO_PERMISSION("§cYou don't have permission !"),
 
 	COMMAND_NO_CONSOLE("§cOnly player can use this command."),
-	
+
 	COMMAND_COOLDOWN("§cYou must wait a few seconds between each command."),
 
 	COMMAND_NO_ARG("§cThis argument does not exist !"),
@@ -47,9 +47,13 @@ public enum Message {
 
 	DESCRIPTION_AUCTION("Opens the auction house"),
 
-	DESCRIPTION_SUB_ITEMS("Opens the items inventory"), DESCRIPTION_SUB_CATEGORIES(
-			"Opens the categories inventory"), DESCRIPTION_SUB_BUYING(
-					"Opens the buying inventory"), DESCRIPTION_SUB_EXPIRE("Opens the expire inventory"),
+	DESCRIPTION_SUB_ITEMS("Opens the items inventory"), 
+	
+	DESCRIPTION_SUB_CATEGORIES("Opens the categories inventory"),
+	
+	DESCRIPTION_SUB_BUYING("Opens the buying inventory"),
+	
+	DESCRIPTION_SUB_EXPIRE("Opens the expire inventory"),
 
 	DESCRIPTION_BLACKLIST_LIST("See the blacklist players."),
 
@@ -57,9 +61,8 @@ public enum Message {
 
 	DESCRIPTION_BLACKLIST_REMOVE("Remove a player from the blacklist"),
 
-	DESCRIPTION_VERSION("Show plugin version"),
-	DESCRIPTION_OPEN("Open auction to a player"),
-	
+	DESCRIPTION_VERSION("Show plugin version"), DESCRIPTION_OPEN("Open auction to a player"),
+
 	DESCRIPTION_PURGE("Remove old transaction"),
 
 	DESCRIPTION_RELOAD("Reload plugin"),
@@ -73,7 +76,7 @@ public enum Message {
 	DESCRIPTION_CONFIG("Config plugin ingame"),
 
 	DESCRIPTION_CLAIM("Claim your money"),
-	
+
 	DESCRIPTION_ADDON("Show addon list"),
 
 	DESCRIPTION_SEARCH("Search a item"),
@@ -91,33 +94,40 @@ public enum Message {
 	COMMAND_SELL_ARGUMENT_PRICE("price"),
 
 	COMMAND_SELL_ARGUMENT_AMOUNT("amount"),
-	
+
 	COMMAND_SELL_CUSTOM_HELPING("§cYou must execute the command like this§7: §f/hdv vendre §a<price> §b[<amount>]"),
-	
+
 	COMMAND_OPEN_CUSTOM_HELPING("§cYou must execute the command like this§7: §f/ah"),
 
 	NO_HOLDING_ITEM("§cAre you stupid ? You can't sell air !"),
+
+	PLAYER_LAG_PING(
+			"§cYou cannot sell items at this time. (its disableSaleIfPlayerIsLagging in config.json)"), PLAYER_LAG_TPS(
+					"§cYou cannot sell items at this time. (its disableSaleIfServerIsLagging in config.json)"),
 
 	PLUGIN_DISABLE("§cThe auction house is currently deactivated."),
 
 	SELL_COOLDOWN("§cYou must wait §f%time%§c."),
 
-	SELL_MAX_PRICE("§cYou can't put more than §f%max%§c for the price !"),
-	SELL_MIN_PRICE("§cYou can't put less than §f%min%§c for the price !"),
+	SELL_MAX_PRICE("§cYou can't put more than §f%max%§c for the price !"), SELL_MIN_PRICE(
+			"§cYou can't put less than §f%min%§c for the price !"),
 
-	SELL_MESSAGE_DEFAULT(
-			"§fYou just put §ax§f%amount% §7%item% §fon sale for §b%price%%currency%§7."), SELL_MESSAGE_INVENTORY(
-					"§fYou just put §ax§f%amount% §7items §fon sale for §b%price%%currency%§7."),
+	SELL_MESSAGE_DEFAULT("§fYou just put §ax§f%amount% §7%item% §fon sale for §b%price%§7.", "&fYou just put #8ee6e3x%amount% &7%item% &fon sale for #8ee6e3%price%&f."),
+
+	SELL_MESSAGE_INVENTORY("§fYou just put §ax§f%amount% §7items §fon sale for §b%price%§7.", "&fYou just put #8ee6e3%amount% &7items &fon sale for #8ee6e3%price%&f."),
 
 	ITEM_PURCHASED("§fYou just purchased §a%item%§f."),
 
-	ITEM_REMOVE_ADMIN("§fYou have just deleted the item §a%item%§f."), ITEM_REMOVE_SELLER_GET(
-			"§fAn administrator has just removed §a%item%§f, you can retrieve it from the list of expired items."), ITEM_REMOVE_SELLER_DELETE(
-					"§fAn administrator has just removed §a%item%§f, You cannot retrieve your item."),
+	ITEM_REMOVE_ADMIN("§fYou have just deleted the item §a%item%§f."),
 
-	BUYER_PURCHASED("§a%buyer% §fjust bought §7%item% §ffor §b%price%%currency%§f."),
+	ITEM_REMOVE_SELLER_GET(
+			"§fAn administrator has just removed §a%item%§f, you can retrieve it from the list of expired items."),
 
-	REMOVE_MESSAGE("§7You just removed this item from the sales !"),
+	ITEM_REMOVE_SELLER_DELETE("§fAn administrator has just removed §a%item%§f, You cannot retrieve your item."),
+
+	BUYER_PURCHASED("§a%buyer% §fjust bought §7%item% §ffor §b%price%§f."),
+
+	REMOVE_MESSAGE("§7You just removed this item from the sales !", "&fYou just removed #8ee6e3x%amount% &7%item% &ffrom the sales."),
 
 	ASCENDING_PRICE("Ascending price"),
 
@@ -145,11 +155,11 @@ public enum Message {
 			"  §7* §fExpire§7: §b%time%", "", "  §f* §7§oRight click to buy", "  §f* §7§oLeft click to see the content",
 			"§8§m-+------------------------------+-"),
 
-	PRICE_FORMAT_ITEM("%price%%currency%"),
-
 	STATUS_PLAYER("Click to retrieve this item"), STATUS_BUYER("Click to buy this item"),
 
-	ERROR_BUY("§cYou can't buy this item"),
+	NO_MONEY_BUTTON(ItemBuilder.buildNoMoney()),
+
+	ERROR_BUY_ERROR("§cYou can't buy this item."), ERROR_BUY_MONEY("§cYou don’t have enough money to buy this."),
 
 	SELL_CREATIVE_ERROR("§cYou can't sell an item in creative mode !"),
 
@@ -159,24 +169,23 @@ public enum Message {
 
 	SELL_WORLD_ERROR("§cYou cannot sell in this world"),
 
-	SELL_ITEM_TAX_DEFAULT("§cYou need §f%tax%%currency% §cto be able to sell this item."),
+	SELL_ITEM_TAX_DEFAULT("§cYou need §f%tax% §cto be able to sell this item."),
 
 	SELL_ITEMS_ERROR(
 			"§cYou cannot sell more than §f%max% §citems. §8(§7Did you set the §fzauctionhouse.max.<number permission in the configuration file> §7?§8)"),
-	
+
 	SELL_ITEM_WHITELIST("§cYou do not have permission to add this item."),
 
-	BROADCAST_SELL_ANNONCE("§fPlayer §b%player% §fhas added §7%item% §ffor §d%price%§o%currency% §fto the auction!"),
+	BROADCAST_SELL_ANNONCE("§fPlayer §b%player% §fhas added §7%item% §ffor §d%price% §fto the auction!"),
 
-	BROADCAST_BUY_ANNONCE(
-			"§fPlayer §b%player% §fhas just bought §7%item% §ffor §d%price%§o%currency% §fto the auction!"),
+	BROADCAST_BUY_ANNONCE("§fPlayer §b%player% §fhas just bought §7%item% §ffor §d%price% §fto the auction!"),
 
 	NO_ENOUGHT_MONEY("§cYou don't have enough money to buy this !"),
-	
+
 	NO_ENOUGHT_PLACE("§cYou don't have enough room in your inventory to buy this item."),
 
-	PLUGIN_NOT_READY("§cThe plugin has not finished to be initialized, please be patient..."),
-	PLUGIN_NOT_READY_HDB("§cThe §fHeadDataBase §cplugin is not yet active, the plugin inventories have not yet loaded, please wait until HDB is working."),
+	PLUGIN_NOT_READY("§cThe plugin has not finished to be initialized, please be patient..."), PLUGIN_NOT_READY_HDB(
+			"§cThe §fHeadDataBase §cplugin is not yet active, the plugin inventories have not yet loaded, please wait until HDB is working."),
 
 	WORLD_IS_BANNED("§cYou can't use the auction house here."),
 
@@ -208,10 +217,10 @@ public enum Message {
 			"§8(§b?§8) §7§oDo §f§o/ah transaction %player% %nextPage% %type% §7§oto go to the next page."),
 
 	TRANSACTION_MESSAGE_CONTENT_SALE(
-			"§f%seller% have sold x§a%amount% §o%item% §fto the player §b%buyer% for §7%price%%currency% §8(§7%date%§8)"),
+			"§f%seller% have sold x§a%amount% §o%item% §fto the player §b%buyer% for §7%price% §8(§7%date%§8)"),
 
 	TRANSACTION_MESSAGE_CONTENT_PURCHASE(
-			"§f%buyer% have purchased x§a%amount% §o%item% §fto the player §b%seller% for §7%price%%currency% §8(§7%date%§8)"),
+			"§f%buyer% have purchased x§a%amount% §o%item% §fto the player §b%seller% for §7%price% §8(§7%date%§8)"),
 
 	TRANSACTION_MESSAGE_CONTENT_YOU("You"),
 
@@ -220,13 +229,13 @@ public enum Message {
 
 	ITEM_ECONOMY_FULL("§7You have a full inventory, your items are gone in the inventory of expired items."),
 
-	CLAIM_MONEY_WAIT("§7Wait few seconds..."), 
-	CLAIM_MONEY_COOLDOWN("§cYou have to wait a few minutes before you can do this command again."),
-	
-	CLAIM_MONEY_CRASH("§7Unable to retrieve transactions at this time, please contact an administrator."), 
-	CLAIM_MONEY_ERROR("§cYou have no pending transactions."), 
-	CLAIM_MONEY_SUCCESS(
-			"§aYou just got your money back on hold."),
+	CLAIM_MONEY_WAIT("§7Wait few seconds..."), CLAIM_MONEY_COOLDOWN(
+			"§cYou have to wait a few minutes before you can do this command again."),
+
+	CLAIM_MONEY_CRASH(
+			"§7Unable to retrieve transactions at this time, please contact an administrator."), CLAIM_MONEY_ERROR(
+					"§cYou have no pending transactions."), CLAIM_MONEY_SUCCESS(
+							"§aYou just got your money back on hold."),
 
 	SELL_INVENTORY_ERROR("§cYou did not put any item, sale canceled."),
 
@@ -234,19 +243,20 @@ public enum Message {
 
 	COOLDOWN_MESSAGE(MessageType.ACTION, " §cYou must wait §f%cooldown% §cbefore you can do this action."),
 
-	PURGE_START("§aPurge start. §8(§7Wait few seconds§8)"),
-	PURGE_END("§aThe purge of transactions is over."), 
-	
+	PURGE_START("§aPurge start. §8(§7Wait few seconds§8)"), PURGE_END("§aThe purge of transactions is over."),
+
 	CLICK_COOLDOWN(MessageType.ACTION, "§cYou must wait before you can perform this action."),
-	
+
 	FORCE_OPEN("§aYou have just opened the auction house for the player §f%player%§a."),
-	
-	PRIORITY("No priority"), 
-	
+
+	PRIORITY("No priority"),
+
 	ECONOMY_NOT_FOUND("§cImpossible de trouver l'§conomy avec le nom §f%name%§c."),
-	
-	DUPE_INFO("§aThe player §f%player% §ahas just put on sale and removed 3 items in less than 60 seconds !"),
-	
+
+	DUPE_INFO(
+			"§aThe player §f%player% §ahas just put on sale and removed 3 items in less than 60 seconds !"), DUPE_INFODISCORD(
+					"The player **%player%** has just put on sale and removed 3 items in less than 60 seconds !"),
+
 	;
 
 	private List<String> messages;
@@ -254,6 +264,7 @@ public enum Message {
 	private Map<String, Object> titles = new HashMap<>();
 	private boolean use = true;
 	private MessageType type = MessageType.TCHAT;
+	private String messageNewVersion;
 
 	private ItemStack itemStack;
 
@@ -263,6 +274,16 @@ public enum Message {
 	 */
 	private Message(String message) {
 		this.message = message;
+		this.use = true;
+	}
+
+	/**
+	 * 
+	 * @param message
+	 */
+	private Message(String message, String newVersionMessage) {
+		this.message = message;
+		this.messageNewVersion = newVersionMessage;
 		this.use = true;
 	}
 
@@ -409,8 +430,26 @@ public enum Message {
 		return null;
 	}
 
+	public String getMessageNewVersion() {
+		return messageNewVersion;
+	}
+
 	public IMessage getIMessage() {
 		return null;
 	}
+	
+	public boolean isValid() {
+
+        switch (type){
+            case ACTION:
+                return this.message != null;            
+            case TCHAT: return this.message != null || !this.messages.isEmpty();
+            case TITLE:
+            case ITEMSTACK:
+            case NONE: return true;
+        }
+
+        return true;
+    }
 
 }

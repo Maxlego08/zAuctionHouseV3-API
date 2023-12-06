@@ -209,5 +209,5 @@ public interface AuctionItem {
 	
 	int getPriority();
 	
-	
+	public String priceFormat();
 }
