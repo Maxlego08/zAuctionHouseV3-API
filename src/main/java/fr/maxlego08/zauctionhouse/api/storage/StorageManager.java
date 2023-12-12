@@ -1,5 +1,7 @@
 package fr.maxlego08.zauctionhouse.api.storage;
 
+import java.io.IOException;
+
 public interface StorageManager {
 
 	/**
@@ -24,5 +26,7 @@ public interface StorageManager {
 	IStorage getIStorage();
 	
 	Storage getStorage();
+	
+	public void createBackup() throws IOException;
 	
 }
