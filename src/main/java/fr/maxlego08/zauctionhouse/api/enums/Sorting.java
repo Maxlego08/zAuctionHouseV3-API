@@ -2,13 +2,15 @@ package fr.maxlego08.zauctionhouse.api.enums;
 
 public enum Sorting {
 
-	ASCENDING_PRICE(), 
+	DECREASING_DATE,
 	
-	DECREASING_PRICE(), 
+	DECREASING_PRICE,
 	
-	ASCENDING_DATE(), 
+	ASCENDING_DATE, 
+	
+	ASCENDING_PRICE, 
+	
 
-	DECREASING_DATE(),
 
 	;
 

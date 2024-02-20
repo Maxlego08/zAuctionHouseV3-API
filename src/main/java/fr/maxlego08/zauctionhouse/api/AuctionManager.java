@@ -348,6 +348,13 @@ public interface AuctionManager {
 	 * @return
 	 */
 	boolean auctionHasBlacklistItems(AuctionItem auctionItem);
+	
+	/**
+	 * 
+	 * @param auctionItem
+	 * @return
+	 */
+	boolean auctionHasWhitelistItems(AuctionItem auctionItem);
 
 	/**
 	 * Get priority
@@ -371,4 +378,8 @@ public interface AuctionManager {
 	 */
 	UUID getRandomUniqueId();
 
+	List<String> getBannedWorld();
+
+	void clearCache();
+	
 }

@@ -40,19 +40,6 @@ public enum Options {
 	
 	DISABLE_COMMANDS("disableCommands", "Allows you to disable the /ah command", "useful if you want to give access to the plugin with NPCs"),
 	
-	ENABLE_PLAYER_POINT("enablePlayerPoint", "Enables economy with PlayerPoint"),
-	ENABLE_MYSQL_TOKEN("enableMySQLToken", "Enables economy with MySQLToken"),
-	ENABLE_TOKEN_MANAGER("enableTokenManager", "Enables v TokenManager"),
-	ENABLE_LEVEL("enableLevel", "Enables economy Level"),
-	ENABLE_VAULT("enableVault", "Enables economy Vault"),
-	ENABLE_ITEM_1("enableItem2", "Enables economy with Item1"),
-	ENABLE_ITEM_2("enableItem2", "Enables economy with Item2"),
-	ENABLE_ITEM_3("enableItem3", "Enables economy with Item3"),
-	ENABLE_OPT_ECO("enableOptEco", "Enables economy with OptEco"),
-	ENABLE_CUSTOM("enableCustomEconomy", "Enables economy with Custom plugin"),
-	
-	ENABLE_AUTO_UPDATE("enableAutoUpdate", "Enables automatic inventory updating"),
-	
 	ENABLE_CLAIM_MONEY("enableClaimMoney", "If this option is enabled, then the player will",
 			"have to recover his money manually," , 
 			"if your economy does not support offline player" ,
@@ -98,8 +85,6 @@ public enum Options {
 	
 	ENABLE_CLICK_COOLDOWN("enableCooldownClick", "Added a cooldown on the click in the inventory to avoid action spam."),
 	
-	ENABLE_NUMBER_FORMAL_SELL("enableNumberformatSell", "Allows you to sell with a format, example: /ah sell 400k"),
-	
 	ENABLE_ADD_ITEMFLAG("enableAddItemFlagToAuctionItem", "Add itemflag for auction item"),
 	
 	ENABLE_LOG_FILE_INFORMATIONS("enableLogFileSaveInformations", "Add log when file is saving"),
@@ -108,9 +93,6 @@ public enum Options {
 	DISABLE_SALE_IF_SERVER_IS_LAGGING("disableSaleIfServerIsLagging", "Disables the sale if the server does not have enough tps"),
 	
 	ENABLE_SHULKER_PACKS("enableShulkerPacks", "Enable the shulkerpack plugin"),
-	
-	ENABLE_ANTI_DUPE_MESSAGE("enableAntiDureMessageOnDiscord", "Enable the anti dupe message"),
-	ENABLE_ANTI_DUPE_LISTENER("enableAntiDupeListener", "Enable the anti dupe listener", "Need restart on change"),
 	
 	ENABLE_TAB_BYPASS_PERMISSION("enableTaxByPassPermission", "Enable tax bypass permission"),
 	ENABLE_PAPI_IN_AUCTION_ITEM_LORE("enablePapiInAuctionItemLore", "Enable the use of PlaceholderAPI in the item lore.", "Disable the option to gain performance"),

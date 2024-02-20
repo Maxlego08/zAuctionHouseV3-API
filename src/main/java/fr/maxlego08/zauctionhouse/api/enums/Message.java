@@ -1,5 +1,6 @@
 package fr.maxlego08.zauctionhouse.api.enums;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +14,7 @@ import fr.maxlego08.zauctionhouse.api.utils.ItemBuilder;
 
 public enum Message {
 
-	PREFIX("§8(§bzAuctionHouse§8) ", "#666666(#28ed91zAuctionhouse#666666) "),
+	PREFIX("§8(§bzAuctionHouse§8) ", "#92bed8zAuctionHouse #666666• "),
 
 	PREFIX_END("§8(§bzAuctionHouse§8)", false),
 
@@ -23,13 +24,13 @@ public enum Message {
 
 	INVENTORY_OPEN_ERROR("§cAn error occurred with the opening of the inventory §6%id%§c.", false),
 
-	TIME_DAY("%02d day(s) %02d hour(s) %02d minute(s) %02d second(s)"),
+	TIME_DAY("%02dd %02dh %02dm", "%02dᴅ %02dʜ %02dᴍ"),
 
-	TIME_HOUR("%02d hour(s) %02d minute(s) %02d second(s)"),
+	TIME_HOUR("%02dh %02dm %02ds", "%02dʜ %02dᴍ %02ds"),
 
-	TIME_MINUTE("%02d minute(s) %02d second(s)"),
+	TIME_MINUTE("%02dᴍ %02ds"),
 
-	TIME_SECOND("%02d second(s)"),
+	TIME_SECOND("%02ds"),
 
 	COMMAND_SYNTAXE_ERROR("§cYou must execute the command like this§7: §2%command%"),
 
@@ -47,12 +48,12 @@ public enum Message {
 
 	DESCRIPTION_AUCTION("Opens the auction house"),
 
-	DESCRIPTION_SUB_ITEMS("Opens the items inventory"), 
-	
+	DESCRIPTION_SUB_ITEMS("Opens the items inventory"),
+
 	DESCRIPTION_SUB_CATEGORIES("Opens the categories inventory"),
-	
+
 	DESCRIPTION_SUB_BUYING("Opens the buying inventory"),
-	
+
 	DESCRIPTION_SUB_EXPIRE("Opens the expire inventory"),
 
 	DESCRIPTION_BLACKLIST_LIST("See the blacklist players."),
@@ -96,6 +97,8 @@ public enum Message {
 	COMMAND_SELL_ARGUMENT_AMOUNT("amount"),
 
 	COMMAND_SELL_CUSTOM_HELPING("§cYou must execute the command like this§7: §f/hdv vendre §a<price> §b[<amount>]"),
+	
+	COMMAND_SEARCH_CUSTOM_HELPING("§cYou must execute the command like this§7: §f/hdv search §a<word>"),
 
 	COMMAND_OPEN_CUSTOM_HELPING("§cYou must execute the command like this§7: §f/ah"),
 
@@ -109,12 +112,14 @@ public enum Message {
 
 	SELL_COOLDOWN("§cYou must wait §f%time%§c."),
 
-	SELL_MAX_PRICE("§cYou can't put more than §f%max%§c for the price !"), SELL_MIN_PRICE(
-			"§cYou can't put less than §f%min%§c for the price !"),
+	SELL_MAX_PRICE("§cYou can't put more than §f%max%§c for the price !"), 
+	SELL_MIN_PRICE("§cYou can't put less than §f%min%§c for the price !"),
 
-	SELL_MESSAGE_DEFAULT("§fYou just put §ax§f%amount% §7%item% §fon sale for §b%price%§7.", "&fYou just put #8ee6e3x%amount% &7%item% &fon sale for #8ee6e3%price%&f."),
+	SELL_MESSAGE_DEFAULT("§fYou just put §ax§f%amount% §7%item% §fon sale for §b%price%§7.",
+			"#e6fff3You just put #8ee6e3x%amount% &7%item% #e6fff3on sale for #ffacd5%price%&f."),
 
-	SELL_MESSAGE_INVENTORY("§fYou just put §ax§f%amount% §7items §fon sale for §b%price%§7.", "&fYou just put #8ee6e3%amount% &7items &fon sale for #8ee6e3%price%&f."),
+	SELL_MESSAGE_INVENTORY("§fYou just put §ax§f%amount% §7items §fon sale for §b%price%§7.",
+			"#e6fff3You just put #8ee6e3%amount% &7items #e6fff3on sale for #ffacd5%price%&f."),
 
 	ITEM_PURCHASED("§fYou just purchased §a%item%§f."),
 
@@ -125,41 +130,122 @@ public enum Message {
 
 	ITEM_REMOVE_SELLER_DELETE("§fAn administrator has just removed §a%item%§f, You cannot retrieve your item."),
 
-	BUYER_PURCHASED("§a%buyer% §fjust bought §7%item% §ffor §b%price%§f."),
+	BUYER_PURCHASED("§a%buyer% §fjust bought §7%item% §ffor §b%price%§f.", "#ffacd5%buyer% #e6fff3just bought &7%item% #e6fff3for #92bed8%price%#e6fff3."),
 
-	REMOVE_MESSAGE("§7You just removed this item from the sales !", "&fYou just removed #8ee6e3x%amount% &7%item% &ffrom the sales."),
+	REMOVE_MESSAGE("§7You just removed this item from the sales !",
+			"#e6fff3You just removed #8ee6e3x%amount% &7%item% #e6fff3from the sales."),
 
-	ASCENDING_PRICE("Ascending price"),
+	ASCENDING_PRICE("Ascending price", "ᴀsᴄᴇɴᴅɪɴɢ ᴘʀɪᴄᴇ"),
 
-	ASCENDING_DATE("Ascending date"),
+	ASCENDING_DATE("Ascending date", "ᴀsᴄᴇɴᴅɪɴɢ ᴅᴀᴛᴇ"),
 
-	DECREASING_DATE("Decreasing date"),
+	DECREASING_DATE("Decreasing date", "ᴅᴇᴄʀᴇᴀsɪɴɢ ᴅᴀᴛᴇ"),
 
-	DECREASING_PRICE("Decreasing price"),
+	DECREASING_PRICE("Decreasing price", "ᴅᴇᴄʀᴇᴀsɪɴɢ ᴘʀɪᴄᴇ"),
 
-	ITEM_LORE_DEFAULT("§8§m-+------------------------------+-", "§8[§a!§8] §7%status%", "",
-			"  §f* §fSeller§7: §b%seller%", "  §f* §fPrice§7: §b%price%", "  §f* §fExpire§7: §b%time%",
-			"§8§m-+------------------------------+-"),
+	ITEM_LORE_DEFAULT(
+			Arrays.asList(
+					"§8§m-+------------------------------+-", 
+					"§8[§a!§8] §7%status%",
+					"",
+					"  §f* §fSeller§7: §b%seller%",
+					"  §f* §fPrice§7: §b%price%", 
+					"  §f* §fExpire§7: §b%time%",
+					"§8§m-+------------------------------+-"
+			),
+			Arrays.asList("", 
+					" &f⌂ #e6fff3sᴇʟʟᴇʀ#8c8c8c: #92bed8%seller%", 
+					" &f☆ #e6fff3ᴘʀɪᴄᴇ#8c8c8c: #ffacd5%price%",
+					" &f⌚ #e6fff3ᴇxᴘɪʀᴇ#8c8c8c: #969696%time%",
+					"",
+					" %status%"
+			)
+			),
 
-	ITEM_LORE_EXPIRE("§8§m-+------------------------------+-", "§8[§a!§8] §7Click to retrieve the item", "",
-			"  §f* §fExpire§7: §b%time%", "§8§m-+------------------------------+-"),
+	ITEM_LORE_EXPIRE(
+			Arrays.asList(
+					"§8§m-+------------------------------+-",
+					"§8[§a!§8] §7Click to retrieve the item", 
+					"",
+					"  §f* §fExpire§7: §b%time%", 
+					"§8§m-+------------------------------+-"
+			),
+			Arrays.asList(
+			        "",
+			        " &f⌚ #e6fff3ᴇxᴘɪʀᴇ#8c8c8c: #969696%time%",
+			        "",
+			        "#8c8c8c• #92bed8ᴄʟɪᴄᴋ #e6fff3ᴛᴏ ʀᴇᴛʀɪᴇᴠᴇ ᴛʜɪs ɪᴛᴇᴍ"
+					)
+			),
 
-	ITEM_LORE_BUYING("§8§m-+------------------------------+-", "§8[§a!§8] §7Click to retrieve the item", "",
-			"  §f* §fExpire§7: §b%time%", "§8§m-+------------------------------+-"),
+	ITEM_LORE_BUYING(
+			Arrays.asList(
+					"§8§m-+------------------------------+-", 
+					"§8[§a!§8] §7Click to retrieve the item",
+					"",
+					"  §f* §fExpire§7: §b%time%", 
+					"§8§m-+------------------------------+-"
+			),
+			Arrays.asList(
+					"",
+					" &f⌚ #e6fff3ᴇxᴘɪʀᴇ#8c8c8c: #969696%time%",
+					"",
+					"#8c8c8c• #92bed8ᴄʟɪᴄᴋ #e6fff3ᴛᴏ ʀᴇᴛʀɪᴇᴠᴇ ᴛʜɪs ɪᴛᴇᴍ"
+			)
+			),
 
-	ITEM_LORE_ITEMS("§8§m-+------------------------------+-", "§8[§a!§8] §7Click to retrieve the item", "",
-			"  §f* §fExpire§7: §b%time%", "§8§m-+------------------------------+-"),
+	ITEM_LORE_ITEMS(
+			Arrays.asList(
+					"§8§m-+------------------------------+-",
+					"§8[§a!§8] §7Click to retrieve the item", 
+					"",
+					"  §f* §fExpire§7: §b%time%",
+					"§8§m-+------------------------------+-"
+					),
+			Arrays.asList(
+			          "",
+			          " &f⌚ #e6fff3ᴇxᴘɪʀᴇ#8c8c8c: #969696%time%",
+			          "",
+			          "#8c8c8c• #92bed8ᴄʟɪᴄᴋ #e6fff3ᴛᴏ ʀᴇᴛʀɪᴇᴠᴇ ᴛʜɪs ɪᴛᴇᴍ"
+					)
+			),
 
-	ITEM_LORE_INVENTORY("§8§m-+------------------------------+-", "§8[§a!§8] §7%status%", "",
-			"  §7* §fType§7: §bInventory", "  §7* §fSeller§7: §b%seller%", "  §7* §fPrice§7: §b%price%",
-			"  §7* §fExpire§7: §b%time%", "", "  §f* §7§oRight click to buy", "  §f* §7§oLeft click to see the content",
-			"§8§m-+------------------------------+-"),
+	ITEM_LORE_INVENTORY(
+			Arrays.asList(
+			"§8§m-+------------------------------+-", 
+			"§8[§a!§8] §7%status%", 
+			"",
+			"  §7* §fType§7: §bInventory",
+			"  §7* §fSeller§7: §b%seller%", 
+			"  §7* §fPrice§7: §b%price%",
+			"  §7* §fExpire§7: §b%time%",
+			"",
+			"  §f* §7§oRight click to buy",
+			"  §f* §7§oLeft click to see the content",
+			"§8§m-+------------------------------+-"
+			),
+			Arrays.asList(
+			        "",
+			        " &f⌂ #e6fff3sᴇʟʟᴇʀ#8c8c8c: #92bed8%seller%",
+			        " &f☆ #e6fff3ᴘʀɪᴄᴇ#8c8c8c: #ffacd5%price%",
+			        " &f⌚ #e6fff3ᴇxᴘɪʀᴇ#8c8c8c: #969696%time%",
+			        "",
+			        " &f» #cfcfcfʀɪɢʜᴛ ᴄʟɪᴄᴋ ᴛᴏ ʙᴜʏ",
+			        " &f» #cfcfcfʟᴇғᴛ ᴄʟɪᴄᴋ ᴛᴏ sᴇᴇ ᴛʜᴇ ᴄᴏɴᴛᴇɴᴛ",
+			        "",
+			        " %status%"
+					)
+			),
 
-	STATUS_PLAYER("Click to retrieve this item"), STATUS_BUYER("Click to buy this item"),
+	STATUS_PLAYER("Click to retrieve this item", "#8c8c8c• #92bed8ᴄʟɪᴄᴋ #e6fff3ᴛᴏ ʀᴇᴛʀɪᴇᴠᴇ ᴛʜɪs ɪᴛᴇᴍ"), 
+	
+	STATUS_BUYER("Click to buy this item", "#8c8c8c• #92bed8ᴄʟɪᴄᴋ #e6fff3ᴛᴏ ʙᴜʏ ᴛʜɪs ɪᴛᴇᴍ"),
 
 	NO_MONEY_BUTTON(ItemBuilder.buildNoMoney()),
 
-	ERROR_BUY_ERROR("§cYou can't buy this item."), ERROR_BUY_MONEY("§cYou don’t have enough money to buy this."),
+	ERROR_BUY_ERROR("§cYou can't buy this item."), 
+	
+	ERROR_BUY_MONEY("§cYou don’t have enough money to buy this."),
 
 	SELL_CREATIVE_ERROR("§cYou can't sell an item in creative mode !"),
 
@@ -184,8 +270,9 @@ public enum Message {
 
 	NO_ENOUGHT_PLACE("§cYou don't have enough room in your inventory to buy this item."),
 
-	PLUGIN_NOT_READY("§cThe plugin has not finished to be initialized, please be patient..."), PLUGIN_NOT_READY_HDB(
-			"§cThe §fHeadDataBase §cplugin is not yet active, the plugin inventories have not yet loaded, please wait until HDB is working."),
+	PLUGIN_NOT_READY("§cThe plugin has not finished to be initialized, please be patient..."),
+	
+	PLUGIN_NOT_READY_HDB("§cThe §fHeadDataBase §cplugin is not yet active, the plugin inventories have not yet loaded, please wait until HDB is working."),
 
 	WORLD_IS_BANNED("§cYou can't use the auction house here."),
 
@@ -260,6 +347,7 @@ public enum Message {
 	;
 
 	private List<String> messages;
+	private List<String> messagesNewVersion;
 	private String message;
 	private Map<String, Object> titles = new HashMap<>();
 	private boolean use = true;
@@ -314,6 +402,17 @@ public enum Message {
 		this.titles.put("end", c);
 		this.titles.put("isUse", true);
 		this.type = MessageType.TITLE;
+	}
+
+	
+	
+	/**
+	 * @param messages
+	 * @param messagesNewVersion
+	 */
+	private Message(List<String> messages, List<String> messagesNewVersion) {
+		this.messages = messages;
+		this.messagesNewVersion = messagesNewVersion;
 	}
 
 	/**
@@ -437,19 +536,29 @@ public enum Message {
 	public IMessage getIMessage() {
 		return null;
 	}
-	
+
 	public boolean isValid() {
 
-        switch (type){
-            case ACTION:
-                return this.message != null;            
-            case TCHAT: return this.message != null || !this.messages.isEmpty();
-            case TITLE:
-            case ITEMSTACK:
-            case NONE: return true;
-        }
+		if (this.messages == null) {
+			this.messages = new ArrayList<String>();
+		}
 
-        return true;
-    }
+		switch (type) {
+		case ACTION:
+			return this.message != null;
+		case TCHAT:
+			return this.message != null || !this.messages.isEmpty();
+		case TITLE:
+		case ITEMSTACK:
+		case NONE:
+			return true;
+		}
 
+		return true;
+	}
+
+	public List<String> getMessagesNewVersion() {
+		return messagesNewVersion;
+	}
+	
 }

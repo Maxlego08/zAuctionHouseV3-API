@@ -346,7 +346,11 @@ public class ItemBuilder implements Cloneable {
 	}
 
 	public static ItemStack buildNoMoney() {
-		return null;
+
+		Material material = Material.BARRIER;
+		ItemBuilder builder = new ItemBuilder(material, "§4✘ §cYou don't have enough money to buy this !");
+		return builder.build();
+
 	}
 
 }
