@@ -2,23 +2,39 @@ package fr.maxlego08.zauctionhouse.api.enums;
 
 public enum InventoryName {
 
-	AUCTION("auction"),
+	AUCTION("auction"), 
+	
 	BUY_CONFIRM("buyconfirm"),
-	REMOVE_CONFIRM("removeconfirm"),
-	EXPIRE("expire"),
+	
+	BUY_CONFIRM_INVENTORY(true, "buyconfirminventory"),
+	
+	ECONOMY(true, "economy"),
+	
+	REMOVE_CONFIRM("removeconfirm"), 
+	
+	EXPIRE("expire"), 
+	
 	BUYING("buying"),
-	ITEMS("items"),
-	CATEGORIES("categories"),
-	SELL("sell"),
-	SELL_SHOW("sellshow"),
-	CATEGORY("category"),
+	
+	ITEMS("items"), 
+	
+	CATEGORIES("categories"), 
+	
+	SELL("sell"), 
+	
+	SELL_SHOW("sellshow"), 
+	
+	CATEGORY("category"), 
+	
 	ADMIN_REMOVE("adminremove"),
-	
+
 	SEARCH("search"),
-	SHOW("show"),
 	
+	SHOW("show"),
+
 	;
 
+	private final boolean onlyZMenu;
 	private final String name;
 
 	/**
@@ -26,6 +42,20 @@ public enum InventoryName {
 	 */
 	private InventoryName(String name) {
 		this.name = name;
+		this.onlyZMenu = false;
+	}
+
+	/**
+	 * @param onlyZMenu
+	 * @param name
+	 */
+	private InventoryName(boolean onlyZMenu, String name) {
+		this.onlyZMenu = onlyZMenu;
+		this.name = name;
+	}
+
+	public boolean isOnlyZMenu() {
+		return onlyZMenu;
 	}
 
 	/**
@@ -33,6 +63,15 @@ public enum InventoryName {
 	 */
 	public String getName() {
 		return name;
+	}
+
+	public static boolean isOnlyZMenu(String name) {
+		for (InventoryName inventoryName : InventoryName.values()) {
+			if (inventoryName.getName().equals(name)) {
+				return inventoryName.isOnlyZMenu();
+			}
+		}
+		return false;
 	}
 
 }

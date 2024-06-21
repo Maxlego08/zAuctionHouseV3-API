@@ -22,14 +22,8 @@ public class Priority {
 		this.permission = permission;
 		this.text = text;
 	}
-	
-	/**
-	 * @param priority
-	 * @param limit
-	 * @param permission
-	 * @param text
-	 */
-	public Priority(Map<String, Object> map) {
+
+	public Priority(Map<?, ?> map) {
 		this(((Number) map.get("priority")).intValue(), ((Number) map.get("limit")).intValue(), (String) map.get("permission"), (String) map.get("text"));
 	}
 

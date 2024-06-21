@@ -2,8 +2,6 @@ package fr.maxlego08.zauctionhouse.api.category;
 
 import java.util.List;
 
-import fr.maxlego08.zauctionhouse.api.utils.MaterialData;
-
 public interface Category {
 
 	/**
@@ -22,12 +20,12 @@ public interface Category {
 	 * Returns the list of materials
 	 * @return materials
 	 */
-	List<MaterialData> getMaterials();
+	List<CategoryItem> getCategoryItems();
 
 	/**
 	 * Returns true if it is the category miscellaneous
 	 * @return boolean
 	 */
-	boolean isMiscellaneaous();
+	boolean isMiscellaneous();
 	
 }

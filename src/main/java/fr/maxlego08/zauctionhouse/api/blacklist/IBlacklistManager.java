@@ -12,21 +12,21 @@ public interface IBlacklistManager {
 	 * 
 	 * @return blacklist list
 	 */
-	List<IBlacklist> getBlacklist();
+	List<ItemChecker> getBlacklist();
 
 	/**
 	 * Register blacklist
 	 * 
 	 * @param blacklist
 	 */
-	void registerBlacklist(IBlacklist blacklist);
+	void registerBlacklist(ItemChecker blacklist);
 
 	/**
 	 * Unregister blacklist
 	 * 
 	 * @param blacklist
 	 */
-	void unregisterBlacklist(IBlacklist blacklist);
+	void unregisterBlacklist(ItemChecker blacklist);
 
 	/**
 	 * Unregister all blacklist
@@ -39,6 +39,6 @@ public interface IBlacklistManager {
 	 * @param itemStack
 	 * @return blacklist
 	 */
-	Optional<IBlacklist> isBlacklist(ItemStack itemStack);
+	Optional<ItemChecker> isBlacklist(ItemStack itemStack);
 
 }

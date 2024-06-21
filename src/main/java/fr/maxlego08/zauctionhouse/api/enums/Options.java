@@ -4,9 +4,9 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
 
+import fr.maxlego08.zauctionhouse.api.utils.AuctionConfiguration;
 import org.bukkit.Material;
 
-import fr.maxlego08.zauctionhouse.api.utils.Config;
 public enum Options {
 
 	ENABLE_DEBUG_MODE("enableDebugMode", "Enables the debug mode of the plugin.", "You will thus be able to obtain information", "in your console."),
@@ -59,11 +59,7 @@ public enum Options {
 	ENABLE_CUSTOM_SELL_MESSAGE("enableCustomSellMessage", "Allows you to display the message", "you have configured in the message.yml file for /ah sell."),
 	
 	DISPLAY_COOLDOWN_MESSAGE("displayCooldownMessage", "Displays a message if the player is in cooldown."),
-	
-	GIVE_ITEM_AFTER_PURCHASE("giveItemAfterPurchase", "Allows the player to directly have the purchased item","in his inventory if there is enough room."),
-	
-	SEND_ITEM_PURCHASE_INVENTORY_IF_IS_FULL("sendItemToPurchaseInventoryIfIsFull", "Allows to send an item to the inventory of", "purchased items if at the time of purchase the user", "is full and you have activated", "the option giveItemAfterPurchase."),
-	
+
 	ENABLE_COMMAND_INVENTORIES("enableCommandInventories", "Enable commands /ah items, /ah category, /ah selling and /ah buying"),
 	
 	ENABLE_OPEN_SYNC_INVENTORY("enableOpenSyncInventory", "Allows to open the inventory with the items in a synchronized way"),
@@ -91,8 +87,6 @@ public enum Options {
 	
 	DISABLE_SALE_IF_PLAYER_IS_LAGGING("disableSaleIfPlayerIsLagging", "Disable the sale if the player has too high ping"),
 	DISABLE_SALE_IF_SERVER_IS_LAGGING("disableSaleIfServerIsLagging", "Disables the sale if the server does not have enough tps"),
-	
-	ENABLE_SHULKER_PACKS("enableShulkerPacks", "Enable the shulkerpack plugin"),
 	
 	ENABLE_TAB_BYPASS_PERMISSION("enableTaxByPassPermission", "Enable tax bypass permission"),
 	ENABLE_PAPI_IN_AUCTION_ITEM_LORE("enablePapiInAuctionItemLore", "Enable the use of PlaceholderAPI in the item lore.", "Disable the option to gain performance"),
@@ -141,7 +135,7 @@ public enum Options {
 	public boolean toggle() {
 
 		try {
-			Class<Config> classz = Config.class;
+			Class<AuctionConfiguration> classz = AuctionConfiguration.class;
 			Field field = classz.getDeclaredField(fieldName);
 			field.set(classz, !(Boolean) field.get(classz));					
 			return true;
@@ -155,7 +149,7 @@ public enum Options {
 	public boolean isToggle() {
 
 		try {
-			Class<Config> classz = Config.class;
+			Class<AuctionConfiguration> classz = AuctionConfiguration.class;
 			Field field = classz.getDeclaredField(fieldName);
 			return (Boolean) field.get(classz);
 		} catch (Exception e) {

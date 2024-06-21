@@ -32,6 +32,19 @@ public enum Message {
 
 	TIME_SECOND("%02ds"),
 
+
+	FORMAT_SECOND("second"),
+	FORMAT_SECONDS("seconds"),
+
+	FORMAT_MINUTE("minute"),
+	FORMAT_MINUTES("minutes"),
+
+	FORMAT_HOUR("hour"),
+	FORMAT_HOURS("hours"),
+
+	FORMAT_DAY("d"),
+	FORMAT_DAYS("days"),
+
 	COMMAND_SYNTAXE_ERROR("§cYou must execute the command like this§7: §2%command%"),
 
 	COMMAND_NO_PERMISSION("§cYou don't have permission !"),
@@ -42,9 +55,9 @@ public enum Message {
 
 	COMMAND_NO_ARG("§cThis argument does not exist !"),
 
-	COMMAND_SYNTAXE_HELP("§b§ §f%syntaxe% §8- §7%description%"),
+	COMMAND_SYNTAXE_HELP("§b» §f%syntaxe% §8- §7%description%"),
 
-	COMMAND_HELP_CUSTOM("§6§ §e/zah sell <args> §7- §fSell cmd...", "§6§ §eAnother cmd"),
+	COMMAND_HELP_CUSTOM("§6» §e/zah sell <args> §7- §fSell cmd...", "§6» §eAnother cmd"),
 
 	DESCRIPTION_AUCTION("Opens the auction house"),
 
@@ -77,6 +90,7 @@ public enum Message {
 	DESCRIPTION_CONFIG("Config plugin ingame"),
 
 	DESCRIPTION_CLAIM("Claim your money"),
+	DESCRIPTION_GIVE("Give economy item"),
 
 	DESCRIPTION_ADDON("Show addon list"),
 
@@ -89,6 +103,7 @@ public enum Message {
 	DESCRIPTION_HISTORY("View your history"),
 
 	DESCRIPTION_TRANSACTION("View a player's transactions."),
+	DESCRIPTION_PRICE("Display item average price"),
 
 	COMMAND_RELOAD("§aPlugin successfuly reloaded."),
 
@@ -244,7 +259,9 @@ public enum Message {
 	NO_MONEY_BUTTON(ItemBuilder.buildNoMoney()),
 
 	ERROR_BUY_ERROR("§cYou can't buy this item."), 
-	
+	ERROR_REMOVE_ERROR("§cYou can't remove this item."),
+	ERROR_REMOVE_FULL("§cYou must have empty slot in your inventory to retrieve the item."),
+
 	ERROR_BUY_MONEY("§cYou don’t have enough money to buy this."),
 
 	SELL_CREATIVE_ERROR("§cYou can't sell an item in creative mode !"),
@@ -268,7 +285,7 @@ public enum Message {
 
 	NO_ENOUGHT_MONEY("§cYou don't have enough money to buy this !"),
 
-	NO_ENOUGHT_PLACE("§cYou don't have enough room in your inventory to buy this item."),
+	NO_ENOUGHT_PLACE("§cYou don't have enough space in your inventory to buy this item."),
 
 	PLUGIN_NOT_READY("§cThe plugin has not finished to be initialized, please be patient..."),
 	
@@ -311,8 +328,9 @@ public enum Message {
 
 	TRANSACTION_MESSAGE_CONTENT_YOU("You"),
 
-	CONNECT_CLAIM("§aYou have money to recover, make §b/ah claim §ato recover for your money."), CONNECT_TRANSACTIONS(
-			"§aYou sold %item% item(s) during your absence."),
+	CONNECT_CLAIM("§aYou have money to recover, make §b/ah claim §ato recover for your money."), 
+	
+	CONNECT_TRANSACTIONS("§aYou sold %item% item(s) during your absence."),
 
 	ITEM_ECONOMY_FULL("§7You have a full inventory, your items are gone in the inventory of expired items."),
 
@@ -338,11 +356,19 @@ public enum Message {
 
 	PRIORITY("No priority"),
 
-	ECONOMY_NOT_FOUND("§cImpossible de trouver l'§conomy avec le nom §f%name%§c."),
+	ECONOMY_NOT_FOUND("§cCannot find economy with name §f%name%§c."),
 
-	DUPE_INFO(
-			"§aThe player §f%player% §ahas just put on sale and removed 3 items in less than 60 seconds !"), DUPE_INFODISCORD(
-					"The player **%player%** has just put on sale and removed 3 items in less than 60 seconds !"),
+	DUPE_INFO("§aThe player §f%player% §ahas just put on sale and removed 3 items in less than 60 seconds !"),
+
+	DUPE_INFODISCORD("The player **%player%** has just put on sale and removed 3 items in less than 60 seconds !"),
+
+	ECONOMY_GIVE_ERROR_NOTFOUND("§cThe economy §f%name% §ccannot be found"),
+	ECONOMY_GIVE_ERROR_TYPE("§cThe economy §f%name% §cis not item economy"),
+	ECONOMY_GIVE_SUCCESS("§aYou just got the §f%name% §aeconomy item."),
+
+	BOTH("both"),
+	PURCHASE("purchase"),
+	SALE("sale"),
 
 	;
 
@@ -552,6 +578,8 @@ public enum Message {
 		case ITEMSTACK:
 		case NONE:
 			return true;
+		default:
+			break;
 		}
 
 		return true;

@@ -130,7 +130,7 @@ public class Persist {
 		try {
 
 			boolean b = DiscUtils.writeCatch(file, gson.toJson(instance));
-			if (Config.enableLogFileSaveInformations) {
+			if (AuctionConfiguration.enableLogFileSaveInformations) {
 				logger.log(file.getAbsolutePath() + " successfully saved !", LogType.SUCCESS);
 			}
 			return b;

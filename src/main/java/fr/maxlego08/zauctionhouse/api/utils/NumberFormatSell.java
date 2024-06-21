@@ -8,7 +8,7 @@ public class NumberFormatSell {
 
 	private final String format;
 	private final long multiplicator;
-	private final Pattern pattern = Pattern.compile("^(\\d+)(.*)$");
+	private final Pattern pattern = Pattern.compile("^([\\d,.]+)(.*)$");
 
 	/**
 	 * @param format
@@ -60,7 +60,7 @@ public class NumberFormatSell {
 
 		if (matcher.find()) {
 			String nombre = matcher.group(1); 
-			String valeur = matcher.group(2); 
+			String valeur = matcher.group(2); 		
 
 			valeur = valeur.toLowerCase().replaceFirst(this.getFormat().toLowerCase(), "");
 			return nombre + valeur;

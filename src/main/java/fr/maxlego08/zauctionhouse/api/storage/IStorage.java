@@ -1,125 +1,58 @@
 package fr.maxlego08.zauctionhouse.api.storage;
 
+import fr.maxlego08.zauctionhouse.api.AuctionItem;
+import fr.maxlego08.zauctionhouse.api.AuctionPlugin;
+import fr.maxlego08.zauctionhouse.api.economy.AuctionEconomy;
+import fr.maxlego08.zauctionhouse.api.enums.StorageType;
+import fr.maxlego08.zauctionhouse.api.transaction.Transaction;
+import org.bukkit.OfflinePlayer;
+import org.bukkit.entity.Player;
+
 import java.util.List;
 import java.util.UUID;
 import java.util.function.Consumer;
 
-import org.bukkit.entity.Player;
-
-import fr.maxlego08.zauctionhouse.api.AuctionItem;
-import fr.maxlego08.zauctionhouse.api.AuctionPlugin;
-import fr.maxlego08.zauctionhouse.api.enums.StorageType;
-import fr.maxlego08.zauctionhouse.api.transaction.Transaction;
-
 public interface IStorage {
 
-	/**
-	 * Load items
-	 * @param storageManager 
-	 * @param plugin
-	 */
-	void load(StorageManager storageManager, AuctionPlugin plugin);
+    void load(StorageManager storageManager, AuctionPlugin plugin);
 
-	/**
-	 * Add an item
-	 * @param plugin
-	 * @param item
-	 * @param type
-	 */
-	void saveItem(AuctionPlugin plugin, AuctionItem auctionItem, StorageType type);
-	
-	/**
-	 * Remove items
-	 * @param plugin
-	 * @param item
-	 * @param type
-	 */
-	void removeItem(AuctionPlugin plugin, AuctionItem auctionItem, StorageType type);
-	
-	/**
-	 * Save items
-	 * @param plugin
-	 * @param items
-	 * @param type
-	 */
-	void saveItems(AuctionPlugin plugin, List<AuctionItem> auctionItems, StorageType type);
+    void saveItem(AuctionPlugin plugin, AuctionItem auctionItem, StorageType type);
 
-	/**
-	 * Updates items
-	 * @param type
-	 */
-	void update(AuctionPlugin plugin, StorageType type);
+    void removeItem(AuctionPlugin plugin, AuctionItem auctionItem, StorageType type);
 
-	/**
-	 * 
-	 * @param type
-	 * @return
-	 */
-	List<AuctionItem> getItems(AuctionPlugin plugin, StorageType type);
+    void saveItems(AuctionPlugin plugin, List<AuctionItem> auctionItems, StorageType type);
 
-	/**
-	 * 
-	 * @param plugin
-	 */
-	void save(AuctionPlugin plugin);
+    void update(AuctionPlugin plugin, StorageType type);
 
-	/**
-	 * Store transaction
-	 * @param transaction
-	 * @param consumer 
-	 */
-	void storeTransaction(Transaction transaction, Consumer<Transaction> consumer);
+    List<AuctionItem> getItems(AuctionPlugin plugin, StorageType type);
 
-	/**
-	 * 
-	 * @param transactions
-	 */
-	void saveTransactions(List<Transaction> transactions);
+    void save(AuctionPlugin plugin);
 
-	/**
-	 * 
-	 * @param plugin
-	 * @param auctionItem
-	 */
-	void updateItem(AuctionPlugin plugin, AuctionItem auctionItem, StorageType type);
+    void storeTransaction(Transaction transaction, Consumer<Transaction> consumer);
 
-	/**
-	 * 
-	 * @return transactions
-	 */
-	List<Transaction> getTransactions();
+    void saveTransactions(List<Transaction> transactions);
 
-	/**
-	 * Allows you to update transactions
-	 * 
-	 * @param transactions
-	 */
-	void updateTransaction(List<Transaction> transactions);
+    void updateItem(AuctionPlugin plugin, AuctionItem auctionItem, StorageType type);
 
-	/**
-	 * Allows you to purge transactions
-	 * 
-	 * @param seconds
-	 * @param runnable
-	 */
-	void purgeTransactions(long seconds, Runnable runnable);
+    List<Transaction> getTransactions();
 
-	/**
-	 * Allows you to retrieve transactions for the claim money
-	 * 
-	 * @param player
-	 * @param object
-	 */
-	void fetchClaimMoney(Player player, Consumer<List<Transaction>> consumer);
+    void updateTransaction(List<Transaction> transactions);
 
-	/**
-	 * Allows to know if the player is in cooldown for the claim money
-	 * 
-	 * @param uniqueId
-	 * @return boolean
-	 */
-	boolean isCooldown(UUID uniqueId);
+    void purgeTransactions(long seconds, Runnable runnable);
 
-	boolean uuidExist(UUID uuid);
+    void fetchClaimMoney(Player player, Consumer<List<Transaction>> consumer);
 
+    void fetchUnreadMoney(Player player, Consumer<List<Transaction>> consumer);
+
+    boolean isCooldown(UUID uniqueId);
+
+    boolean uuidExist(UUID uuid);
+
+    String getServerName();
+
+    void giveMoneyOnSellServer(AuctionEconomy economy, OfflinePlayer player, long finalPrice, String server);
+
+    long fetchClaimMoneySync(UUID uniqueId, String economy);
+
+    void checkIsItemIsValid(Player player, AuctionItem auctionItem, Consumer<Boolean> consumer);
 }

@@ -6,9 +6,9 @@ import java.util.Optional;
 import org.bukkit.inventory.ItemStack;
 
 import fr.maxlego08.zauctionhouse.api.AuctionItem;
-import fr.maxlego08.zauctionhouse.api.storage.Saveable;
+import fr.maxlego08.zauctionhouse.api.storage.Savable;
 
-public interface CategoryManager extends Saveable {
+public interface CategoryManager extends Savable {
 
 	/**
 	 * 

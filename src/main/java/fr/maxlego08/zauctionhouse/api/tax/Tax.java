@@ -5,16 +5,17 @@ import org.bukkit.inventory.ItemStack;
 public interface Tax {
 
 	/**
-	 * 
-	 * @return
+	 * Gets the item stack associated with this tax.
+	 *
+	 * @return the {@link ItemStack} associated with this tax.
 	 */
 	ItemStack getItemStack();
-	
+
 	/**
-	 * 
-	 * @return
+	 * Gets the tax percentage.
+	 *
+	 * @return the tax percentage as a double.
 	 */
 	double getPercent();
-	
-	
 }
+

@@ -2,7 +2,7 @@ package fr.maxlego08.zauctionhouse.api.storage;
 
 import fr.maxlego08.zauctionhouse.api.utils.Persist;
 
-public interface Saveable {
+public interface Savable {
 	
 	/**
 	 * 

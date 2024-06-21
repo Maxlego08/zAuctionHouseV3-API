@@ -11,7 +11,7 @@ public enum HistoryType {
 	;
 
 	public static List<String> toList() {
-		return Arrays.asList(values()).stream().map(e -> e.name().toLowerCase()).collect(Collectors.toList());
+		return Arrays.stream(values()).map(e -> e.name().toLowerCase()).collect(Collectors.toList());
 	}
 
 	public static HistoryType form(String string) {
